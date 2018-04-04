@@ -1,0 +1,29 @@
+{
+  "name": "reconquista2",
+  "private": true,
+  "version": "0.2.0",
+  "description": "Decision making game",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test"
+  },
+  "author": "Grzegorz Nawara",
+  "license": "GNU GPL 3.0",
+  "devDependencies": {
+    "enzyme": "^2.8.2",
+    "react-addons-test-utils": "^15.5.1",
+    "react-scripts": "^1.1.1"
+  },
+  "dependencies": {
+    "ajv": "^6.2.0",
+    "cross-fetch": "^2.1.0",
+    "prop-types": "^15.6.1",
+    "react": "^15.6.2",
+    "react-dom": "^15.5.0",
+    "react-redux": "^5.0.5",
+    "redux": "^3.7.2",
+    "redux-saga": "^0.16.0"
+  }
+}
