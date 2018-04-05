@@ -6,7 +6,7 @@ import { Provider } from 'react-redux'
 import reducer from './reducers'
 import App from './components/App'
 //import loadDataSaga from './sagas'
-//import { addAttendee } from './actions'
+import { addPiece } from './actions'
 //import { addSkill } from './actions'
 //import { addFeedback } from './actions'
 //import debug from './include/debug'
@@ -24,12 +24,10 @@ const initialState = {
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   reducer,
-  initialState
-  //,
-  //composeEnhancers(
-  //  applyMiddleware(sagaMiddleware)
-  //)
-);
+  initialState,
+  composeEnhancers(
+    applyMiddleware(sagaMiddleware)
+));
 
 //sagaMiddleware.run(loadDataSaga)
 
@@ -39,6 +37,9 @@ render(
   </Provider>,
   document.getElementById('root')
 );
+
+store.dispatch(addPiece({piece_id:'king1', user_id:'user123', image:'./images/iso-big-y.png', x:100, y:100}));
+store.dispatch(addPiece({piece_id:'knight1', user_id:'user123', image:'./images/iso-small-y.png', x:150, y:100}));
 
 /*
 store.dispatch(addAttendee({id:'user123', name:'Ania #123'}));

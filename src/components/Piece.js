@@ -1,5 +1,5 @@
 import React from 'react'
-import debug from '../include/debug'
+//import debug from '../include/debug'
 
 const Piece = ({my_image, x, y}) => (
   <div >
