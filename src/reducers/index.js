@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux'
-import rq_pieces from './rq_pieces'
-import rq_cards from './rq_cards'
+import mycards from './mycards'
+import mymap from './mymap'
+//import debug from '../include/debug'
 
 const myApp = combineReducers({
-  rq_pieces: rq_pieces,
-  rq_cards: rq_cards
+  mymap: mymap,
+  mycards: mycards
 })
 
 export default myApp

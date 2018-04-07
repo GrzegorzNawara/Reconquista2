@@ -3,7 +3,7 @@ import Map from '../components/Map'
 //import debug from '../include/debug'
 
 const mapStateToProps = (state) => ({
-  pieces: state.rq_pieces
+  mymap: state.mymap
 })
 
 const mapDispatchToProps = {

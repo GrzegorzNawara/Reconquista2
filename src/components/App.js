@@ -3,10 +3,9 @@ import NavBar from './NavBar'
 import MapWithPieces from '../connectors/MapWithPieces'
 
 const App = () => (
-  <div>
+  <div className="container-fluid">
     <NavBar />
     <MapWithPieces />
-    <NavBar />
   </div>
 )
 

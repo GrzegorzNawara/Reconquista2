@@ -9,16 +9,20 @@ import App from './components/App'
 import { addPiece } from './actions'
 //import { addSkill } from './actions'
 //import { addFeedback } from './actions'
-//import debug from './include/debug'
+import debug from './include/debug'
 
 const sagaMiddleware = createSagaMiddleware()
 
 const initialState = {
   // data
-  // array of objects with piece_id, user_id, pic, x, y
-  rq_pieces: [],
+  // map position
+  mymap: {
+    center: {x:3, y:2},
+    pieces: []
+  },
+
   // array of objects with piece_id
-  rq_cards: []
+  mycards: []
 };
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -38,8 +42,23 @@ render(
   document.getElementById('root')
 );
 
-store.dispatch(addPiece({piece_id:'king1', user_id:'user123', image:'./images/iso-big-y.png', x:100, y:100}));
-store.dispatch(addPiece({piece_id:'knight1', user_id:'user123', image:'./images/iso-small-y.png', x:150, y:100}));
+store.dispatch(addPiece({piece_id:'king1', user_id:'user123', image:'./images/iso-big-k.png', pos:{x:0, y:0}}));
+store.dispatch(addPiece({piece_id:'king2', user_id:'user123', image:'./images/iso-big-r.png', pos:{x:1, y:0}}));
+store.dispatch(addPiece({piece_id:'king3', user_id:'user123', image:'./images/iso-big-y.png', pos:{x:2, y:0}}));
+store.dispatch(addPiece({piece_id:'king4', user_id:'user123', image:'./images/iso-big-r.png', pos:{x:3, y:0}}));
+
+store.dispatch(addPiece({piece_id:'king5', user_id:'user123', image:'./images/iso-big-y.png', pos:{x:0, y:1}}));
+store.dispatch(addPiece({piece_id:'king6', user_id:'user123', image:'./images/iso-small-r.png', pos:{x:1, y:1}}));
+store.dispatch(addPiece({piece_id:'king7', user_id:'user123', image:'./images/iso-small-y.png', pos:{x:2, y:1}}));
+store.dispatch(addPiece({piece_id:'king8', user_id:'user123', image:'./images/iso-small-y.png', pos:{x:3, y:1}}));
+store.dispatch(addPiece({piece_id:'arrow-s', user_id:'user123', image:'./images/iso-arrow-s.png', pos:{x:3, y:1+0.6}}));
+store.dispatch(addPiece({piece_id:'arrow-n', user_id:'user123', image:'./images/iso-arrow-n.png', pos:{x:3, y:1-0.75}}));
+
+store.dispatch(addPiece({piece_id:'enemy1', user_id:'system', image:'./images/iso-enemy.png', pos:{x:12, y:1}}));
+store.dispatch(addPiece({piece_id:'enemy2', user_id:'system', image:'./images/iso-enemy.png', pos:{x:12, y:3}}));
+store.dispatch(addPiece({piece_id:'enemy3', user_id:'system', image:'./images/iso-enemy.png', pos:{x:10, y:3}}));
+store.dispatch(addPiece({piece_id:'marker1', user_id:'system', image:'./images/iso-marker.png', pos:{x:10, y:3}}));
+//store.dispatch(addPiece({piece_id:'enemy3', user_id:'system', image:'./images/iso-enemy.png', pos:{x:11.37, y:2.78}}));
 
 /*
 store.dispatch(addAttendee({id:'user123', name:'Ania #123'}));

@@ -1,4 +1,4 @@
-const rq_cards = (state = [], action) => {
+const mycards = (state = [], action) => {
   switch (action.type) {
     case 'ADD_CARD':
       return [
@@ -13,4 +13,4 @@ const rq_cards = (state = [], action) => {
   }
 }
 
-export default rq_cards
+export default mycards
