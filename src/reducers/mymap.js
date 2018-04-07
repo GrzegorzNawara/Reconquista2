@@ -7,17 +7,17 @@ const mymap = (state = {}, action) => {
         center: state.center,
         pieces: [
           ...state.pieces,
-          {
-            piece_id: action.piece_id,
-            user_id: action.user_id,
-            image: action.image,
-            pos: action.pos
-          }
+          action.piece
         ]
+      }
+    case 'SHOW_INFO':
+      return {
+        center: action.piece.pos,
+        pieces: state.pieces
       }
     case 'SET_MAP_CENTER':
       return {
-        ceneter: action.center,
+        center: action.center,
         ...state.pieces
       }
     default:

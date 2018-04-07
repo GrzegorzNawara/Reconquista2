@@ -30,7 +30,7 @@ html body {
 .bg-map {
   background-image:url('images/reconquista-iso-map.jpg');
   background-repeat: no-repeat;
-  z-index: -1;
+  position:relative;
   overflow-x: hidden;
   overflow-y: hidden;
   min-height: 100vh;

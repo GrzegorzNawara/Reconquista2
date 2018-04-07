@@ -33,16 +33,17 @@ class Map extends Component {
 
   render(){
     return(
-      <div className="bg-map mx-0" style={{
+      <div className="bg-map mx-0"
+        style={{
         backgroundPosition: (this.grid2iso(this.props.mymap.center,{x:0,y:0}).x-680)+'px '
-        +(this.grid2iso(this.props.mymap.center,{x:0,y:0}).y-355)+'px',
-        position:'relative'}}>
+        +(this.grid2iso(this.props.mymap.center,{x:0,y:0}).y-355)+'px'}}>
         {this.props.mymap.pieces.map( piece =>
             <Piece
               key={piece.piece_id}
               id={piece.piece_id}
               my_image={piece.image}
               pos={this.grid2iso(this.props.mymap.center,piece.pos)}
+              onClick={() => this.props.onClick(piece)}
             />
         )}
       </div>

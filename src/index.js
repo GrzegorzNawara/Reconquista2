@@ -42,22 +42,22 @@ render(
   document.getElementById('root')
 );
 
-store.dispatch(addPiece({piece_id:'king1', user_id:'user123', image:'./images/iso-big-k.png', pos:{x:0, y:0}}));
-store.dispatch(addPiece({piece_id:'king2', user_id:'user123', image:'./images/iso-big-r.png', pos:{x:1, y:0}}));
-store.dispatch(addPiece({piece_id:'king3', user_id:'user123', image:'./images/iso-big-y.png', pos:{x:2, y:0}}));
-store.dispatch(addPiece({piece_id:'king4', user_id:'user123', image:'./images/iso-big-r.png', pos:{x:3, y:0}}));
+store.dispatch(addPiece({piece_id:'king1', onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-big-k.png', pos:{x:0, y:0}}));
+store.dispatch(addPiece({piece_id:'king2', onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-big-r.png', pos:{x:1, y:0}}));
+store.dispatch(addPiece({piece_id:'king3', onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-big-y.png', pos:{x:2, y:0}}));
+store.dispatch(addPiece({piece_id:'king4', onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-big-r.png', pos:{x:3, y:0}}));
 
-store.dispatch(addPiece({piece_id:'king5', user_id:'user123', image:'./images/iso-big-y.png', pos:{x:0, y:1}}));
-store.dispatch(addPiece({piece_id:'king6', user_id:'user123', image:'./images/iso-small-r.png', pos:{x:1, y:1}}));
-store.dispatch(addPiece({piece_id:'king7', user_id:'user123', image:'./images/iso-small-y.png', pos:{x:2, y:1}}));
-store.dispatch(addPiece({piece_id:'king8', user_id:'user123', image:'./images/iso-small-y.png', pos:{x:3, y:1}}));
-store.dispatch(addPiece({piece_id:'arrow-s', user_id:'user123', image:'./images/iso-arrow-s.png', pos:{x:3, y:1+0.6}}));
-store.dispatch(addPiece({piece_id:'arrow-n', user_id:'user123', image:'./images/iso-arrow-n.png', pos:{x:3, y:1-0.75}}));
+store.dispatch(addPiece({piece_id:'king5', onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-big-y.png', pos:{x:0, y:1}}));
+store.dispatch(addPiece({piece_id:'king6', onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-small-r.png', pos:{x:1, y:1}}));
+store.dispatch(addPiece({piece_id:'king7', onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-small-y.png', pos:{x:2, y:1}}));
+store.dispatch(addPiece({piece_id:'king8', onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-small-y.png', pos:{x:3, y:1}}));
+store.dispatch(addPiece({piece_id:'arrow-s', onActivate:'MOVE_SOUTH', user_id:'user123', image:'./images/iso-arrow-s.png', pos:{x:3, y:1+0.6}}));
+store.dispatch(addPiece({piece_id:'arrow-n', onActivate:'MOVE_NORTH', user_id:'user123', image:'./images/iso-arrow-n.png', pos:{x:3, y:1-0.75}}));
 
-store.dispatch(addPiece({piece_id:'enemy1', user_id:'system', image:'./images/iso-enemy.png', pos:{x:12, y:1}}));
-store.dispatch(addPiece({piece_id:'enemy2', user_id:'system', image:'./images/iso-enemy.png', pos:{x:12, y:3}}));
-store.dispatch(addPiece({piece_id:'enemy3', user_id:'system', image:'./images/iso-enemy.png', pos:{x:10, y:3}}));
-store.dispatch(addPiece({piece_id:'marker1', user_id:'system', image:'./images/iso-marker.png', pos:{x:10, y:3}}));
+store.dispatch(addPiece({piece_id:'enemy1', onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-enemy.png', pos:{x:12, y:1}}));
+store.dispatch(addPiece({piece_id:'enemy2', onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-enemy.png', pos:{x:12, y:3}}));
+store.dispatch(addPiece({piece_id:'enemy3', onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-enemy.png', pos:{x:10, y:3}}));
+store.dispatch(addPiece({piece_id:'marker1', onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-marker.png', pos:{x:10, y:3}}));
 //store.dispatch(addPiece({piece_id:'enemy3', user_id:'system', image:'./images/iso-enemy.png', pos:{x:11.37, y:2.78}}));
 
 /*

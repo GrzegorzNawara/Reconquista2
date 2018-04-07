@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import Map from '../components/Map'
+import {activatePiece} from '../actions'
 //import debug from '../include/debug'
 
 const mapStateToProps = (state) => ({
@@ -7,6 +8,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
+  onClick: activatePiece
 }
 
 const MapWithPieces = connect(
