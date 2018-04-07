@@ -5,9 +5,8 @@ const Piece = ({id, my_image, pos, onClick}) => (
   <div
     id={id}
     className="piece"
-    style={{position:"absolute", left:pos.x, top:pos.y}}
-    onClick={onClick}>
-    <img src={my_image} alt=""></img>
+    style={{position:"absolute", left:pos.x, top:pos.y}}>
+    <img onClick={onClick} src={my_image} alt=""></img>
   </div>
 )
 

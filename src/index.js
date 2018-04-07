@@ -17,7 +17,8 @@ const initialState = {
   // data
   // map position
   mymap: {
-    center: {x:3, y:2},
+    center: {x:0, y:0},
+    choosen_piece_index: -1,
     pieces: []
   },
 
@@ -51,8 +52,8 @@ store.dispatch(addPiece({piece_id:'king5', onActivate:'SHOW_INFO', user_id:'user
 store.dispatch(addPiece({piece_id:'king6', onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-small-r.png', pos:{x:1, y:1}}));
 store.dispatch(addPiece({piece_id:'king7', onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-small-y.png', pos:{x:2, y:1}}));
 store.dispatch(addPiece({piece_id:'king8', onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-small-y.png', pos:{x:3, y:1}}));
-store.dispatch(addPiece({piece_id:'arrow-s', onActivate:'MOVE_SOUTH', user_id:'user123', image:'./images/iso-arrow-s.png', pos:{x:3, y:1+0.6}}));
-store.dispatch(addPiece({piece_id:'arrow-n', onActivate:'MOVE_NORTH', user_id:'user123', image:'./images/iso-arrow-n.png', pos:{x:3, y:1-0.75}}));
+//store.dispatch(addPiece({piece_id:'arrow-s', onActivate:'MOVE_SOUTH', user_id:'user123', image:'./images/iso-arrow-s.png', pos:{x:3, y:1+0.6}}));
+//store.dispatch(addPiece({piece_id:'arrow-n', onActivate:'MOVE_NORTH', user_id:'user123', image:'./images/iso-arrow-n.png', pos:{x:3, y:1-0.75}}));
 
 store.dispatch(addPiece({piece_id:'enemy1', onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-enemy.png', pos:{x:12, y:1}}));
 store.dispatch(addPiece({piece_id:'enemy2', onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-enemy.png', pos:{x:12, y:3}}));

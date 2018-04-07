@@ -5,6 +5,16 @@ export const addPiece = (piece) => ({
   piece: piece
 })
 
+export const moveNorth = (piece) => ({
+  type: 'MOVE_NORTH',
+  piece: piece
+})
+
+export const moveSouth = (piece) => ({
+  type: 'MOVE_SOUTH',
+  piece: piece
+})
+
 export const activatePiece = (piece) => ({
   type: piece.onActivate,
   piece: piece

@@ -26,9 +26,9 @@ class Map extends Component {
     this.setState({ width: window.innerWidth, height: window.innerHeight });
   }
 
-  grid2iso = (center,{x,y}) => ({
-    x: Math.round(this.state.width/2-110+(-center.x+x-3*(-center.y+y))*TILE_WIDTH_HALF),
-    y: Math.round(this.state.height/2-63+(-center.x+x+3*(-center.y+y))*TILE_HEIGHT_HALF)
+  grid2iso = (center,{x,y},slide={x:0,y:0}) => ({
+    x: Math.round(this.state.width/2-110+(-center.x+slide.x+x-3*(-center.y+slide.y+y))*TILE_WIDTH_HALF),
+    y: Math.round(this.state.height/2-63+(-center.x+slide.x+x+3*(-center.y+slide.y+y))*TILE_HEIGHT_HALF)
   })
 
   render(){
@@ -37,6 +37,34 @@ class Map extends Component {
         style={{
         backgroundPosition: (this.grid2iso(this.props.mymap.center,{x:0,y:0}).x-680)+'px '
         +(this.grid2iso(this.props.mymap.center,{x:0,y:0}).y-355)+'px'}}>
+
+        {(this.props.mymap.choosen_piece_index>-1) &&
+          <div>
+            <Piece
+              key='arrow-n'
+              id='arrow-n'
+              my_image='./images/iso-arrow-n.png'
+              pos={this.grid2iso(
+                this.props.mymap.center,
+                this.props.mymap.pieces[this.props.mymap.choosen_piece_index].pos,
+                {x:0, y:-0.75}
+              )}
+              onClick={() => this.props.onClickMoveNorth(this.props.mymap.pieces[this.props.mymap.choosen_piece_index])}
+            />
+            <Piece
+              key='arrow-s'
+              id='arrow-s'
+              my_image='./images/iso-arrow-s.png'
+              pos={this.grid2iso(
+                this.props.mymap.center,
+                this.props.mymap.pieces[this.props.mymap.choosen_piece_index].pos,
+                {x:0, y:0.6}
+              )}
+              onClick={() => this.props.onClickMoveSouth(this.props.mymap.pieces[this.props.mymap.choosen_piece_index])}
+            />
+          </div>
+        }
+
         {this.props.mymap.pieces.map( piece =>
             <Piece
               key={piece.piece_id}

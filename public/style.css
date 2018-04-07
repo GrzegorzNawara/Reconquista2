@@ -24,7 +24,7 @@ html body {
 
 .my-navbar {
   overflow-x: scroll;
-  z-index: 0;
+  z-index: 2;
 }
 
 .bg-map {
@@ -41,6 +41,10 @@ html body {
 .piece {
   padding-left: 15px;
   padding-top: 20px;
+  z-index: 1;
+}
+.piece-active-zone {
+  border: solid #fff 1px;
 }
 
 @keyframes move-n {
