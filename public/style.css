@@ -41,9 +41,13 @@ html body {
 .piece {
   padding-left: 15px;
   padding-top: 20px;
-  z-index: 1;
 }
 .piece-active-zone {
+  position: absolute;
+  top:80px;
+  left: 75px;
+  width: 60px;
+  height: 70px;
   border: solid #fff 1px;
 }
 
