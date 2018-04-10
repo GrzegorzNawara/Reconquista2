@@ -1,8 +1,12 @@
-import debug from '../include/debug'
+//import debug from '../include/debug'
 
 const rearrangePieces = (pieces=[],choosen_piece_index=-1,action_type) => {
-  let new_pieces = pieces;
+
   let diff_y=0;
+  let new_pieces = pieces.map( piece => ({
+      ...piece,
+      old_pos: { x: piece.pos.x, y: piece.pos.y }
+  }));
 
   if(action_type==='MOVE_NORTH') diff_y=-1;
   if(action_type==='MOVE_SOUTH') diff_y=+1;
@@ -34,6 +38,7 @@ const rearrangePieces = (pieces=[],choosen_piece_index=-1,action_type) => {
     }
   }
 
+  console.log(new_pieces[3].old_pos.x+'/'+new_pieces[3].pos.x);
   return new_pieces;
 }
 
@@ -71,12 +76,13 @@ const mymap = (state = {}, action) => {
     case 'ADD_PIECE':
       return {
         ...state,
-        center: action.piece.pos,
+        center: {x:0,y:0},//action.piece.pos,
         choosen_piece_index: state.pieces.length,
         pieces: [
           ...state.pieces,
           {
             ...action.piece,
+            old_pos: action.piece.pos,
             index: state.pieces.length
           }
         ]

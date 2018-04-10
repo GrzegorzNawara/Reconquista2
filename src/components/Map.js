@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import Piece from './Piece'
-import debug from '../include/debug'
+import Arrow from './Arrow'
+import BurnButton from './BurnButton'
+//import debug from '../include/debug'
 
 const TILE_WIDTH_HALF=42;
 const TILE_HEIGHT_HALF=30;
@@ -38,10 +40,12 @@ class Map extends Component {
         backgroundPosition: (this.grid2iso(this.props.mymap.center,{x:0,y:0}).x-680)+'px '
         +(this.grid2iso(this.props.mymap.center,{x:0,y:0}).y-355)+'px'}}>
 
-        {this.props.mymap.choosen_piece_index>-1 && 
+        {this.props.mymap.choosen_piece_index>-1 &&
           this.props.mymap.pieces[this.props.mymap.choosen_piece_index].can_move===1 &&
+          typeof this.props.mymap.cards[this.props.mymap.actual_card_index] !== 'undefined' &&
+          this.props.mymap.cards[this.props.mymap.actual_card_index].card_type==='MOVE_PIECE' &&
           <div>
-            <Piece
+            <Arrow
               key='arrow-n'
               id='arrow-n'
               my_image='./images/iso-arrow-n.png'
@@ -52,7 +56,7 @@ class Map extends Component {
               )}
               onClick={() => this.props.onClickMoveNorth(this.props.mymap.pieces[this.props.mymap.choosen_piece_index])}
             />
-            <Piece
+            <Arrow
               key='arrow-s'
               id='arrow-s'
               my_image='./images/iso-arrow-s.png'
@@ -71,10 +75,12 @@ class Map extends Component {
               key={piece.piece_id}
               id={piece.piece_id}
               my_image={piece.image}
+              old_pos={this.grid2iso(this.props.mymap.center,piece.old_pos)}
               pos={this.grid2iso(this.props.mymap.center,piece.pos)}
               onClick={() => this.props.onClick(piece)}
             />
         )}
+      <BurnButton onClick={this.props.onClickBurnButton} />
       </div>
   )}
 }
