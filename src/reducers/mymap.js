@@ -38,7 +38,6 @@ const rearrangePieces = (pieces=[],choosen_piece_index=-1,action_type) => {
     }
   }
 
-  console.log(new_pieces[3].old_pos.x+'/'+new_pieces[3].pos.x);
   return new_pieces;
 }
 
