@@ -6,13 +6,32 @@ const rearrangePieces = (pieces=[],choosen_piece_index=-1,action_type) => {
 
   if(action_type==='MOVE_NORTH') diff_y=-1;
   if(action_type==='MOVE_SOUTH') diff_y=+1;
-  
+
   new_pieces[choosen_piece_index].pos.y+=diff_y;
   if(new_pieces[choosen_piece_index].pos.y<0){
     new_pieces[choosen_piece_index].pos.y=5;
   }
   if(new_pieces[choosen_piece_index].pos.y>5){
     new_pieces[choosen_piece_index].pos.y=0;
+  }
+
+  //fix the rows to the left and right
+  let first_empty_x_on_the_left=0;
+  let first_empty_x_on_the_choosen=0;
+  let first_empty_x_on_the_right=0;
+  for(let ii=0;ii<new_pieces.length;ii++){
+    if(new_pieces[ii].can_move===1 && new_pieces[ii].pos.y===new_pieces[choosen_piece_index].pos.y-1){
+      new_pieces[ii].pos.x=first_empty_x_on_the_left;
+      first_empty_x_on_the_left++;
+    }
+    if(new_pieces[ii].can_move===1 && new_pieces[ii].pos.y===new_pieces[choosen_piece_index].pos.y){
+      new_pieces[ii].pos.x=first_empty_x_on_the_choosen;
+      first_empty_x_on_the_choosen++;
+    }
+    if(new_pieces[ii].can_move===1 && new_pieces[ii].pos.y===new_pieces[choosen_piece_index].pos.y+1){
+      new_pieces[ii].pos.x=first_empty_x_on_the_right;
+      first_empty_x_on_the_right++;
+    }
   }
 
   return new_pieces;

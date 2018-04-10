@@ -68,7 +68,7 @@ html body {
   animation-name: move-n;
   animation-duration: 1s;
   animation-iteration-count: infinite;
-  z-index: 0;
+  z-index: 2;
 }
 
 #arrow-s {

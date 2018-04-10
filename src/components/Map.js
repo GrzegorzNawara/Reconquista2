@@ -38,7 +38,8 @@ class Map extends Component {
         backgroundPosition: (this.grid2iso(this.props.mymap.center,{x:0,y:0}).x-680)+'px '
         +(this.grid2iso(this.props.mymap.center,{x:0,y:0}).y-355)+'px'}}>
 
-        {(this.props.mymap.choosen_piece_index>-1) &&
+        {this.props.mymap.choosen_piece_index>-1 && 
+          this.props.mymap.pieces[this.props.mymap.choosen_piece_index].can_move===1 &&
           <div>
             <Piece
               key='arrow-n'

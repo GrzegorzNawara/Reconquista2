@@ -46,24 +46,39 @@ render(
   document.getElementById('root')
 );
 
-store.dispatch(addPiece({piece_id:'king1', onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-big-k.png', pos:{x:0, y:0}}));
-store.dispatch(addPiece({piece_id:'king2', onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-big-r.png', pos:{x:1, y:0}}));
-store.dispatch(addPiece({piece_id:'king3', onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-big-y.png', pos:{x:2, y:0}}));
-store.dispatch(addPiece({piece_id:'king4', onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-big-r.png', pos:{x:3, y:0}}));
+store.dispatch(addPiece({piece_id:'king1', can_move:1, onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-big-y.png', pos:{x:0, y:0}}));
+store.dispatch(addPiece({piece_id:'knight1', can_move:1, onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-small-y.png', pos:{x:1, y:0}}));
+store.dispatch(addPiece({piece_id:'knight2', can_move:1, onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-small-y.png', pos:{x:2, y:0}}));
 
-store.dispatch(addPiece({piece_id:'king5', onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-big-y.png', pos:{x:0, y:1}}));
-store.dispatch(addPiece({piece_id:'king6', onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-small-r.png', pos:{x:1, y:1}}));
-store.dispatch(addPiece({piece_id:'king7', onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-small-y.png', pos:{x:2, y:1}}));
-store.dispatch(addPiece({piece_id:'king8', onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-small-y.png', pos:{x:3, y:1}}));
+store.dispatch(addPiece({piece_id:'rebel1', can_move:1, onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-big-k.png', pos:{x:3, y:0}}));
+store.dispatch(addPiece({piece_id:'farmer1', can_move:1, onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-small-k.png', pos:{x:4, y:0}}));
+store.dispatch(addPiece({piece_id:'farmer2', can_move:1, onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-small-k.png', pos:{x:5, y:0}}));
+store.dispatch(addPiece({piece_id:'farmer3', can_move:1, onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-small-k.png', pos:{x:6, y:0}}));
+store.dispatch(addPiece({piece_id:'farmer4', can_move:1, onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-small-k.png', pos:{x:7, y:0}}));
+store.dispatch(addPiece({piece_id:'farmer5', can_move:1, onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-small-k.png', pos:{x:8, y:0}}));
 
-store.dispatch(addPiece({piece_id:'enemy1', onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-enemy.png', pos:{x:12, y:1}}));
-store.dispatch(addPiece({piece_id:'enemy2', onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-enemy.png', pos:{x:12, y:3}}));
-store.dispatch(addPiece({piece_id:'enemy3', onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-enemy.png', pos:{x:10, y:3}}));
-store.dispatch(addPiece({piece_id:'marker1', onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-marker.png', pos:{x:10, y:3}}));
+store.dispatch(addPiece({piece_id:'levy1', can_move:1, onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-big-r.png', pos:{x:0, y:1}}));
+store.dispatch(addPiece({piece_id:'merchant1', can_move:1, onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-small-r.png', pos:{x:1, y:1}}));
+store.dispatch(addPiece({piece_id:'merchant2', can_move:1, onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-small-r.png', pos:{x:2, y:1}}));
+store.dispatch(addPiece({piece_id:'merchant3', can_move:1, onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-small-r.png', pos:{x:3, y:1}}));
 
-store.dispatch(addCard({piece_id:'king8', card_type:'MOVE_PIECE'}));
+store.dispatch(addPiece({piece_id:'house1', can_move:0, onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-house.png', pos:{x:11, y:0}}));
+
+store.dispatch(addPiece({piece_id:'enemy1', can_move:0, onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-enemy.png', pos:{x:14, y:0}}));
+store.dispatch(addPiece({piece_id:'enemy2', can_move:0, onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-enemy.png', pos:{x:14-0.50, y:0-0.18}}));
+store.dispatch(addPiece({piece_id:'enemy3', can_move:0, onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-enemy.png', pos:{x:14-1.10, y:0-0.38}}));
+store.dispatch(addPiece({piece_id:'enemy4', can_move:0, onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-enemy.png', pos:{x:12, y:1}}));
+store.dispatch(addPiece({piece_id:'enemy5', can_move:0, onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-enemy.png', pos:{x:14, y:1}}));
+store.dispatch(addPiece({piece_id:'enemy6', can_move:0, onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-enemy.png', pos:{x:14, y:2}}));
+store.dispatch(addPiece({piece_id:'enemy7', can_move:0, onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-enemy.png', pos:{x:12, y:3}}));
+store.dispatch(addPiece({piece_id:'enemy8', can_move:0, onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-enemy.png', pos:{x:14, y:3}}));
+
+store.dispatch(addPiece({piece_id:'marker1', can_move:0, onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-marker.png', pos:{x:11, y:3}}));
+
+store.dispatch(addCard({piece_id:'enemy1', card_type:'MOVE_PIECE'}));
 store.dispatch(addCard({piece_id:'king1', card_type:'MOVE_PIECE'}));
-store.dispatch(addCard({piece_id:'king4', card_type:'MOVE_PIECE'}));
+store.dispatch(addCard({piece_id:'rebel1', card_type:'MOVE_PIECE'}));
+store.dispatch(addCard({piece_id:'farmer1', card_type:'MOVE_PIECE'}));
+store.dispatch(addCard({piece_id:'enemy1', card_type:'GAME_OVER'}));
 
-store.dispatch(runNextCard({}));
 store.dispatch(runNextCard({}));
