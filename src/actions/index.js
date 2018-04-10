@@ -19,3 +19,12 @@ export const activatePiece = (piece) => ({
   type: piece.onActivate,
   piece: piece
 })
+
+export const addCard = (card) => ({
+  type: 'ADD_CARD',
+  card: card
+})
+
+export const runNextCard = () => ({
+  type: 'RUN_NEXT_CARD'
+})

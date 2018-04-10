@@ -1,11 +1,10 @@
 const mycards = (state = [], action) => {
   switch (action.type) {
-    case 'ADD_CARD':
+    case 'ADD_MYCARD':
       return [
         ...state,
         {
-          card_id: action.card_id,
-          user_id: action.user_id
+          ...action.mycard
         }
       ]
     default:
