@@ -21,6 +21,8 @@ const initialState = {
     choosen_piece_index: -1,
     pieces: [],
 
+    show_info_piece: {},
+    
     actual_card_index: -1,
     cards: []
   },
@@ -73,7 +75,7 @@ store.dispatch(addPiece({piece_id:'enemy6', can_move:0, onActivate:'SHOW_INFO', 
 store.dispatch(addPiece({piece_id:'enemy7', can_move:0, onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-enemy.png', pos:{x:12, y:3}}));
 store.dispatch(addPiece({piece_id:'enemy8', can_move:0, onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-enemy.png', pos:{x:14, y:3}}));
 
-store.dispatch(addPiece({piece_id:'marker1', can_move:0, onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-marker.png', pos:{x:11, y:3}}));
+store.dispatch(addPiece({piece_id:'marker1', can_move:0, onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-marker.png', pos:{x:12, y:3}}));
 
 store.dispatch(addCard({piece_id:'enemy1', card_type:'MOVE_PIECE'}));
 store.dispatch(addCard({piece_id:'king1', card_type:'MOVE_PIECE'}));

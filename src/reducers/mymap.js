@@ -84,8 +84,7 @@ const mymap = (state = {}, action) => {
     case 'SHOW_INFO':
       return {
         ...state,
-        center: action.piece.pos,
-        choosen_piece_index: action.piece.index,
+        show_info_piece: action.piece,
       }
     case 'SET_MAP_CENTER':
       return {
