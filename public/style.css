@@ -38,6 +38,13 @@ html body {
   min-width: 100%;
 }
 
+.my-footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
 .piece {
   padding-left: 15px;
   padding-top: 20px;

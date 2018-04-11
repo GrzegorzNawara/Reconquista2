@@ -75,15 +75,15 @@ store.dispatch(addPiece({piece_id:'enemy8', can_move:0, onActivate:'SHOW_INFO', 
 
 store.dispatch(addPiece({piece_id:'marker1', can_move:0, onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-marker.png', pos:{x:12, y:3}}));
 
-//store.dispatch(addCard({piece_id:'enemy1', card_type:'SHOW_PIECE'}));
-//store.dispatch(addCard({piece_id:'enemy2', card_type:'SHOW_PIECE'}));
-//store.dispatch(addCard({piece_id:'enemy3', card_type:'SHOW_PIECE'}));
+store.dispatch(addCard({piece_id:'enemy1', card_type:'SHOW_PIECE'}));
+store.dispatch(addCard({piece_id:'enemy2', card_type:'SHOW_PIECE'}));
+store.dispatch(addCard({piece_id:'enemy3', card_type:'SHOW_PIECE'}));
 store.dispatch(addCard({piece_id:'king1', card_type:'MOVE_PIECE'}));
-//store.dispatch(addCard({piece_id:'king1', card_type:'SHOW_PIECE'}));
+store.dispatch(addCard({piece_id:'king1', card_type:'SHOW_PIECE'}));
 store.dispatch(addCard({piece_id:'rebel1', card_type:'MOVE_PIECE'}));
-//store.dispatch(addCard({piece_id:'rebel1', card_type:'SHOW_PIECE'}));
+store.dispatch(addCard({piece_id:'rebel1', card_type:'SHOW_PIECE'}));
 store.dispatch(addCard({piece_id:'farmer1', card_type:'MOVE_PIECE'}));
-//store.dispatch(addCard({piece_id:'farmer1', card_type:'SHOW_PIECE'}));
+store.dispatch(addCard({piece_id:'farmer1', card_type:'SHOW_PIECE'}));
 store.dispatch(addCard({piece_id:'enemy1', card_type:'GAME_OVER'}));
 
 store.dispatch(runNextCard({}));

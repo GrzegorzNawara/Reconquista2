@@ -3,6 +3,7 @@ import Piece from './Piece'
 import Arrow from './Arrow'
 import BurnButton from './BurnButton'
 //import debug from '../include/debug'
+import nonul from '../include/nonul'
 
 const TILE_WIDTH_HALF=42;
 const TILE_HEIGHT_HALF=30;
@@ -42,8 +43,7 @@ class Map extends Component {
 
         {this.props.mymap.choosen_piece_index>-1 &&
           this.props.mymap.pieces[this.props.mymap.choosen_piece_index].can_move===1 &&
-          typeof this.props.mymap.cards[this.props.mymap.actual_card_index] !== 'undefined' &&
-          this.props.mymap.cards[this.props.mymap.actual_card_index].card_type==='MOVE_PIECE' &&
+          nonul(this.props.mymap.cards[this.props.mymap.actual_card_index]).card_type==='MOVE_PIECE' &&
           <div>
             <Arrow
               key='arrow-n'
@@ -80,7 +80,7 @@ class Map extends Component {
               onClick={() => this.props.onClick(piece)}
             />
         )}
-      <BurnButton onClick={this.props.onClickBurnButton} />
+      <BurnButton card_type={nonul(this.props.mymap.cards[this.props.mymap.actual_card_index]).card_type} onClick={this.props.onClickBurnButton} />
       </div>
   )}
 }
