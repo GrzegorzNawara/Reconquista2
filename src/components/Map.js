@@ -1,7 +1,9 @@
 import React, {Component} from 'react'
 import Piece from './Piece'
 import Arrow from './Arrow'
+import Card from './Card'
 import BurnButton from './BurnButton'
+import FooterWithData from '../connectors/FooterWithData'
 //import debug from '../include/debug'
 import nonul from '../include/nonul'
 
@@ -80,6 +82,9 @@ class Map extends Component {
               onClick={() => this.props.onClick(piece)}
             />
         )}
+
+      <Card my_image={'./images/card1.png'} />
+      <FooterWithData />
       <BurnButton card_type={nonul(this.props.mymap.cards[this.props.mymap.actual_card_index]).card_type} onClick={this.props.onClickBurnButton} />
       </div>
   )}

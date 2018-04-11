@@ -1,9 +1,10 @@
 import React from 'react'
+import nonul from '../include/nonul'
 
-const Footer = () => (
+const Footer = ({mymap}) => (
   <div className='my-footer'>
-    <div className="align-items-center p-3 px-md-4 bg-white border-bottom box-shadow">
-      <a className="navbar-brand my-0 mr-md-auto" href="#test" title="logo"><img alt="logo" src="images/logo.png"></img></a>
+    <div className="align-items-center p-3 px-md-4 bg-white">
+      {nonul(mymap.show_info_piece).piece_id}
     </div>
   </div>
 )

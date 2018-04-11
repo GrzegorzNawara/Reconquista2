@@ -7,7 +7,6 @@ const App = () => (
   <div className="container-fluid">
     <NavBar />
     <MapWithPieces />
-    <Footer />
   </div>
 )
 
