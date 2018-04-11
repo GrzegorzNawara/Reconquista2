@@ -6,16 +6,15 @@ import { keyframes } from 'styled-components'
 const Card = function ({my_image, onClick}) {
 
   const translateFrames = keyframes`
-    from { transform: translate(10px,100px); }
+    from { transform: translate(1000px,0); }
     to { transform: translate(0,0); }
   `;
 
   return (
       <div
         className="card"
-        style={{position:"absolute", animationName:translateFrames, animationDuration:'1s', left:'10px', top:'20px'}}>
-        <img className="piece-image" src={my_image} alt=""></img>
-        <div onClick={onClick} className="piece-active-zone"></div>
+        style={{position:"absolute", animationName:translateFrames, animationDuration:'1.5s', right:'10px', top:'100px'}}>
+        <img onClick={onClick} className="card-image" src={my_image} alt=""></img>
       </div>
   )
 }

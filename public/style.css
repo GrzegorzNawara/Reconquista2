@@ -54,6 +54,10 @@ html body {
   min-height: 100px;
 }
 
+.card {
+  z-index: 15;  
+}
+
 .piece {
   padding-left: 15px;
   padding-top: 20px;
