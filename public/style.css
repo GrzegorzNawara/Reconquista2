@@ -57,7 +57,7 @@ html body {
 .my-card {
   background-image:url('./images/card-base.png');
   background-repeat: no-repeat;
-  position:relative;
+  position: absolute;
   overflow-x: hidden;
   overflow-y: hidden;
   height: 307px;
@@ -66,28 +66,30 @@ html body {
 }
 .my-card-corner-image {
   position: absolute;
-  left: 22px;
-  top: 25px;
+  left: 20px;
+  top: 22px;
   pointer-events: none;
 }
 .my-card-header {
   position: absolute;
   width: 100%;
-  top: 25px;
+  top: 23px;
   font-size: 1.3em;
-  color: #2a504f;
-  text-align: center;
+  color: #ffffff;
+  padding-left: 60px;
+  text-align: left;
   pointer-events: none;
 }
 .my-card-text {
   position: absolute;
+  display: block;
   width: 100%;
   top: 195px;
   height: 90px;
   padding-left: 20px;
   padding-right: 20px;
   font-size: 1.0em;
-  color: #2a504f;
+  color: #ffffff;
   text-align: center;
   pointer-events: none;
 }

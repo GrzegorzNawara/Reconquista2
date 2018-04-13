@@ -7,6 +7,7 @@ import reducer from './reducers'
 import App from './components/App'
 //import loadDataSaga from './sagas'
 import { addPiece, addCard, runNextCard } from './actions'
+import * as CARDS from './include/cardsDefinitions'
 //import debug from './include/debug'
 
 const sagaMiddleware = createSagaMiddleware()
@@ -79,13 +80,28 @@ store.dispatch(addPiece({piece_id:'marker1', can_move:0, onActivate:'SHOW_INFO',
 //store.dispatch(addCard({piece_id:'enemy8', image:'./images/card1.png', card_type:'SHOW_PIECE'}));
 //store.dispatch(addCard({piece_id:'enemy6', image:'./images/card1.png', card_type:'SHOW_PIECE'}));
 
-store.dispatch(addCard({piece_id:'king1', image:'./images/card1.png', card_type:'SHOW_CARD'}));
-store.dispatch(addCard({piece_id:'king1', image:'./images/card1.png', card_type:'MOVE_PIECE'}));
+store.dispatch(addCard({piece_id:'king1', ...CARDS.KING_CARD, ...CARDS.SHOW_MOVE_CARD}));
+store.dispatch(addCard({piece_id:'king1', ...CARDS.EXEC_MOVE_CARD}));
 
-store.dispatch(addCard({piece_id:'rebel1', image:'./images/card3.png', card_type:'SHOW_CARD'}));
-store.dispatch(addCard({piece_id:'rebel1', image:'./images/card3.png', card_type:'MOVE_PIECE'}));
+store.dispatch(addCard({piece_id:'levy1', ...CARDS.LEVY_CARD, ...CARDS.SHOW_MOVE_CARD}));
+store.dispatch(addCard({piece_id:'levy1', ...CARDS.EXEC_MOVE_CARD}));
 
-store.dispatch(addCard({piece_id:'farmer1', image:'./images/card5.png', card_type:'SHOW_CARD'}));
+store.dispatch(addCard({piece_id:'rebel1', ...CARDS.REBEL_CARD, ...CARDS.SHOW_MOVE_CARD}));
+store.dispatch(addCard({piece_id:'rebel1', ...CARDS.EXEC_MOVE_CARD}));
+
+store.dispatch(addCard({piece_id:'knight1', ...CARDS.KNIGHT_CARD, ...CARDS.SHOW_MOVE_CARD}));
+store.dispatch(addCard({piece_id:'knight1', ...CARDS.EXEC_MOVE_CARD}));
+
+store.dispatch(addCard({piece_id:'farmer1', ...CARDS.FARMER_CARD, ...CARDS.SHOW_MOVE_CARD}));
+store.dispatch(addCard({piece_id:'farmer2', ...CARDS.EXEC_MOVE_CARD}));
+
+store.dispatch(addCard({piece_id:'merchant1', ...CARDS.MERCHANT_CARD, ...CARDS.SHOW_MOVE_CARD}));
+store.dispatch(addCard({piece_id:'merchant1', ...CARDS.EXEC_MOVE_CARD}));
+
+
+//store.dispatch(addCard({piece_id:'rebel1', image:'./images/card3.png', card_type:'SHOW_CARD'}));
+
+//store.dispatch(addCard({piece_id:'farmer1', image:'./images/card5.png', card_type:'SHOW_CARD'}));
 store.dispatch(addCard({piece_id:'farmer1', image:'./images/card5.png', card_type:'MOVE_PIECE'}));
 
 store.dispatch(addCard({piece_id:'enemy1', image:'./images/card6.png', card_type:'GAME_OVER'}));
