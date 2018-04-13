@@ -80,18 +80,23 @@ html body {
   text-align: left;
   pointer-events: none;
 }
-.my-card-text {
+.my-card-text-box {
   position: absolute;
-  display: block;
   width: 100%;
-  top: 195px;
-  height: 90px;
-  padding-left: 20px;
-  padding-right: 20px;
+  top: 187px;
+  height: 100px;
   font-size: 1.0em;
   color: #ffffff;
-  text-align: center;
   pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.my-card-text {
+  padding-left: 20px;
+  padding-right: 20px;
+  pointer-events: none;
+  text-align: center;
 }
 .my-card-mid-image {
   position: absolute;

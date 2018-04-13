@@ -14,11 +14,11 @@ const Card = ({my_card, onClick}) => {
     <div
       className="my-card"
       onClick={onClick}
-      style={{animationName:translateFrames, animationDuration:'1.5s', right:'10px', top:'100px'}}>
+      style={{animationName:translateFrames, animationDuration:'0.5s', right:'10px', top:'100px'}}>
         <img className='my-card-corner-image' src={my_card.corner_image} alt=""></img>
         <div className='my-card-header'>{my_card.header}</div>
         <img className='my-card-mid-image' src={my_card.mid_image} alt=""></img>
-        <div className='my-card-text'>{my_card.text}</div>
+        <div className='my-card-text-box'><div className='my-card-text'>{my_card.text}</div></div>
     </div>
   )
 }
