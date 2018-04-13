@@ -73,12 +73,10 @@ store.dispatch(addPiece({piece_id:'enemy5', can_move:0, onActivate:'SHOW_INFO', 
 store.dispatch(addPiece({piece_id:'enemy6', can_move:0, onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-enemy.png', pos:{x:14, y:2}}));
 store.dispatch(addPiece({piece_id:'enemy7', can_move:0, onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-enemy.png', pos:{x:12, y:3}}));
 store.dispatch(addPiece({piece_id:'enemy8', can_move:0, onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-enemy.png', pos:{x:14, y:3}}));
-
 store.dispatch(addPiece({piece_id:'marker1', can_move:0, onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-marker.png', pos:{x:12, y:3}}));
 
-//store.dispatch(addCard({piece_id:'enemy1', image:'./images/card-base.png', card_type:'SHOW_CARD'}));
-//store.dispatch(addCard({piece_id:'enemy8', image:'./images/card1.png', card_type:'SHOW_PIECE'}));
-//store.dispatch(addCard({piece_id:'enemy6', image:'./images/card1.png', card_type:'SHOW_PIECE'}));
+
+
 
 store.dispatch(addCard({piece_id:'enemy1', ...CARDS.EVENT_CARD, ...CARDS.SHOW_GAMESTART_CARD}));
 

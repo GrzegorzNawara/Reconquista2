@@ -46,30 +46,17 @@ class Map extends Component {
         {this.props.mymap.choosen_piece_index>-1 &&
           this.props.mymap.pieces[this.props.mymap.choosen_piece_index].can_move===1 &&
           nonul(this.props.mymap.cards[this.props.mymap.actual_card_index]).card_type==='MOVE_PIECE' &&
-          <div>
-            <Arrow
-              key='arrow-n'
-              id='arrow-n'
-              my_image='./images/iso-arrow-n.png'
-              pos={this.grid2iso(
-                this.props.mymap.center,
-                this.props.mymap.pieces[this.props.mymap.choosen_piece_index].pos,
-                {x:0, y:-0.75}
-              )}
-              onClick={() => this.props.onClickMoveNorth(this.props.mymap.pieces[this.props.mymap.choosen_piece_index])}
-            />
-            <Arrow
-              key='arrow-s'
-              id='arrow-s'
-              my_image='./images/iso-arrow-s.png'
-              pos={this.grid2iso(
-                this.props.mymap.center,
-                this.props.mymap.pieces[this.props.mymap.choosen_piece_index].pos,
-                {x:0, y:0.6}
-              )}
-              onClick={() => this.props.onClickMoveSouth(this.props.mymap.pieces[this.props.mymap.choosen_piece_index])}
-            />
-          </div>
+          <Arrow
+            key='arrow-s'
+            id='arrow-s'
+            my_image='./images/iso-arrow-s.png'
+            pos={this.grid2iso(
+              this.props.mymap.center,
+              this.props.mymap.pieces[this.props.mymap.choosen_piece_index].pos,
+              {x:0, y:0.6}
+            )}
+            onClick={() => this.props.onClickMoveSouth(this.props.mymap.pieces[this.props.mymap.choosen_piece_index])}
+          />
         }
 
         {this.props.mymap.pieces.map( piece =>
@@ -82,6 +69,22 @@ class Map extends Component {
               onClick={() => this.props.onClick(piece)}
             />
         )}
+
+        {this.props.mymap.choosen_piece_index>-1 &&
+          this.props.mymap.pieces[this.props.mymap.choosen_piece_index].can_move===1 &&
+          nonul(this.props.mymap.cards[this.props.mymap.actual_card_index]).card_type==='MOVE_PIECE' &&
+          <Arrow
+            key='arrow-n'
+            id='arrow-n'
+            my_image='./images/iso-arrow-n.png'
+            pos={this.grid2iso(
+              this.props.mymap.center,
+              this.props.mymap.pieces[this.props.mymap.choosen_piece_index].pos,
+              {x:0, y:-0.75}
+            )}
+            onClick={() => this.props.onClickMoveNorth(this.props.mymap.pieces[this.props.mymap.choosen_piece_index])}
+          />
+        }
 
       {nonul(this.props.mymap.cards[this.props.mymap.actual_card_index]).card_type==='SHOW_CARD' &&
         <Card
