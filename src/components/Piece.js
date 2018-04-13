@@ -15,6 +15,7 @@ const Piece = function ({id, my_image, old_pos, pos, onClick}) {
         id={id}
         className="piece"
         style={{position:"absolute", animationName:translateFrames, animationDuration:'1s', left:pos.x, top:pos.y}}>
+        {id==='king1' && <img className="piece-bulb" src={'./images/user-bulb0.png'} alt=""></img>}
         <img className="piece-image" src={my_image} alt=""></img>
         <div onClick={onClick} className="piece-active-zone"></div>
       </div>

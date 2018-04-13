@@ -12,9 +12,13 @@ const Card = function ({my_image, onClick}) {
 
   return (
       <div
-        className="card"
-        style={{position:"absolute", animationName:translateFrames, animationDuration:'1.5s', right:'10px', top:'100px'}}>
-        <img onClick={onClick} className="card-image" src={my_image} alt=""></img>
+        className="my-card"
+        onClick={onClick} 
+        style={{position:'absolute', animationName:translateFrames, animationDuration:'1.5s', right:'10px', top:'100px'}}>
+        <img className='my-card-corner-image' src='./images/card-corner-big-y.png' alt=""></img>
+        <div className='my-card-header'>Król</div>
+        <img className='my-card-mid-image' src='./images/card-mid-move.png' alt=""></img>
+        <div className='my-card-text'>Możesz się poruszyć, albo spalić tą kartę</div>
       </div>
   )
 }

@@ -86,7 +86,7 @@ class Map extends Component {
       {nonul(this.props.mymap.cards[this.props.mymap.actual_card_index]).card_type==='SHOW_CARD' &&
         <Card
           my_image={nonul(this.props.mymap.cards[this.props.mymap.actual_card_index]).image}
-          onClick={this.props.onClickBurnButton}/>
+          onClick={this.props.onClickBurnButton} />
       }
       <FooterWithData />
       <BurnButton
