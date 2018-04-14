@@ -1,32 +1,38 @@
 export const KING_CARD = {
   corner_image:'./images/card-corner-big-y.png',
   image:'./images/iso-big-y.png',
-  header: 'Król'
+  header: 'Król',
+  war_strength:2
 }
 export const REBEL_CARD = {
   corner_image:'./images/card-corner-big-k.png',
   image:'./images/iso-big-k.png',
-  header: 'Buntownik'
+  header: 'Buntownik',
+  war_strength:2
 }
 export const LEVY_CARD = {
   corner_image:'./images/card-corner-big-r.png',
   image:'./images/iso-big-r.png',
-  header: 'Poborca'
+  header: 'Poborca',
+  war_strength:2
 }
 export const FARMER_CARD = {
   corner_image:'./images/card-corner-small-k.png',
   image:'./images/iso-small-k.png',
-  header: 'Chłop'
+  header: 'Chłop',
+  war_strength:1
 }
 export const MERCHANT_CARD = {
   corner_image:'./images/card-corner-small-r.png',
   image:'./images/iso-small-r.png',
-  header: 'Kupiec'
+  header: 'Kupiec',
+  war_strength:1
 }
 export const KNIGHT_CARD = {
   corner_image:'./images/card-corner-small-y.png',
   image:'./images/iso-small-y.png',
-  header: 'Rycerz'
+  header: 'Rycerz',
+  war_strength:1
 }
 
 export const findCardById = (piece_id) => {

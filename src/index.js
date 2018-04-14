@@ -6,7 +6,7 @@ import { Provider } from 'react-redux'
 import reducer from './reducers'
 import App from './components/App'
 //import loadDataSaga from './sagas'
-import { addPiece, addCard, runNextCard } from './actions'
+import { addPiece, addCard, runNextCard, setMyPieceId } from './actions'
 import * as CARDS from './include/cardsDefinitions'
 //import debug from './include/debug'
 
@@ -14,13 +14,19 @@ const sagaMiddleware = createSagaMiddleware()
 
 const initialState = {
   // data
-  // map position
   mymap: {
+    my_piece_id: '',
+
     center: {x:0, y:0},
     choosen_piece_index: -1,
     pieces: [],
 
     show_info_piece: {},
+    score: {
+      burnt_points:0,
+      war_points:0,
+      happy_points:0
+    },
 
     actual_card_index: -1,
     cards: []
@@ -46,37 +52,6 @@ render(
   </Provider>,
   document.getElementById('root')
 );
-/*
-store.dispatch(addPiece({piece_id:'king1', can_move:1, onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-big-y.png', pos:{x:0, y:0}}));
-store.dispatch(addPiece({piece_id:'knight1', can_move:1, onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-small-y.png', pos:{x:1, y:0}}));
-store.dispatch(addPiece({piece_id:'knight2', can_move:1, onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-small-y.png', pos:{x:2, y:0}}));
-
-store.dispatch(addPiece({piece_id:'rebel1', can_move:1, onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-big-k.png', pos:{x:3, y:0}}));
-store.dispatch(addPiece({piece_id:'farmer1', can_move:1, onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-small-k.png', pos:{x:4, y:0}}));
-store.dispatch(addPiece({piece_id:'farmer2', can_move:1, onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-small-k.png', pos:{x:5, y:0}}));
-store.dispatch(addPiece({piece_id:'farmer3', can_move:1, onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-small-k.png', pos:{x:6, y:0}}));
-store.dispatch(addPiece({piece_id:'farmer4', can_move:1, onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-small-k.png', pos:{x:7, y:0}}));
-store.dispatch(addPiece({piece_id:'farmer5', can_move:1, onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-small-k.png', pos:{x:8, y:0}}));
-
-store.dispatch(addPiece({piece_id:'levy1', can_move:1, onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-big-r.png', pos:{x:0, y:1}}));
-store.dispatch(addPiece({piece_id:'merchant1', can_move:1, onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-small-r.png', pos:{x:1, y:1}}));
-store.dispatch(addPiece({piece_id:'merchant2', can_move:1, onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-small-r.png', pos:{x:2, y:1}}));
-store.dispatch(addPiece({piece_id:'merchant3', can_move:1, onActivate:'SHOW_INFO', user_id:'user123', image:'./images/iso-small-r.png', pos:{x:3, y:1}}));
-*/
-//store.dispatch(addPiece({piece_id:'house1', can_move:0, onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-house.png', pos:{x:11, y:0}}));
-
-/*
-store.dispatch(addPiece({piece_id:'enemy1', can_move:0, onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-enemy.png', pos:{x:14, y:0}}));
-store.dispatch(addPiece({piece_id:'enemy2', can_move:0, onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-enemy.png', pos:{x:14-0.50, y:0-0.18}}));
-store.dispatch(addPiece({piece_id:'enemy3', can_move:0, onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-enemy.png', pos:{x:14-1.10, y:0-0.38}}));
-store.dispatch(addPiece({piece_id:'enemy4', can_move:0, onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-enemy.png', pos:{x:12, y:1}}));
-store.dispatch(addPiece({piece_id:'enemy5', can_move:0, onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-enemy.png', pos:{x:14, y:1}}));
-store.dispatch(addPiece({piece_id:'enemy6', can_move:0, onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-enemy.png', pos:{x:14, y:2}}));
-store.dispatch(addPiece({piece_id:'enemy7', can_move:0, onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-enemy.png', pos:{x:12, y:3}}));
-store.dispatch(addPiece({piece_id:'enemy8', can_move:0, onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-enemy.png', pos:{x:14, y:3}}));
-store.dispatch(addPiece({piece_id:'marker1', can_move:0, onActivate:'SHOW_INFO', user_id:'system', image:'./images/iso-marker.png', pos:{x:12, y:3}}));
-*/
-
 
 // Card generator
 const scenario={
@@ -88,7 +63,6 @@ const scenario={
   enemy_pieces: ['enemy1','enemy2','enemy3','enemy4','enemy5','enemy6'],
   house_pieces: ['house1','house2','house3']
 }
-const my_piece_id='king1';
 
 const scenarioGenerator = (my_piece_id, scenario) => {
   let deck_size=scenario.my_cards+scenario.usr_cards+scenario.npc_cards;
@@ -108,8 +82,10 @@ const scenarioGenerator = (my_piece_id, scenario) => {
         piece_id:tmp_piece_id,
         can_move:0,
         rearrange:1,
+        war_strength:0,
         onActivate:'SHOW_INFO',
         user_id:'user123',
+        enemy_row:-1,
         pos:{x:pieces_row_max[tmp_row], y:tmp_row},
         image:'./images/iso-house.png'
       }));
@@ -127,6 +103,7 @@ const scenarioGenerator = (my_piece_id, scenario) => {
         rearrange:1,
         onActivate:'SHOW_INFO',
         user_id:'user123',
+        enemy_row:-1,
         pos:{x:pieces_row_max[tmp_row], y:tmp_row},
         ...CARDS.findCardById(tmp_piece_id)
       }));
@@ -144,6 +121,7 @@ const scenarioGenerator = (my_piece_id, scenario) => {
         rearrange:1,
         onActivate:'SHOW_INFO',
         user_id:'user123',
+        enemy_row:-1,
         pos:{x:pieces_row_max[tmp_row], y:tmp_row},
         ...CARDS.findCardById(tmp_piece_id)
       }));
@@ -159,8 +137,10 @@ const scenarioGenerator = (my_piece_id, scenario) => {
         piece_id:tmp_piece_id,
         can_move:0,
         rearrange:0,
+        war_strength:-2,
         onActivate:'SHOW_INFO',
         user_id:'user123',
+        enemy_row: tmp_row,
         pos:{x:15-0.5*enemy_row_stack[tmp_row], y:tmp_row-0.18*enemy_row_stack[tmp_row]},
         image:'./images/iso-enemy.png'
       }));
@@ -177,6 +157,7 @@ const scenarioGenerator = (my_piece_id, scenario) => {
       rearrange:1,
       onActivate:'SHOW_INFO',
       user_id:'user123',
+      enemy_row:-1,
       pos:{x:pieces_row_max[tmp_row], y:tmp_row},
       ...CARDS.findCardById(tmp_piece_id)
   }));
@@ -219,6 +200,8 @@ const scenarioGenerator = (my_piece_id, scenario) => {
   }
 }
 
+const my_piece_id='king1';
+store.dispatch(setMyPieceId({piece_id:my_piece_id}));
 store.dispatch(addCard({piece_id:my_piece_id, ...CARDS.EVENT_CARD, ...CARDS.SHOW_GAMESTART_CARD}));
 scenarioGenerator(my_piece_id, scenario);
 store.dispatch(addCard({piece_id:my_piece_id, ...CARDS.EVENT_CARD, ...CARDS.SHOW_GAMEOVER_CARD}));

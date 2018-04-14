@@ -1,49 +1,14 @@
-//import debug from '../include/debug'
-
-const rearrangePieces = (pieces=[],choosen_piece_index=-1,action_type) => {
-
-  let diff_y=0;
-  let new_pieces = pieces.map( piece => ({
-      ...piece,
-      old_pos: { x: piece.pos.x, y: piece.pos.y }
-  }));
-
-  if(action_type==='MOVE_NORTH') diff_y=-1;
-  if(action_type==='MOVE_SOUTH') diff_y=+1;
-
-  new_pieces[choosen_piece_index].pos.y+=diff_y;
-  if(new_pieces[choosen_piece_index].pos.y<0){
-    new_pieces[choosen_piece_index].pos.y=5;
-  }
-  if(new_pieces[choosen_piece_index].pos.y>5){
-    new_pieces[choosen_piece_index].pos.y=0;
-  }
-
-  //fix the rows to the left and right
-  let first_empty_x_on_the_left=0;
-  let first_empty_x_on_the_choosen=0;
-  let first_empty_x_on_the_right=0;
-  for(let ii=0;ii<new_pieces.length;ii++){
-    if(new_pieces[ii].rearrange===1 && new_pieces[ii].pos.y===new_pieces[choosen_piece_index].pos.y-1){
-      new_pieces[ii].pos.x=first_empty_x_on_the_left;
-      first_empty_x_on_the_left++;
-    }
-    if(new_pieces[ii].rearrange===1 && new_pieces[ii].pos.y===new_pieces[choosen_piece_index].pos.y){
-      new_pieces[ii].pos.x=first_empty_x_on_the_choosen;
-      first_empty_x_on_the_choosen++;
-    }
-    if(new_pieces[ii].rearrange===1 && new_pieces[ii].pos.y===new_pieces[choosen_piece_index].pos.y+1){
-      new_pieces[ii].pos.x=first_empty_x_on_the_right;
-      first_empty_x_on_the_right++;
-    }
-  }
-
-  return new_pieces;
-}
+import { calculatePoints, rearrangePieces } from '../include/gameFunctions'
 
 const mymap = (state = {}, action) => {
 
   switch (action.type) {
+    case 'SET_MY_PIECE_ID':
+      return {
+        ...state,
+        my_piece_id: action.my_piece_id
+      }
+    case 'RUN_BURN_CARD':
     case 'MOVE_NORTH':
     case 'MOVE_SOUTH':
     case 'RUN_NEXT_CARD':
@@ -59,7 +24,8 @@ const mymap = (state = {}, action) => {
         pieces: pieces_rearranged,
         actual_card_index: next_card_index,
         center: actual_card_piece.pos,
-        choosen_piece_index: actual_card_piece.index
+        choosen_piece_index: actual_card_piece.index,
+        score: {...calculatePoints(state.pieces), burnt_points:(action.type==='RUN_BURN_CARD')?state.score.burnt_points+1:state.score.burnt_points}
       }
     case 'ADD_CARD':
       return {

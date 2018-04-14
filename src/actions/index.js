@@ -1,4 +1,8 @@
 //import debug from '../include/debug'
+export const setMyPieceId = (my_piece_id) => ({
+  type: 'SET_MY_PIECE_ID',
+  my_piece_id: my_piece_id
+})
 
 export const addPiece = (piece) => ({
   type: 'ADD_PIECE',
@@ -27,4 +31,8 @@ export const addCard = (card) => ({
 
 export const runNextCard = () => ({
   type: 'RUN_NEXT_CARD'
+})
+
+export const runBurnCard = () => ({
+  type: 'RUN_BURN_CARD'
 })

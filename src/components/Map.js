@@ -3,6 +3,7 @@ import Piece from './Piece'
 import Arrow from './Arrow'
 import Card from './Card'
 import BurnButton from './BurnButton'
+import NextButton from './NextButton'
 import FooterWithData from '../connectors/FooterWithData'
 //import debug from '../include/debug'
 import nonul from '../include/nonul'
@@ -92,9 +93,11 @@ class Map extends Component {
           onClick={this.props.onClickBurnButton} />
       }
       <FooterWithData />
-      <BurnButton
-        card_type={nonul(this.props.mymap.cards[this.props.mymap.actual_card_index]).card_type}
-        onClick={this.props.onClickBurnButton} />
+
+      {(nonul(this.props.mymap.cards[this.props.mymap.actual_card_index]).card_type==='MOVE_PIECE')
+        ?<BurnButton  onClick={this.props.onClickBurnButton} />
+        :<NextButton  onClick={this.props.onClickNextButton} />
+      }
       </div>
   )}
 }
