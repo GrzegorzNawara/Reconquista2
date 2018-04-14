@@ -24,15 +24,15 @@ const rearrangePieces = (pieces=[],choosen_piece_index=-1,action_type) => {
   let first_empty_x_on_the_choosen=0;
   let first_empty_x_on_the_right=0;
   for(let ii=0;ii<new_pieces.length;ii++){
-    if(new_pieces[ii].can_move===1 && new_pieces[ii].pos.y===new_pieces[choosen_piece_index].pos.y-1){
+    if(new_pieces[ii].rearrange===1 && new_pieces[ii].pos.y===new_pieces[choosen_piece_index].pos.y-1){
       new_pieces[ii].pos.x=first_empty_x_on_the_left;
       first_empty_x_on_the_left++;
     }
-    if(new_pieces[ii].can_move===1 && new_pieces[ii].pos.y===new_pieces[choosen_piece_index].pos.y){
+    if(new_pieces[ii].rearrange===1 && new_pieces[ii].pos.y===new_pieces[choosen_piece_index].pos.y){
       new_pieces[ii].pos.x=first_empty_x_on_the_choosen;
       first_empty_x_on_the_choosen++;
     }
-    if(new_pieces[ii].can_move===1 && new_pieces[ii].pos.y===new_pieces[choosen_piece_index].pos.y+1){
+    if(new_pieces[ii].rearrange===1 && new_pieces[ii].pos.y===new_pieces[choosen_piece_index].pos.y+1){
       new_pieces[ii].pos.x=first_empty_x_on_the_right;
       first_empty_x_on_the_right++;
     }
@@ -75,7 +75,7 @@ const mymap = (state = {}, action) => {
     case 'ADD_PIECE':
       return {
         ...state,
-        center: {x:0,y:0},//action.piece.pos,
+        center: action.piece.pos,
         choosen_piece_index: state.pieces.length,
         pieces: [
           ...state.pieces,
