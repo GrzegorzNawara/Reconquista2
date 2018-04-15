@@ -58,7 +58,7 @@ const scenario={
   my_cards:4,
   usr_cards:6,
   npc_cards:18,
-  usr_pieces: ['knight1','knight2','rebel1'],
+  usr_pieces: ['king1','knight1','knight2','rebel1'],
   npc_pieces: ['levy1','merchant1','merchant2','merchant3','farmer1','farmer2','farmer3','farmer4','farmer5'],
   enemy_pieces: ['enemy1','enemy2','enemy3','enemy4','enemy5','enemy6'],
   house_pieces: ['house1','house2','house3']
@@ -72,6 +72,22 @@ const scenarioGenerator = (my_piece_id, scenario) => {
   let pieces_row_max=[0,0,0,0,0,0];
   let enemy_row_stack=[0,0,0,0,0,0];
   let tmp_row=0;
+
+  // ADD MY PIECE
+  tmp_piece_id=my_piece_id;
+  tmp_row=Math.floor(Math.random()*6);
+  store.dispatch(
+    addPiece({
+      piece_id:tmp_piece_id,
+      can_move:1,
+      rearrange:1,
+      onActivate:'SHOW_INFO',
+      user_id:'user123',
+      enemy_row:-1,
+      pos:{x:pieces_row_max[tmp_row], y:tmp_row},
+      ...CARDS.findCardById(tmp_piece_id)
+  }));
+  pieces_row_max[tmp_row]++;
 
   // ADD HOUSE PIECES
   for(let ii=0; ii<scenario.house_pieces.length; ii++){
@@ -96,36 +112,40 @@ const scenarioGenerator = (my_piece_id, scenario) => {
   for(let ii=0; ii<scenario.usr_pieces.length; ii++){
     tmp_piece_id=scenario.usr_pieces[ii];
     tmp_row=Math.floor(Math.random()*6);
-    store.dispatch(
-      addPiece({
-        piece_id:tmp_piece_id,
-        can_move:1,
-        rearrange:1,
-        onActivate:'SHOW_INFO',
-        user_id:'user123',
-        enemy_row:-1,
-        pos:{x:pieces_row_max[tmp_row], y:tmp_row},
-        ...CARDS.findCardById(tmp_piece_id)
-      }));
-      pieces_row_max[tmp_row]++;
+    if(my_piece_id!==tmp_piece_id){
+      store.dispatch(
+        addPiece({
+          piece_id:tmp_piece_id,
+          can_move:1,
+          rearrange:1,
+          onActivate:'SHOW_INFO',
+          user_id:'user123',
+          enemy_row:-1,
+          pos:{x:pieces_row_max[tmp_row], y:tmp_row},
+          ...CARDS.findCardById(tmp_piece_id)
+        }));
+        pieces_row_max[tmp_row]++;
+    }
   }
 
   // ADD NPC PIECES
   for(let ii=0; ii<scenario.npc_pieces.length; ii++){
     tmp_piece_id=scenario.npc_pieces[ii];
     tmp_row=Math.floor(Math.random()*6);
-    store.dispatch(
-      addPiece({
-        piece_id:tmp_piece_id,
-        can_move:1,
-        rearrange:1,
-        onActivate:'SHOW_INFO',
-        user_id:'user123',
-        enemy_row:-1,
-        pos:{x:pieces_row_max[tmp_row], y:tmp_row},
-        ...CARDS.findCardById(tmp_piece_id)
-      }));
-      pieces_row_max[tmp_row]++;
+    if(my_piece_id!==tmp_piece_id){
+      store.dispatch(
+        addPiece({
+          piece_id:tmp_piece_id,
+          can_move:1,
+          rearrange:1,
+          onActivate:'SHOW_INFO',
+          user_id:'user123',
+          enemy_row:-1,
+          pos:{x:pieces_row_max[tmp_row], y:tmp_row},
+          ...CARDS.findCardById(tmp_piece_id)
+        }));
+        pieces_row_max[tmp_row]++;
+    }
   }
 
   // ADD ENEMY PIECES
@@ -146,23 +166,6 @@ const scenarioGenerator = (my_piece_id, scenario) => {
       }));
       enemy_row_stack[tmp_row]++;
   }
-
-  // ADD MY PIECE
-  tmp_piece_id=my_piece_id;
-  tmp_row=Math.floor(Math.random()*6);
-  store.dispatch(
-    addPiece({
-      piece_id:tmp_piece_id,
-      can_move:1,
-      rearrange:1,
-      onActivate:'SHOW_INFO',
-      user_id:'user123',
-      enemy_row:-1,
-      pos:{x:pieces_row_max[tmp_row], y:tmp_row},
-      ...CARDS.findCardById(tmp_piece_id)
-  }));
-  pieces_row_max[tmp_row]++;
-
 
 
 
@@ -200,8 +203,8 @@ const scenarioGenerator = (my_piece_id, scenario) => {
   }
 }
 
-const my_piece_id='king1';
-store.dispatch(setMyPieceId({piece_id:my_piece_id}));
+const my_piece_id='merchant1';
+store.dispatch(setMyPieceId({my_piece_id:my_piece_id}));
 store.dispatch(addCard({piece_id:my_piece_id, ...CARDS.EVENT_CARD, ...CARDS.SHOW_GAMESTART_CARD}));
 scenarioGenerator(my_piece_id, scenario);
 store.dispatch(addCard({piece_id:my_piece_id, ...CARDS.EVENT_CARD, ...CARDS.SHOW_GAMEOVER_CARD}));

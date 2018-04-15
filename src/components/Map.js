@@ -64,6 +64,7 @@ class Map extends Component {
             <Piece
               key={piece.piece_id}
               id={piece.piece_id}
+              my_piece_id={this.props.mymap.my_piece_id}
               my_image={piece.image}
               old_pos={this.grid2iso(this.props.mymap.center,piece.old_pos)}
               pos={this.grid2iso(this.props.mymap.center,piece.pos)}
@@ -88,8 +89,7 @@ class Map extends Component {
         }
 
       {nonul(this.props.mymap.cards[this.props.mymap.actual_card_index]).card_type==='SHOW_CARD' &&
-        <Card
-          my_card={this.props.mymap.cards[this.props.mymap.actual_card_index]}
+        <Card  my_card={this.props.mymap.cards[this.props.mymap.actual_card_index]}
           onClick={this.props.onClickBurnButton} />
       }
       <FooterWithData />

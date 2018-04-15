@@ -25,7 +25,7 @@ const mymap = (state = {}, action) => {
         actual_card_index: next_card_index,
         center: actual_card_piece.pos,
         choosen_piece_index: actual_card_piece.index,
-        score: {...calculatePoints(state.pieces), burnt_points:(action.type==='RUN_BURN_CARD')?state.score.burnt_points+1:state.score.burnt_points}
+        score: {...calculatePoints(state.my_piece_id, state.pieces), burnt_points:(action.type==='RUN_BURN_CARD')?state.score.burnt_points+1:state.score.burnt_points}
       }
     case 'ADD_CARD':
       return {
