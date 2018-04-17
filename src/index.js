@@ -5,7 +5,7 @@ import createSagaMiddleware from 'redux-saga'
 import { Provider } from 'react-redux'
 import reducer from './reducers'
 import App from './components/App'
-//import loadDataSaga from './sagas'
+import loadDataSaga from './sagas'
 import { addPiece, addCard, runNextCard, setMyPieceId } from './actions'
 import * as CARDS from './include/cardsDefinitions'
 //import debug from './include/debug'
@@ -44,7 +44,7 @@ const store = createStore(
     applyMiddleware(sagaMiddleware)
 ));
 
-//sagaMiddleware.run(loadDataSaga)
+sagaMiddleware.run(loadDataSaga)
 
 render(
   <Provider store={store}>
@@ -88,85 +88,6 @@ const scenarioGenerator = (my_piece_id, scenario) => {
       ...CARDS.findCardById(tmp_piece_id)
   }));
   pieces_row_max[tmp_row]++;
-
-  // ADD HOUSE PIECES
-  for(let ii=0; ii<scenario.house_pieces.length; ii++){
-    tmp_piece_id=scenario.house_pieces[ii];
-    tmp_row=Math.floor(Math.random()*6);
-    store.dispatch(
-      addPiece({
-        piece_id:tmp_piece_id,
-        can_move:0,
-        rearrange:1,
-        war_strength:0,
-        onActivate:'SHOW_INFO',
-        user_id:'user123',
-        enemy_row:-1,
-        pos:{x:pieces_row_max[tmp_row], y:tmp_row},
-        image:'./images/iso-house.png'
-      }));
-      pieces_row_max[tmp_row]++;
-  }
-
-  // ADD USR PIECES
-  for(let ii=0; ii<scenario.usr_pieces.length; ii++){
-    tmp_piece_id=scenario.usr_pieces[ii];
-    tmp_row=Math.floor(Math.random()*6);
-    if(my_piece_id!==tmp_piece_id){
-      store.dispatch(
-        addPiece({
-          piece_id:tmp_piece_id,
-          can_move:1,
-          rearrange:1,
-          onActivate:'SHOW_INFO',
-          user_id:'user123',
-          enemy_row:-1,
-          pos:{x:pieces_row_max[tmp_row], y:tmp_row},
-          ...CARDS.findCardById(tmp_piece_id)
-        }));
-        pieces_row_max[tmp_row]++;
-    }
-  }
-
-  // ADD NPC PIECES
-  for(let ii=0; ii<scenario.npc_pieces.length; ii++){
-    tmp_piece_id=scenario.npc_pieces[ii];
-    tmp_row=Math.floor(Math.random()*6);
-    if(my_piece_id!==tmp_piece_id){
-      store.dispatch(
-        addPiece({
-          piece_id:tmp_piece_id,
-          can_move:1,
-          rearrange:1,
-          onActivate:'SHOW_INFO',
-          user_id:'user123',
-          enemy_row:-1,
-          pos:{x:pieces_row_max[tmp_row], y:tmp_row},
-          ...CARDS.findCardById(tmp_piece_id)
-        }));
-        pieces_row_max[tmp_row]++;
-    }
-  }
-
-  // ADD ENEMY PIECES
-  for(let ii=0; ii<scenario.enemy_pieces.length; ii++){
-    tmp_piece_id=scenario.enemy_pieces[ii];
-    tmp_row=Math.floor(Math.random()*6);
-    store.dispatch(
-      addPiece({
-        piece_id:tmp_piece_id,
-        can_move:0,
-        rearrange:0,
-        war_strength:-2,
-        onActivate:'SHOW_INFO',
-        user_id:'user123',
-        enemy_row: tmp_row,
-        pos:{x:15-0.5*enemy_row_stack[tmp_row], y:tmp_row-0.18*enemy_row_stack[tmp_row]},
-        image:'./images/iso-enemy.png'
-      }));
-      enemy_row_stack[tmp_row]++;
-  }
-
 
 
   // ADD ENEMY CARDS

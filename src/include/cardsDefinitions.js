@@ -34,7 +34,18 @@ export const KNIGHT_CARD = {
   header: 'Rycerz',
   war_strength:1
 }
-
+export const ENEMY_CARD = {
+  corner_image:'./images/card-corner-enemy.png',
+  header: 'Wróg',
+  image:'./images/iso-enemy.png',
+  war_strength:-2
+}
+export const HOUSE_CARD = {
+  corner_image:'./images/card-corner-enemy.png',
+  header: 'Targ',
+  image:'./images/iso-house.png',
+  war_strength:0
+}
 export const findCardById = (piece_id) => {
   switch (piece_id) {
     case 'king1':
@@ -48,6 +59,10 @@ export const findCardById = (piece_id) => {
     case 'merchant2':
     case 'merchant3':
       return MERCHANT_CARD;
+    case 'house1':
+    case 'house2':
+    case 'house3':
+      return HOUSE_CARD;      
     case 'rebel1':
       return REBEL_CARD;
     case 'farmer1':
@@ -60,15 +75,21 @@ export const findCardById = (piece_id) => {
     case 'farmer8':
     case 'farmer9':
       return FARMER_CARD;
+    case 'enemy1':
+    case 'enemy2':
+    case 'enemy3':
+    case 'enemy4':
+    case 'enemy5':
+    case 'enemy6':
+    case 'enemy7':
+    case 'enemy8':
+    case 'enemy9':
+      return ENEMY_CARD;
     default:
       return KING_CARD;
   }
 }
 
-export const ENEMY_CARD = {
-  corner_image:'./images/card-corner-enemy.png',
-  header: 'Wróg'
-}
 export const EVENT_CARD = {
   corner_image:'./images/card-corner-event.png',
   header: 'Zdarzenie'
