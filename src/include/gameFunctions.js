@@ -69,6 +69,9 @@ export const calculatePoints = (my_piece_id='',pieces=[]) => {
 
 export const rearrangePieces = (pieces=[],choosen_piece_index=-1,action_type) => {
 
+  if(choosen_piece_index<0 || choosen_piece_index>=pieces.length)
+    return pieces;
+
   let diff_y=0;
   let new_pieces = pieces.map( piece => ({
       ...piece,
@@ -77,6 +80,8 @@ export const rearrangePieces = (pieces=[],choosen_piece_index=-1,action_type) =>
 
   if(action_type==='MOVE_NORTH') diff_y=-1;
   if(action_type==='MOVE_SOUTH') diff_y=+1;
+
+
 
   new_pieces[choosen_piece_index].pos.y+=diff_y;
   if(new_pieces[choosen_piece_index].pos.y<0){

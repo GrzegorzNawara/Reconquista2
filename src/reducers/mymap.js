@@ -3,6 +3,11 @@ import { calculatePoints, rearrangePieces } from '../include/gameFunctions'
 const mymap = (state = {}, action) => {
 
   switch (action.type) {
+    case 'SET_SCENARIO':
+      return {
+        ...state,
+        scenario: action.scenario
+      }
     case 'SET_MY_PIECE_ID':
       return {
         ...state,

@@ -4,6 +4,11 @@ export const setMyPieceId = ({my_piece_id}) => ({
   my_piece_id: my_piece_id
 })
 
+export const setScenario = (scenario) => ({
+  type: 'SET_SCENARIO',
+  scenario: scenario
+})
+
 export const addPiece = (piece) => ({
   type: 'ADD_PIECE',
   piece: piece
