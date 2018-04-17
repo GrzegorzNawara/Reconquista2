@@ -1,9 +1,49 @@
-import { put, call, take } from 'redux-saga/effects'
+import { delay } from 'redux-saga'
+import { put, call, take, takeEvery, takeLatest } from 'redux-saga/effects'
 import { apiFetchData } from '../api'
 import { setScenario, addPiece, addCard, runNextCard, setMyPieceId } from '../actions'
 import * as CARDS from '../include/cardsDefinitions'
 import getUrlParam from '../include/getUrlParam'
 import debug from '../include/debug'
+
+function* sendMsg(action) {
+  const response1 = yield call(apiFetchData,
+      "http://abcportal.eu/growbook-test/games/reconquista2/api-send-msg.php"
+      +"?game_id="+getUrlParam('game_id')
+      +"&user_id="+getUrlParam('user_id')
+      +"&action="+JSON.stringify(action)
+    )
+  if (debug(response1,'RESPONSE').error) {
+    return yield put({type: 'SEND_MSG_ERROR', response1})
+  }
+}
+
+function* updateApi(data) {
+  while (true) {
+    try {
+      const apiResponse = yield call(apiFetchData, { data });
+      return apiResponse;
+    } catch(error) {
+      yield put({
+        type: 'UPDATE_RETRY',
+        error
+      })
+      yield call(delay, 5000);
+    }
+  }
+}
+
+function* updateResource({ data }) {
+  const apiResponse = yield call(updateApi, data);
+  yield put({
+    type: 'UPDATE_SUCCESS',
+    payload: apiResponse.body,
+  });
+}
+
+export function* watchUpdateResource() {
+  yield takeLatest('UPDATE_START', updateResource);
+}
 
 export default function* loadDataSaga() {
 
@@ -26,14 +66,14 @@ export default function* loadDataSaga() {
   const msg = response1.split("\n").filter((str) => str!=='').map((str) => JSON.parse(str));
   for(let ii=0; ii<msg.length; ii++){
 
-    if(msg[ii].action==='setScenario'){
+    if(msg[ii].type==='SET_SCENARIO'){
       scenario=msg[ii].scenario;
       my_piece_id=scenario.usr_pieces[my_index%msg[ii].scenario.usr_pieces.length];
       yield put(setScenario(msg[ii].scenario));
       yield put(setMyPieceId({my_piece_id:my_piece_id}));
     }
 
-    if(msg[ii].action==='addPiece')
+    if(msg[ii].type==='ADD_PIECE')
       yield put(addPiece({
         ...msg[ii].piece,
         ...CARDS.findCardById(msg[ii].piece.piece_id)
@@ -83,6 +123,9 @@ export default function* loadDataSaga() {
 
   yield put(addCard({piece_id:my_piece_id, ...CARDS.EVENT_CARD, ...CARDS.SHOW_GAMEOVER_CARD}));
   yield put(runNextCard({}));
+
+  //yield takeEvery('MOVE_NORTH', sendMsg);
+  //yield takeEvery('MOVE_SOUTH', sendMsg);
 
 
 }
