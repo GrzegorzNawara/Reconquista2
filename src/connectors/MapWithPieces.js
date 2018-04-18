@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import Map from '../components/Map'
-import {activatePiece, moveNorth, moveSouth, showNextCard, burnTheCard} from '../actions'
+import { moveNorth, moveSouth, showNextCard, burnTheCard} from '../actions'
 //import debug from '../include/debug'
 
 const mapStateToProps = (state) => ({

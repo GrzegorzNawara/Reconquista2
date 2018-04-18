@@ -1,10 +1,16 @@
 import { calculatePoints, rearrangePieces } from '../include/gameFunctions'
 import * as CARDS from '../include/cardsDefinitions'
-import debug from '../include/debug'
+//import debug from '../include/debug'
 
 const mymap = (state = {}, action) => {
 
   switch (action.type) {
+    case 'INCREMENT_MSG_ID':
+      return {
+        ...state,
+        last_msg_id: state.last_msg_id+1,
+        last_nonempty_update: Date.now()
+      }
     case 'SET_SCENARIO':
       return {
         ...state,
@@ -15,9 +21,32 @@ const mymap = (state = {}, action) => {
         ...state,
         my_piece_id: action.my_piece_id
       }
+    case 'UPDATE_MOVE_NORTH':
+      return {
+        ...state,
+        pieces: state.pieces.map( piece => (
+          (piece.piece_id===action.piece.piece_id)?
+          {
+            ...piece,
+            pos: {x: piece.pos.x, y:(piece.pos.y+5)%6},
+            old_pos: { x: piece.pos.x, y: piece.pos.y }
+          }:piece
+      ))}
+    case 'UPDATE_MOVE_SOUTH':
+      return {
+        ...state,
+        pieces: state.pieces.map( piece => (
+          (piece.piece_id===action.piece.piece_id)?
+          {
+            ...piece,
+            pos: {x: piece.pos.x, y:(piece.pos.y+7)%6},
+            old_pos: { x: piece.pos.x, y: piece.pos.y }
+          }:piece
+      ))}
     case 'MOVE_NORTH':
       return {
         ...state,
+        action_buttons_visible: 0,
         pieces: state.pieces.map( piece => (
           (piece.piece_id===action.piece.piece_id)?
           {
@@ -29,6 +58,7 @@ const mymap = (state = {}, action) => {
     case 'MOVE_SOUTH':
       return {
         ...state,
+        action_buttons_visible: 0,
         pieces: state.pieces.map( piece => (
           (piece.piece_id===action.piece.piece_id)?
           {
@@ -37,6 +67,12 @@ const mymap = (state = {}, action) => {
             old_pos: { x: piece.pos.x, y: piece.pos.y }
           }:piece
       ))}
+    case 'BURN_THE_MOVE':
+      return {
+        ...state,
+        action_buttons_visible: 0,
+        score: { ...state.score, burnt_points: state.score.burnt_points++ }
+      }
     case 'REARRANGE_PIECES':
       return {
         ...state,
@@ -49,11 +85,6 @@ const mymap = (state = {}, action) => {
           ...state.score,
           ...calculatePoints(state.my_piece_id, state.pieces),
         }
-      }
-    case 'BURN_THE_MOVE':
-      return {
-        ...state,
-        score: { ...state.score, burnt_points: state.score.burnt_points++ }
       }
     case 'SHOW_NEXT_CARD':
       return {
@@ -72,6 +103,7 @@ const mymap = (state = {}, action) => {
     case 'MOVE_PIECE_CARD':
       return {
         ...state,
+        action_buttons_visible: 1,
         choosen_piece_index: state.pieces.filter((piece) => piece.piece_id===action.card.piece_id)[0].index,
         center: state.pieces.filter((piece) => piece.piece_id===action.card.piece_id)[0].pos
       }

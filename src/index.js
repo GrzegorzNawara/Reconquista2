@@ -6,8 +6,6 @@ import { Provider } from 'react-redux'
 import reducer from './reducers'
 import App from './components/App'
 import mainSaga from './sagas'
-import { addPiece, addCard, runNextCard, setMyPieceId } from './actions'
-import * as CARDS from './include/cardsDefinitions'
 //import debug from './include/debug'
 
 const sagaMiddleware = createSagaMiddleware()
@@ -16,6 +14,9 @@ const initialState = {
   // data
   mymap: {
     scenario: {},
+
+    last_msg_id: -1,
+    last_nonempty_update: 0,
 
     my_piece_id: '',
 
@@ -30,6 +31,7 @@ const initialState = {
       happy_points:0
     },
 
+    action_buttons_visible: 0,
     actual_card_index: -1,
     cards: []
   },
