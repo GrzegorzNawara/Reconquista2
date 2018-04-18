@@ -1,4 +1,6 @@
 import { calculatePoints, rearrangePieces } from '../include/gameFunctions'
+import * as CARDS from '../include/cardsDefinitions'
+import debug from '../include/debug'
 
 const mymap = (state = {}, action) => {
 
@@ -13,24 +15,45 @@ const mymap = (state = {}, action) => {
         ...state,
         my_piece_id: action.my_piece_id
       }
-    case 'RUN_BURN_CARD':
     case 'MOVE_NORTH':
-    case 'MOVE_SOUTH':
-    case 'RUN_NEXT_CARD':
-      const pieces_rearranged=rearrangePieces(state.pieces,state.choosen_piece_index,action.type);
-      const next_card_index=(state.actual_card_index<state.cards.length-1)
-        ?state.actual_card_index+1
-        :state.actual_card_index;
-      const actual_card=state.cards[next_card_index];
-      const actual_card_piece_index=pieces_rearranged.filter(piece => piece.piece_id===actual_card.piece_id)[0].index;
-      const actual_card_piece=pieces_rearranged[actual_card_piece_index];
       return {
         ...state,
-        pieces: pieces_rearranged,
-        actual_card_index: next_card_index,
-        center: actual_card_piece.pos,
-        choosen_piece_index: actual_card_piece.index,
-        score: {...calculatePoints(state.my_piece_id, state.pieces), burnt_points:(action.type==='RUN_BURN_CARD')?state.score.burnt_points+1:state.score.burnt_points}
+        ...state.pieces.map(piece => (piece.piece_id===action.piece.piece_id)?
+        {...piece, pos:{x:piece.pos.x,y:piece.pos.y++%6}}
+        :piece
+      )}
+    case 'MOVE_SOUTH':
+      return {
+        ...state,
+        ...state.pieces.map(piece => (piece.piece_id===action.piece.piece_id)?
+        {...piece, pos:{x:piece.pos.x,y:piece.pos.y++%6}}
+        :piece
+      )}
+    case 'REARRANGE_PIECES':
+      return {
+        ...state,
+        ...rearrangePieces(state.pieces)
+      }
+    case 'CALCULATE_POINTS':
+      return {
+        ...state,
+        score: {
+          ...state.score,
+          ...calculatePoints(state.my_piece_id, state.pieces),
+        }
+      }
+    case 'BURN_THE_MOVE':
+      return {
+        ...state,
+        score: { ...state.score, burnt_points: state.score.burnt_points++ }
+      }
+    case 'SHOW_NEXT_CARD':
+      return {
+        ...state,
+        actual_card_index:
+          (state.actual_card_index<state.cards.length-1)
+            ?state.actual_card_index+=1
+            :state.actual_card_index
       }
     case 'ADD_CARD':
       return {
@@ -46,14 +69,12 @@ const mymap = (state = {}, action) => {
     case 'ADD_PIECE':
       return {
         ...state,
-        center: action.piece.pos,
-        choosen_piece_index: state.pieces.length,
         pieces: [
           ...state.pieces,
-          {
-            ...action.piece,
+          { ...action.piece,
             old_pos: action.piece.pos,
-            index: state.pieces.length
+            index: state.pieces.length,
+            ...CARDS.findCardById(action.piece.piece_id)
           }
         ]
       }

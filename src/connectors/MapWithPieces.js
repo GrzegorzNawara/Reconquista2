@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import Map from '../components/Map'
-import {activatePiece, moveNorth, moveSouth, runNextCard, runBurnCard} from '../actions'
+import {activatePiece, moveNorth, moveSouth, showNextCard, burnTheCard} from '../actions'
 //import debug from '../include/debug'
 
 const mapStateToProps = (state) => ({
@@ -8,11 +8,10 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  onClick: activatePiece,
   onClickMoveNorth: moveNorth,
   onClickMoveSouth: moveSouth,
-  onClickNextButton: runNextCard,
-  onClickBurnButton: runBurnCard
+  onClickNextButton: showNextCard,
+  onClickBurnButton: burnTheCard
 }
 
 const MapWithPieces = connect(

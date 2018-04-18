@@ -34,10 +34,10 @@ export const addCard = (card) => ({
   card: card
 })
 
-export const runNextCard = () => ({
-  type: 'RUN_NEXT_CARD'
+export const showNextCard = () => ({
+  type: 'SHOW_NEXT_CARD'
 })
 
-export const runBurnCard = () => ({
-  type: 'RUN_BURN_CARD'
+export const burnTheCard = () => ({
+  type: 'BURN_THE_MOVE'
 })
