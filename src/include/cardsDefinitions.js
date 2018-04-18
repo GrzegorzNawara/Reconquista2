@@ -62,7 +62,7 @@ export const findCardById = (piece_id) => {
     case 'house1':
     case 'house2':
     case 'house3':
-      return HOUSE_CARD;      
+      return HOUSE_CARD;
     case 'rebel1':
       return REBEL_CARD;
     case 'farmer1':
@@ -91,34 +91,42 @@ export const findCardById = (piece_id) => {
 }
 
 export const EVENT_CARD = {
+  card_type:'SHOW_INFO_CARD',
   corner_image:'./images/card-corner-event.png',
-  header: 'Zdarzenie'
+  header: 'Zdarzenie',
+  visible: 1
 }
 
 export const SHOW_MOVE_CARD = {
-  card_type:'SHOW_CARD',
+  card_type:'SHOW_INFO_CARD',
   mid_image:'./images/card-mid-move.png',
-  text: 'Możesz się poruszyć albo spalić tą kartę'
+  text: 'Możesz się poruszyć albo spalić tą kartę',
+  visible: 1
 }
 export const SHOW_ENEMY_CARD = {
-  card_type:'SHOW_CARD',
+  card_type:'SHOW_PIECE_CARD',
   mid_image:'./images/card-mid-enemy.png',
-  text: 'Możesz zobaczyć, gdzie są wrogowie'
+  text: 'Możesz zobaczyć, gdzie są wrogowie',
+  visible: 1
 }
 export const SHOW_GAMEOVER_CARD = {
-  card_type:'SHOW_CARD',
+  card_type:'SHOW_PIECE_CARD',
   mid_image:'./images/card-mid-gameover.png',
-  text: 'Nadeszła zima. Minął kolejny rok. Koniec gry.'
+  text: 'Nadeszła zima. Minął kolejny rok. Koniec gry.',
+  visible: 1
 }
 export const SHOW_GAMESTART_CARD = {
-  card_type:'SHOW_CARD',
+  card_type:'SHOW_PIECE_CARD',
   mid_image:'./images/card-mid-gamestart.png',
-  text: 'Nadeszła wiosna. Rozpoczyna się gra.'
+  text: 'Nadeszła wiosna. Rozpoczyna się gra.',
+  visible: 1
 }
 
 export const EXEC_MOVE_CARD = {
-  card_type:'MOVE_PIECE'
+  card_type:'MOVE_PIECE_CARD',
+  visible: 0
 }
 export const EXEC_ENEMY_CARD = {
-  card_type:'SHOW_ENEMY'
+  card_type:'SHOW_PIECE_CARD',
+  visible: 0
 }

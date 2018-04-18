@@ -5,7 +5,7 @@ import createSagaMiddleware from 'redux-saga'
 import { Provider } from 'react-redux'
 import reducer from './reducers'
 import App from './components/App'
-import loadDataSaga from './sagas'
+import mainSaga from './sagas'
 import { addPiece, addCard, runNextCard, setMyPieceId } from './actions'
 import * as CARDS from './include/cardsDefinitions'
 //import debug from './include/debug'
@@ -46,7 +46,7 @@ const store = createStore(
     applyMiddleware(sagaMiddleware)
 ));
 
-sagaMiddleware.run(loadDataSaga)
+sagaMiddleware.run(mainSaga)
 
 render(
   <Provider store={store}>

@@ -1,22 +1,12 @@
 import { delay } from 'redux-saga'
-import { put, call, take, takeEvery, takeLatest } from 'redux-saga/effects'
+import { put, call, take, takeEvery, takeLatest, select } from 'redux-saga/effects'
 import { apiFetchData } from '../api'
 import { setScenario, addPiece, addCard, showNextCard, setMyPieceId } from '../actions'
 import * as CARDS from '../include/cardsDefinitions'
 import getUrlParam from '../include/getUrlParam'
 import debug from '../include/debug'
 
-function* sendMsg(action) {
-  const response1 = yield call(apiFetchData,
-      "http://abcportal.eu/growbook-test/games/reconquista2/api-send-msg.php"
-      +"?game_id="+getUrlParam('game_id')
-      +"&user_id="+getUrlParam('user_id')
-      +"&action="+JSON.stringify(action)
-    )
-  if (debug(response1,'RESPONSE').error) {
-    return yield put({type: 'SEND_MSG_ERROR', response1})
-  }
-}
+
 
 function* updateApi(data) {
   while (true) {
@@ -85,8 +75,7 @@ function* addMyCards(scenario, my_piece_id) {
   yield put(addCard({piece_id:my_piece_id, ...CARDS.EVENT_CARD, ...CARDS.SHOW_GAMEOVER_CARD}));
 }
 
-
-export default function* loadDataSaga() {
+function* initLoad() {
 
   let scenario=[];
   let my_piece_id='';
@@ -121,11 +110,41 @@ export default function* loadDataSaga() {
   }
 
   yield addMyCards(scenario, my_piece_id);
+}
+
+function* sendMsg(action) {
+  const response1 = yield call(apiFetchData,
+      "http://abcportal.eu/growbook-test/games/reconquista2/api-send-msg.php"
+      +"?game_id="+getUrlParam('game_id')
+      +"&user_id="+getUrlParam('user_id')
+      +"&action="+JSON.stringify(action)
+    )
+  if (debug(response1,'RESPONSE').error) {
+    return yield put({type: 'SEND_MSG_ERROR', response1})
+  }
+  yield put({type: 'REARRANGE_PIECES'});
+  yield delay(1000);
+  yield put({type: 'SHOW_NEXT_CARD'});
+}
+
+function* runTheCard() {
+  const getTheCard = (state) => state.mymap.cards[state.mymap.actual_card_index];
+  const theCard = yield select(getTheCard);
+
+  yield put({type: theCard.card_type, card: theCard});
+}
+
+export default function* mainSaga() {
+
+  yield call(initLoad);
 
   yield put({type:'SHOW_NEXT_CARD'});
+  yield put({type:'REARRANGE_PIECES'});
 
   yield takeEvery('MOVE_NORTH', sendMsg);
   yield takeEvery('MOVE_SOUTH', sendMsg);
+
+  yield takeEvery('SHOW_NEXT_CARD', runTheCard);
 
 
 }

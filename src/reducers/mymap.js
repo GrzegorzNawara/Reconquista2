@@ -18,21 +18,29 @@ const mymap = (state = {}, action) => {
     case 'MOVE_NORTH':
       return {
         ...state,
-        ...state.pieces.map(piece => (piece.piece_id===action.piece.piece_id)?
-        {...piece, pos:{x:piece.pos.x,y:piece.pos.y++%6}}
-        :piece
-      )}
+        pieces: state.pieces.map( piece => (
+          (piece.piece_id===action.piece.piece_id)?
+          {
+            ...piece,
+            pos: {x: piece.pos.x, y:(piece.pos.y+5)%6},
+            old_pos: { x: piece.pos.x, y: piece.pos.y }
+          }:piece
+      ))}
     case 'MOVE_SOUTH':
       return {
         ...state,
-        ...state.pieces.map(piece => (piece.piece_id===action.piece.piece_id)?
-        {...piece, pos:{x:piece.pos.x,y:piece.pos.y++%6}}
-        :piece
-      )}
+        pieces: state.pieces.map( piece => (
+          (piece.piece_id===action.piece.piece_id)?
+          {
+            ...piece,
+            pos: {x: piece.pos.x, y:(piece.pos.y+7)%6},
+            old_pos: { x: piece.pos.x, y: piece.pos.y }
+          }:piece
+      ))}
     case 'REARRANGE_PIECES':
       return {
         ...state,
-        ...rearrangePieces(state.pieces)
+        pieces: rearrangePieces(state.pieces)
       }
     case 'CALCULATE_POINTS':
       return {
@@ -54,6 +62,18 @@ const mymap = (state = {}, action) => {
           (state.actual_card_index<state.cards.length-1)
             ?state.actual_card_index+=1
             :state.actual_card_index
+      }
+    case 'SHOW_INFO_CARD':
+    case 'SHOW_PIECE_CARD':
+      return {
+        ...state,
+        center: state.pieces.filter((piece) => piece.piece_id===action.card.piece_id)[0].pos
+      }
+    case 'MOVE_PIECE_CARD':
+      return {
+        ...state,
+        choosen_piece_index: state.pieces.filter((piece) => piece.piece_id===action.card.piece_id)[0].index,
+        center: state.pieces.filter((piece) => piece.piece_id===action.card.piece_id)[0].pos
       }
     case 'ADD_CARD':
       return {
@@ -77,16 +97,6 @@ const mymap = (state = {}, action) => {
             ...CARDS.findCardById(action.piece.piece_id)
           }
         ]
-      }
-    case 'SHOW_INFO':
-      return {
-        ...state,
-        show_info_piece: action.piece,
-      }
-    case 'SET_MAP_CENTER':
-      return {
-        ...state,
-        center: action.center
       }
     default:
       return state

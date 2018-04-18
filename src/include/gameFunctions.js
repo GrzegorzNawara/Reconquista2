@@ -67,46 +67,19 @@ export const calculatePoints = (my_piece_id='',pieces=[]) => {
 }
 
 
-export const rearrangePieces = (pieces=[],choosen_piece_index=-1,action_type) => {
+export const rearrangePieces = (pieces) => {
 
-  if(choosen_piece_index<0 || choosen_piece_index>=pieces.length)
-    return pieces;
-
-  let diff_y=0;
   let new_pieces = pieces.map( piece => ({
       ...piece,
+      pos: {x: piece.pos.x, y:(piece.pos.y+6)%6},
       old_pos: { x: piece.pos.x, y: piece.pos.y }
   }));
 
-  if(action_type==='MOVE_NORTH') diff_y=-1;
-  if(action_type==='MOVE_SOUTH') diff_y=+1;
-
-
-
-  new_pieces[choosen_piece_index].pos.y+=diff_y;
-  if(new_pieces[choosen_piece_index].pos.y<0){
-    new_pieces[choosen_piece_index].pos.y=5;
-  }
-  if(new_pieces[choosen_piece_index].pos.y>5){
-    new_pieces[choosen_piece_index].pos.y=0;
-  }
-
-  //fix the rows to the left and right
-  let first_empty_x_on_the_left=0;
-  let first_empty_x_on_the_choosen=0;
-  let first_empty_x_on_the_right=0;
+  let row_max=[0,0,0,0,0,0];
   for(let ii=0;ii<new_pieces.length;ii++){
-    if(new_pieces[ii].rearrange===1 && new_pieces[ii].pos.y===new_pieces[choosen_piece_index].pos.y-1){
-      new_pieces[ii].pos.x=first_empty_x_on_the_left;
-      first_empty_x_on_the_left++;
-    }
-    if(new_pieces[ii].rearrange===1 && new_pieces[ii].pos.y===new_pieces[choosen_piece_index].pos.y){
-      new_pieces[ii].pos.x=first_empty_x_on_the_choosen;
-      first_empty_x_on_the_choosen++;
-    }
-    if(new_pieces[ii].rearrange===1 && new_pieces[ii].pos.y===new_pieces[choosen_piece_index].pos.y+1){
-      new_pieces[ii].pos.x=first_empty_x_on_the_right;
-      first_empty_x_on_the_right++;
+    if(new_pieces[ii].rearrange===1){
+      new_pieces[ii].pos.x=row_max[new_pieces[ii].pos.y];
+      row_max[new_pieces[ii].pos.y]++;
     }
   }
 

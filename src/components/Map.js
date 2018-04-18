@@ -46,7 +46,7 @@ class Map extends Component {
 
         {this.props.mymap.choosen_piece_index>-1 &&
           this.props.mymap.pieces[this.props.mymap.choosen_piece_index].can_move===1 &&
-          nonul(this.props.mymap.cards[this.props.mymap.actual_card_index]).card_type==='MOVE_PIECE' &&
+          nonul(this.props.mymap.cards[this.props.mymap.actual_card_index]).card_type==='MOVE_PIECE_CARD' &&
           <Arrow
             key='arrow-s'
             id='arrow-s'
@@ -74,7 +74,7 @@ class Map extends Component {
 
         {this.props.mymap.choosen_piece_index>-1 &&
           this.props.mymap.pieces[this.props.mymap.choosen_piece_index].can_move===1 &&
-          nonul(this.props.mymap.cards[this.props.mymap.actual_card_index]).card_type==='MOVE_PIECE' &&
+          nonul(this.props.mymap.cards[this.props.mymap.actual_card_index]).card_type==='MOVE_PIECE_CARD' &&
           <Arrow
             key='arrow-n'
             id='arrow-n'
@@ -88,13 +88,13 @@ class Map extends Component {
           />
         }
 
-      {nonul(this.props.mymap.cards[this.props.mymap.actual_card_index]).card_type==='SHOW_CARD' &&
+      {nonul(this.props.mymap.cards[this.props.mymap.actual_card_index]).visible===1 &&
         <Card  my_card={this.props.mymap.cards[this.props.mymap.actual_card_index]}
-          onClick={this.props.onClickBurnButton} />
+          onClick={this.props.onClickNextButton} />
       }
       <FooterWithData />
 
-      {(nonul(this.props.mymap.cards[this.props.mymap.actual_card_index]).card_type==='MOVE_PIECE')
+      {(nonul(this.props.mymap.cards[this.props.mymap.actual_card_index]).card_type==='MOVE_PIECE_CARD')
         ?<BurnButton  onClick={this.props.onClickBurnButton} />
         :<NextButton  onClick={this.props.onClickNextButton} />
       }
