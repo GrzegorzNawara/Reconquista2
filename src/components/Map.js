@@ -5,7 +5,7 @@ import Card from './Card'
 import BurnButton from './BurnButton'
 import NextButton from './NextButton'
 import FooterWithData from '../connectors/FooterWithData'
-//import debug from '../include/debug'
+import debug from '../include/debug'
 import nonul from '../include/nonul'
 
 const TILE_WIDTH_HALF=42;
@@ -29,7 +29,7 @@ class Map extends Component {
   }
 
   updateWindowDimensions() {
-    this.setState({ width: window.innerWidth, height: window.innerHeight });
+    this.setState({ width: debug(document.getElementById('my-container').offsetWidth,'WIDTH'), height: window.innerHeight });
   }
 
   grid2iso = (center,{x,y},slide={x:0,y:0}) => ({
