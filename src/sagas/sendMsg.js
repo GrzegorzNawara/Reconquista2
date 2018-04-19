@@ -8,7 +8,8 @@ export default function* sendMsg(action) {
   if(typeof action.user_id==='undefined' || action.user_id===USER_ID){
 
     yield put({type: 'REARRANGE_PIECES'});
-
+    yield put({type:'CALCULATE_POINTS'});
+    
     const response = yield call(apiFetchData,
         API_URL+'/api-send-msg.php'
         +"?game_id="+GAME_ID
@@ -20,7 +21,7 @@ export default function* sendMsg(action) {
     }
     //yield put({type: 'SEND_MSG_SUCCESS'});
 
-    yield delay(500);
+    yield delay(800);
     yield put({type: 'SHOW_NEXT_CARD'});
   }
 }

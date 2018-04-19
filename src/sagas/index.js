@@ -13,6 +13,7 @@ export default function* mainSaga() {
 
   yield put({type:'SHOW_NEXT_CARD'});
   yield put({type:'REARRANGE_PIECES'});
+  yield put({type:'CALCULATE_POINTS'});
 
   yield takeEvery('MOVE_NORTH', sendMsg);
   yield takeEvery('MOVE_SOUTH', sendMsg);

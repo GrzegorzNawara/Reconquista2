@@ -1,10 +1,10 @@
 import React from 'react'
-import NavBar from './NavBar'
+import NavBarWithData from '../connectors/NavBarWithData'
 import MapWithPieces from '../connectors/MapWithPieces'
 
 const App = () => (
   <div className="container-fluid">
-    <NavBar />
+    <NavBarWithData />
     <MapWithPieces />
   </div>
 )

@@ -23,12 +23,14 @@ html body {
 }
 
 .my-navbar {
+  background-color: #193030;
+  color: #ffffff;
   overflow-x: scroll;
   z-index: 10;
 }
 
 #logo {
-  height: 40px;
+  height: 30px;
   width: auto;
 }
 
@@ -48,11 +50,19 @@ html body {
   left: 0;
   right: 0;
   bottom: 0;
-  min-height: 100px;
+  min-height: 50px;
   z-index: 9;
+  background-color: #193030;
+  color: #ffffff;
+  border-top: 15px solid #fff;
 }
-.my-footer div {
-  min-height: 100px;
+.my-footer-bg {
+  min-height: 50px;
+}
+.my-footer img {
+  margin-bottom: 30px;
+  height: 20px;
+  width: auto;
 }
 
 .my-card {
@@ -159,8 +169,8 @@ html body {
 }
 .burn-button {
   position: absolute;
-  right: 70px;
-  bottom: 70px;
+  right: 55px;
+  bottom: 100px;
   height: 50px;
   width: 50px;
   z-index: 10;

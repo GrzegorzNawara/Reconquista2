@@ -71,7 +71,7 @@ const mymap = (state = {}, action) => {
       return {
         ...state,
         action_buttons_visible: 0,
-        score: { ...state.score, burnt_points: state.score.burnt_points++ }
+        score: { ...state.score, burnt_points: state.score.burnt_points+1 }
       }
     case 'REARRANGE_PIECES':
       return {

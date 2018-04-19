@@ -23,7 +23,11 @@ export default function* checkForUpdates() {
     }
     yield put({type:'INCREMENT_MSG_ID'});
   }
-  yield put({type: 'REARRANGE_PIECES'});
+
+  if(msg.length>0){
+    yield put({type: 'REARRANGE_PIECES'});
+    yield put({type:'CALCULATE_POINTS'});
+  }
 
   if(Date.now()-last_nonempty_update<=30000)
     yield delay(1000);
