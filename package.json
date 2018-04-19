@@ -1,6 +1,7 @@
 {
   "name": "reconquista2",
   "private": true,
+  "homepage" : "http://abcportal.eu/growbook/reconquista2",
   "version": "0.2.0",
   "description": "Decision making game",
   "main": "index.js",
