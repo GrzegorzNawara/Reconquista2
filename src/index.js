@@ -19,7 +19,8 @@ const initialState = {
     last_msg_id: -1,
     last_nonempty_update: 0,
 
-    my_index:-1,
+    my_hash: Math.floor(Math.random()*10000000),
+    my_index: -1,
     my_piece_id: '',
 
     center: {x:0, y:0},

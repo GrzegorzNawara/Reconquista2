@@ -5,6 +5,7 @@ import { API_URL, USER_ID, GAME_ID } from '../include/apiConfig'
 //import debug from '../include/debug'
 
 export default function* checkForUpdates() {
+  const my_hash = yield select((state) => state.mymap.my_hash);
   const last_msg_id = yield select(state => state.mymap.last_msg_id);
   const last_nonempty_update = yield select(state => state.mymap.last_nonempty_update);
 
@@ -18,7 +19,7 @@ export default function* checkForUpdates() {
 
   const msg = response.split("\n").filter((str) => str!=='').map((str) => JSON.parse(str));
   for(let ii=0; ii<msg.length; ii++){
-    if(msg[ii].user_id!==USER_ID) {
+    if(msg[ii].my_hash!==my_hash) {
       yield put(msg[ii]);
     }
     yield put({type:'INCREMENT_MSG_ID'});
