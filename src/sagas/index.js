@@ -5,16 +5,18 @@ import runTheCard from './runTheCard'
 import checkForUpdates from './checkForUpdates'
 import burnTheMove from './burnTheMove'
 import getMyIndex from './getMyIndex'
-//import debug from '../include/debug'
+import initGame from './initGame'
+import debug from '../include/debug'
 
 
 export default function* mainSaga() {
 
-  yield fork(getMyIndex);
-
-  yield take('CHOOSE_SCENARIO');
+  yield call(getMyIndex);
   yield fork(initLoad);
-  yield take('INIT_DONE');
+
+  yield takeEvery('CHOOSE_SCENARIO', initGame);
+
+  yield take('GAME_SETUP_READY');
 
   yield put({type:'SHOW_NEXT_CARD'});
   yield put({type:'REARRANGE_PIECES'});
