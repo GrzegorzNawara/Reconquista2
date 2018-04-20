@@ -1,4 +1,4 @@
-import { put, call } from 'redux-saga/effects'
+import { put, call, select } from 'redux-saga/effects'
 import { apiFetchData } from '../api'
 import { setMyPieceId } from '../actions'
 import { API_URL, USER_ID, GAME_ID } from '../include/apiConfig'
@@ -7,16 +7,10 @@ import addMyCards from './addMyCards'
 
 export default function* initLoad() {
 
+  const my_index = yield select((state) => state.mymap.my_index);
+
   let scenario=[];
   let my_piece_id='';
-
-  const response2 = yield call(apiFetchData,API_URL+'/api-get-my-index.php'
-    +'?game_id='+GAME_ID
-    +'&user_id='+USER_ID)
-  if(response2.error){
-    return yield put({type:'FETCH_MSG_ERROR',response2})
-  }
-  const my_index = JSON.parse(response2);
 
   const response1 = yield call(apiFetchData,API_URL+'/api-get-msg.php'
     +'?game_id='+GAME_ID

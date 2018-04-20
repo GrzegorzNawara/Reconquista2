@@ -123,6 +123,11 @@ foreach($scenario['enemy_pieces'] as $piece_id){
 }
 
 
+$fp=fopen('./data/'.$game_id.'.dat','a');
+fwrite($fp,json_encode([
+  'type'=>'GAME_SETUP_READY',
+  'user_id'=>'system'])."\n");
+fclose($fp);
 
 
 

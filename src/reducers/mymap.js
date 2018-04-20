@@ -12,6 +12,11 @@ const mymap = (state = {}, action) => {
         last_msg_id: state.last_msg_id+1,
         last_nonempty_update: Date.now()
       }
+    case 'SET_MY_INDEX':
+      return {
+        ...state,
+        my_index: action.my_index
+      }
     case 'SET_SCENARIO':
       return {
         ...state,

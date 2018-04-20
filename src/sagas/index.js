@@ -4,10 +4,13 @@ import sendMsg from './sendMsg'
 import runTheCard from './runTheCard'
 import checkForUpdates from './checkForUpdates'
 import burnTheMove from './burnTheMove'
+import getMyIndex from './getMyIndex'
 //import debug from '../include/debug'
 
 
 export default function* mainSaga() {
+
+  yield fork(getMyIndex);
 
   yield take('CHOOSE_SCENARIO');
   yield fork(initLoad);
