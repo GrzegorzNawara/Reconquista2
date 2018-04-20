@@ -3,6 +3,7 @@ import * as CARDS from '../include/cardsDefinitions'
 //import debug from '../include/debug'
 
 const mymap = (state = {}, action) => {
+  //debug(action,action.type);
 
   switch (action.type) {
     case 'INCREMENT_MSG_ID':
@@ -14,7 +15,8 @@ const mymap = (state = {}, action) => {
     case 'SET_SCENARIO':
       return {
         ...state,
-        scenario: action.scenario
+        scenario: action.scenario,
+        scenario_choosen: 1
       }
     case 'SET_MY_PIECE_ID':
       return {
@@ -90,7 +92,7 @@ const mymap = (state = {}, action) => {
       return {
         ...state,
         actual_card_index:
-          (state.actual_card_index<state.cards.length-1)
+          (state.cards.length>0 && state.actual_card_index<state.cards.length-1)
             ?state.actual_card_index+=1
             :state.actual_card_index
       }

@@ -4,7 +4,7 @@ import * as CARDS from '../include/cardsDefinitions'
 //import debug from '../include/debug'
 
 
-export default function* addMyCards(scenario, my_piece_id) {
+export default function* addMyCards({scenario, my_piece_id}) {
 
   yield put(addCard({piece_id:my_piece_id, ...CARDS.EVENT_CARD, ...CARDS.SHOW_GAMESTART_CARD}));
 

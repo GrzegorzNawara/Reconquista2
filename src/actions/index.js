@@ -9,6 +9,11 @@ export const setScenario = (scenario) => ({
   scenario: scenario
 })
 
+export const chooseScenario = (scenario_desc) => ({
+  type: 'CHOOSE_SCENARIO',
+  scenario_id: scenario_desc.id
+})
+
 export const addPiece = (piece) => ({
   type: 'ADD_PIECE',
   piece: piece

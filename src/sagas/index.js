@@ -1,4 +1,4 @@
-import { put, call, takeEvery } from 'redux-saga/effects'
+import { put, call, take, fork, takeEvery } from 'redux-saga/effects'
 import initLoad from './initLoad'
 import sendMsg from './sendMsg'
 import runTheCard from './runTheCard'
@@ -9,7 +9,9 @@ import burnTheMove from './burnTheMove'
 
 export default function* mainSaga() {
 
-  yield call(initLoad);
+  yield take('CHOOSE_SCENARIO');
+  yield fork(initLoad);
+  yield take('INIT_DONE');
 
   yield put({type:'SHOW_NEXT_CARD'});
   yield put({type:'REARRANGE_PIECES'});

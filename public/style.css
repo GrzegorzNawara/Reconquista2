@@ -18,19 +18,20 @@ html body {
 #my-container {
     height: 100vh;
     width: 100vw;
-    max-width: 500px;
+    max-width: 568px;
     background-color: #1f3e3d;
     margin: 0, auto;
     padding: 0;
 }
 
 .my-navbar {
+  height: 60px;
   width: 100vw;
-  max-width: 500px;
+  max-width: 568px;
   background-color: #193030;
   margin: auto;
   color: #ffffff;
-  overflow-x: hidden;
+  overflow: hidden;
   z-index: 10;
 }
 

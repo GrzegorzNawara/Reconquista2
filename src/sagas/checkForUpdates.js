@@ -25,7 +25,7 @@ export default function* checkForUpdates() {
   }
 
   if(msg.length>0){
-    yield put({type: 'REARRANGE_PIECES'});
+    yield put({type:'REARRANGE_PIECES'});
     yield put({type:'CALCULATE_POINTS'});
   }
 

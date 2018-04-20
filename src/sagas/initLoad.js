@@ -39,5 +39,6 @@ export default function* initLoad() {
     yield put({type:'INCREMENT_MSG_ID'});
   }
 
-  yield addMyCards(scenario, my_piece_id);
+  yield call(addMyCards,{scenario, my_piece_id});
+  yield put({type:'INIT_DONE'});
 }

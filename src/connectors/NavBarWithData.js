@@ -4,6 +4,7 @@ import { findCardById } from '../include/cardsDefinitions'
 //import debug from '../include/debug'
 
 const mapStateToProps = (state) => ({
+  visible: (state.mymap.scenario_choosen===1),
   my_role: findCardById(state.mymap.my_piece_id).header
 })
 

@@ -14,7 +14,8 @@ const initialState = {
   // data
   mymap: {
     scenario: {},
-
+    scenario_choosen: 0,
+    
     last_msg_id: -1,
     last_nonempty_update: 0,
 

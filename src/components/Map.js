@@ -5,8 +5,7 @@ import Card from './Card'
 import BurnButton from './BurnButton'
 import NextButton from './NextButton'
 import FooterWithData from '../connectors/FooterWithData'
-import debug from '../include/debug'
-import nonul from '../include/nonul'
+//import debug from '../include/debug'
 
 const TILE_WIDTH_HALF=42;
 const TILE_HEIGHT_HALF=30;
@@ -29,7 +28,7 @@ class Map extends Component {
   }
 
   updateWindowDimensions() {
-    this.setState({ width: debug(document.getElementById('my-container').offsetWidth,'WIDTH'), height: window.innerHeight });
+    this.setState({ width: document.getElementById('my-container').offsetWidth, height: window.innerHeight });
   }
 
   grid2iso = (center,{x,y},slide={x:0,y:0}) => ({
@@ -38,6 +37,9 @@ class Map extends Component {
   })
 
   render(){
+    if(this.props.mymap.scenario_choosen===0)
+      return false;
+
     return(
       <div className="bg-map mx-0"
         style={{
@@ -84,14 +86,14 @@ class Map extends Component {
           />
         }
 
-      {nonul(this.props.mymap.cards[this.props.mymap.actual_card_index]).visible===1 &&
+      {this.props.mymap.cards.length>0 && this.props.mymap.actual_card_index>=0 && this.props.mymap.cards[this.props.mymap.actual_card_index].visible===1 &&
         <Card  my_card={this.props.mymap.cards[this.props.mymap.actual_card_index]}
           onClick={this.props.onClickNextButton} />
       }
       <FooterWithData />
 
       {this.props.mymap.action_buttons_visible===1 &&
-        (nonul(this.props.mymap.cards[this.props.mymap.actual_card_index]).card_type==='MOVE_PIECE_CARD')
+        (this.props.mymap.cards[this.props.mymap.actual_card_index].card_type==='MOVE_PIECE_CARD')
         ?<BurnButton  onClick={this.props.onClickBurnButton} />
         :<NextButton  onClick={this.props.onClickNextButton} />
       }
