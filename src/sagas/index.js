@@ -13,7 +13,6 @@ export default function* mainSaga() {
 
   yield call(getMyIndex);
   yield fork(initLoad);
-
   yield takeEvery('CHOOSE_SCENARIO', initGame);
 
   yield take('GAME_SETUP_READY');

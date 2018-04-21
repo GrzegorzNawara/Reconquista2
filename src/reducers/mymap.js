@@ -17,6 +17,11 @@ const mymap = (state = {}, action) => {
         ...state,
         my_index: action.my_index
       }
+    case 'CHOOSE_SCENARIO':
+      return {
+        ...state,
+        scenario_id: action.id
+      }
     case 'SET_SCENARIO':
       return {
         ...state,

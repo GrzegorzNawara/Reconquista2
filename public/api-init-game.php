@@ -2,9 +2,9 @@
 //error_reporting(0);
 
 $game_id=$_GET["game_id"];
-$scenario_id=0+$_GET["scenario_id"];
+$scenario_id=$_GET["scenario_id"];
 
-$scenario=[
+$scenario=['scenario1'=>[
   'my_cards'=>3,
   'usr_cards'=>3,
   'npc_cards'=>8,
@@ -12,9 +12,8 @@ $scenario=[
   'npc_pieces'=> ['levy1','merchant1','merchant2','merchant3','farmer1','farmer2','farmer3','farmer4','farmer5'],
   'enemy_pieces'=> ['enemy1','enemy2','enemy3','enemy4','enemy5','enemy6'],
   'house_pieces'=> ['house1','house2','house3']
-];
-/*
-$scenario[1]=[
+],
+'scenario2'=>[
   'my_cards'=>3,
   'usr_cards'=>3,
   'npc_cards'=>8,
@@ -22,8 +21,7 @@ $scenario[1]=[
   'npc_pieces'=> ['levy1','merchant1','merchant2','merchant3','farmer1','farmer2','farmer3','farmer4','farmer5'],
   'enemy_pieces'=> ['enemy1','enemy2','enemy3','enemy4','enemy5','enemy6'],
   'house_pieces'=> ['house1','house2','house3']
-];
-*/
+]];
 
 $pieces_row_max=[0,0,0,0,0,0];
 $enemy_row_stack=[0,0,0,0,0,0];
@@ -37,7 +35,7 @@ $fp=fopen('./data/'.$game_id.'.dat','a');
 fwrite($fp,json_encode([
   'type'=>'SET_SCENARIO',
   'user_id'=>'system',
-  'scenario'=>$scenario
+  'scenario'=>$scenario[$scenario_id]
   ])."\n");
 fclose($fp);
 
