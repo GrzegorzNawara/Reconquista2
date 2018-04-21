@@ -4,24 +4,36 @@
 $game_id=$_GET["game_id"];
 $scenario_id=$_GET["scenario_id"];
 
-$scenario=['scenario1'=>[
-  'my_cards'=>3,
-  'usr_cards'=>3,
-  'npc_cards'=>8,
-  'usr_pieces'=> ['king1','knight1','knight2','rebel1'],
-  'npc_pieces'=> ['levy1','merchant1','merchant2','merchant3','farmer1','farmer2','farmer3','farmer4','farmer5'],
-  'enemy_pieces'=> ['enemy1','enemy2','enemy3','enemy4','enemy5','enemy6'],
-  'house_pieces'=> ['house1','house2','house3']
-],
-'scenario2'=>[
-  'my_cards'=>3,
-  'usr_cards'=>3,
-  'npc_cards'=>8,
-  'usr_pieces'=> ['king1','knight1','knight2','rebel1'],
-  'npc_pieces'=> ['levy1','merchant1','merchant2','merchant3','farmer1','farmer2','farmer3','farmer4','farmer5'],
-  'enemy_pieces'=> ['enemy1','enemy2','enemy3','enemy4','enemy5','enemy6'],
-  'house_pieces'=> ['house1','house2','house3']
-]];
+if($scenario=='scenario1'){
+  $scenario=[
+    'my_cards'=>3,
+    'usr_cards'=>3,
+    'npc_cards'=>8,
+    'usr_pieces'=> ['king1','knight1','knight2','rebel1'],
+    'npc_pieces'=> ['levy1','merchant1','merchant2','merchant3','farmer1','farmer2','farmer3','farmer4','farmer5'],
+    'enemy_pieces'=> ['enemy1','enemy2','enemy3','enemy4','enemy5','enemy6'],
+    'house_pieces'=> ['house1','house2','house3']
+];}
+elseif($scenario=='scenario2'){
+  $scenario=[
+    'my_cards'=>3,
+    'usr_cards'=>3,
+    'npc_cards'=>8,
+    'usr_pieces'=> ['king1','knight1','knight2','rebel1'],
+    'npc_pieces'=> ['levy1','merchant1','merchant2','merchant3','farmer1','farmer2','farmer3','farmer4','farmer5'],
+    'enemy_pieces'=> ['enemy1','enemy2','enemy3','enemy4','enemy5','enemy6'],
+    'house_pieces'=> ['house1','house2','house3']
+];}
+else{
+  $scenario=[
+    'my_cards'=>3,
+    'usr_cards'=>3,
+    'npc_cards'=>8,
+    'usr_pieces'=> ['king1','merchant1','merchant2','merchant3'],
+    'npc_pieces'=> ['levy1','knight1','knight2'],
+    'enemy_pieces'=> ['enemy1','enemy2','enemy3','enemy4'],
+    'house_pieces'=> ['house1','house2','house3']
+];}
 
 $pieces_row_max=[0,0,0,0,0,0];
 $enemy_row_stack=[0,0,0,0,0,0];
@@ -35,7 +47,7 @@ $fp=fopen('./data/'.$game_id.'.dat','a');
 fwrite($fp,json_encode([
   'type'=>'SET_SCENARIO',
   'user_id'=>'system',
-  'scenario'=>$scenario[$scenario_id]
+  'scenario'=>$scenario
   ])."\n");
 fclose($fp);
 

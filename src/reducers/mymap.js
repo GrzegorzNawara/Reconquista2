@@ -3,7 +3,7 @@ import * as CARDS from '../include/cardsDefinitions'
 import debug from '../include/debug'
 
 const mymap = (state = {}, action) => {
-  debug(action,action.type);
+  debug(action,'ACTION');
 
   switch (action.type) {
     case 'INCREMENT_MSG_ID':
@@ -20,7 +20,7 @@ const mymap = (state = {}, action) => {
     case 'CHOOSE_SCENARIO':
       return {
         ...state,
-        scenario_id: action.id
+        scenario_id: action.scenario_id
       }
     case 'SET_SCENARIO':
       return {
