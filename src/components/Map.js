@@ -66,6 +66,7 @@ class Map extends Component {
               id={piece.piece_id}
               my_piece_id={this.props.mymap.my_piece_id}
               my_image={piece.image}
+              show_bulb={(this.props.mymap.my_piece_id===piece.piece_id)?'me':''}
               old_pos={this.grid2iso(this.props.mymap.center,piece.old_pos)}
               pos={this.grid2iso(this.props.mymap.center,piece.pos)}
               onClick={() => this.props.onClick(piece)}
