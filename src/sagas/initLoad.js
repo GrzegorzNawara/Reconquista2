@@ -1,5 +1,5 @@
 import { delay } from 'redux-saga'
-import { put, call, select } from 'redux-saga/effects'
+import { put, fork, call, select } from 'redux-saga/effects'
 import { apiFetchData } from '../api'
 import { setMyPieceId } from '../actions'
 import { API_URL, USER_ID, GAME_ID } from '../include/apiConfig'
@@ -30,7 +30,7 @@ export default function* initLoad() {
         scenario=msg[ii].scenario;
         my_piece_id=scenario.usr_pieces[my_index%msg[ii].scenario.usr_pieces.length];
         yield put(setMyPieceId({my_piece_id:my_piece_id}));
-        yield call(addMyCards,{scenario, my_piece_id});
+        yield fork(addMyCards,{scenario, my_piece_id});
       }
 
       yield put(msg[ii]);

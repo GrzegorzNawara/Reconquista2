@@ -146,7 +146,7 @@ const mymap = (state = {}, action) => {
           { ...action.piece,
             old_pos: action.piece.pos,
             index: state.pieces.length,
-            ...CARDS.findCardById(action.piece.piece_id)
+            ...CARDS.findHeaderCardById(action.piece.piece_id)
           }
         ]
       }

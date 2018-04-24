@@ -1,11 +1,11 @@
 import { connect } from 'react-redux'
 import NavBar from '../components/NavBar'
-import { findCardById } from '../include/cardsDefinitions'
+import { findHeaderCardById } from '../include/cardsDefinitions'
 //import debug from '../include/debug'
 
 const mapStateToProps = (state) => ({
   visible: (state.mymap.scenario_choosen===1),
-  my_role: findCardById(state.mymap.my_piece_id).header
+  my_role: findHeaderCardById(state.mymap.my_piece_id).header
 })
 
 const mapDispatchToProps = {

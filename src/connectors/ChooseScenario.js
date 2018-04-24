@@ -5,14 +5,44 @@ import { chooseScenario } from '../actions'
 
 const mapStateToProps = (state) => ({
   visible: (state.mymap.scenario_choosen===0),
+  header: 'Wybierzcie scenariusz',
   items: [{
-    id: 'scenario1',
-    title: 'Scenario 1',
-    subtitle:['Łatwy scenariusz']},
+    id: 'scenario-a1',
+    title: 'A1. Silny król i wzmocniona współpraca',
+    subtitle:[
+      'Dla 1-4 graczy.',
+      'Scenariusz do poznania gry i integracji grupy.',
+      'Dodatkowe zasady:',
+      '- Każdy musi zdobyć minimum 10 punktów',
+      '- Czas gry jest ograniczony do 10 minut']},
     {
-    id: 'scenario2',
-    title: 'Scenario 2',
-    subtitle:['Średni scenariusz']}
+    id: 'scenario-a2',
+    title: 'A2. Ciche królestwo',
+    subtitle:[
+      'Dla 1-4 graczy.',
+      'Scenariusz do symulacji problemów w komunikacji',
+      'Dodatkowe zasady:',
+      '- Każdy musi zdobyć minimum 5 punktów',
+      '- W czasie gry nie wolno mówić']},
+    {
+    id: 'scenario-a3',
+    title: 'A3. Ślepiec',
+    subtitle:[
+      'Dla 1-4 graczy.',
+      'Scenariusz do niskiej wiedzy lidera i zespołu',
+      'Dodatkowe zasady:',
+      '- Każdy musi zdobyć minimum 5 punktów',
+      '- Czas gry jest ograniczony do 10 minut']},
+    {
+    id: 'scenario-a4',
+    title: 'A4. Młody król wśród wilków',
+    subtitle:[
+      'Dla 4-12 graczy.',
+      'Scenariusz do symulacji pracy w warunkach ciężkiego konfliktu i sprzecznych interesów.',
+      'Dodatkowe zasady:',
+      '- Każdy musi zdobyć minimum 1 punkt',
+      '- Czas gry jest ograniczony do 10 minut',
+      '- Wolno rozmawiać tylko po angielsku']}
   ]
 })
 

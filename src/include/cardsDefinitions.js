@@ -46,7 +46,7 @@ export const HOUSE_CARD = {
   image:'./images/iso-house.png',
   war_strength:0
 }
-export const findCardById = (piece_id) => {
+export const findHeaderCardById = (piece_id) => {
   switch (piece_id) {
     case 'king1':
       return KING_CARD;
@@ -87,6 +87,84 @@ export const findCardById = (piece_id) => {
       return ENEMY_CARD;
     default:
       return KING_CARD;
+  }
+}
+
+export const findShowCardById = (piece_id) => {
+  switch (piece_id) {
+    case 'king1':
+    case 'knight1':
+    case 'knight2':
+    case 'levy1':
+    case 'merchant1':
+    case 'merchant2':
+    case 'merchant3':
+    case 'rebel1':
+    case 'farmer1':
+    case 'farmer2':
+    case 'farmer3':
+    case 'farmer4':
+    case 'farmer5':
+    case 'farmer6':
+    case 'farmer7':
+    case 'farmer8':
+    case 'farmer9':
+      return SHOW_MOVE_CARD;
+    case 'house1':
+    case 'house2':
+    case 'house3':
+      return 'UNKNOWN_SHOW_CARD_TYPE';
+    case 'enemy1':
+    case 'enemy2':
+    case 'enemy3':
+    case 'enemy4':
+    case 'enemy5':
+    case 'enemy6':
+    case 'enemy7':
+    case 'enemy8':
+    case 'enemy9':
+      return SHOW_ENEMY_CARD;
+    default:
+      return 'UNKNOWN_SHOW_CARD_TYPE';
+  }
+}
+
+export const findExecCardById = (piece_id) => {
+  switch (piece_id) {
+    case 'king1':
+    case 'knight1':
+    case 'knight2':
+    case 'levy1':
+    case 'merchant1':
+    case 'merchant2':
+    case 'merchant3':
+    case 'rebel1':
+    case 'farmer1':
+    case 'farmer2':
+    case 'farmer3':
+    case 'farmer4':
+    case 'farmer5':
+    case 'farmer6':
+    case 'farmer7':
+    case 'farmer8':
+    case 'farmer9':
+      return EXEC_MOVE_CARD;
+    case 'house1':
+    case 'house2':
+    case 'house3':
+      return 'UNKNOWN_SHOW_CARD_TYPE';
+    case 'enemy1':
+    case 'enemy2':
+    case 'enemy3':
+    case 'enemy4':
+    case 'enemy5':
+    case 'enemy6':
+    case 'enemy7':
+    case 'enemy8':
+    case 'enemy9':
+      return EXEC_ENEMY_CARD;
+    default:
+      return 'UNKNOWN_SHOW_CARD_TYPE';
   }
 }
 
