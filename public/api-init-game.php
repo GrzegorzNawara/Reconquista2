@@ -22,7 +22,31 @@ elseif($scenario=='scenario2'){
     'usr_pieces'=> ['king1','knight1','knight2','rebel1'],
     'npc_pieces'=> ['levy1','merchant1','merchant2','merchant3','farmer1','farmer2','farmer3','farmer4','farmer5'],
     'enemy_pieces'=> ['enemy1','enemy2','enemy3','enemy4','enemy5','enemy6'],
-    'house_pieces'=> ['house1','house2','house3']
+    'house_pieces'=> ['house1','house2','house3'],
+    'king1-cards' => [
+      'king1',
+      'king1','knight1','knight2','rebel1',
+      'levy1','merchant1','merchant2','merchant3','farmer1','farmer2','farmer3','farmer4','farmer5',
+      'levy1','merchant1','merchant2','merchant3','farmer1','farmer2','farmer3','farmer4','farmer5'
+    ],
+    'knight1-cards' => [
+      'knight1',
+      'king1','knight1','knight2','rebel1',
+      'levy1','merchant1','merchant2','merchant3','farmer1','farmer2','farmer3','farmer4','farmer5',
+      'levy1','merchant1','merchant2','merchant3','farmer1','farmer2','farmer3','farmer4','farmer5'
+    ],
+    'knight2-cards' => [
+      'knight2',
+      'king1','knight1','knight2','rebel1',
+      'levy1','merchant1','merchant2','merchant3','farmer1','farmer2','farmer3','farmer4','farmer5',
+      'levy1','merchant1','merchant2','merchant3','farmer1','farmer2','farmer3','farmer4','farmer5'
+    ],
+    'rebel1-cards' => [
+      'knight1',
+      'king1','knight1','knight2','rebel1',
+      'levy1','merchant1','merchant2','merchant3','farmer1','farmer2','farmer3','farmer4','farmer5',
+      'levy1','merchant1','merchant2','merchant3','farmer1','farmer2','farmer3','farmer4','farmer5'
+    ]
 ];}
 else{
   $scenario=[

@@ -106,6 +106,14 @@ const mymap = (state = {}, action) => {
             ?state.actual_card_index+=1
             :state.actual_card_index
       }
+    case 'UPDATE_SHOW_NEXT_CARD':
+      return {
+        ...state,
+        actual_card_index:
+          (state.cards.length>0 && state.actual_card_index<state.cards.length-1)
+            ?state.actual_card_index+=1
+            :state.actual_card_index
+      }
     case 'SHOW_INFO_CARD':
     case 'SHOW_PIECE_CARD':
       return {

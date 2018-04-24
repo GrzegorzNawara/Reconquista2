@@ -1,4 +1,3 @@
-import { delay } from 'redux-saga'
 import { put, call, select } from 'redux-saga/effects'
 import { apiFetchData } from '../api'
 import { API_URL, USER_ID, GAME_ID } from '../include/apiConfig'
@@ -8,21 +7,14 @@ export default function* sendMsg(action) {
   const my_hash = yield select((state) => state.mymap.my_hash);
   if(typeof action.my_hash==='undefined' || action.my_hash===my_hash){
 
-    yield put({type: 'REARRANGE_PIECES'});
-    yield put({type:'CALCULATE_POINTS'});
-
     const response = yield call(apiFetchData,
         API_URL+'/api-send-msg.php'
         +"?game_id="+GAME_ID
         +"&user_id="+USER_ID
-        +"&action="+JSON.stringify({...action, type: 'UPDATE_'+action.type, my_hash:my_hash})
+        +"&action="+JSON.stringify({...action, type: 'UPDATE_'+action.type, my_hash:my_hash, my_user_id:USER_ID})
       )
     if (response.error) {
       return yield put({type: 'SEND_MSG_ERROR', response})
     }
-    //yield put({type: 'SEND_MSG_SUCCESS'});
-
-    yield delay(800);
-    yield put({type: 'SHOW_NEXT_CARD'});
   }
 }
