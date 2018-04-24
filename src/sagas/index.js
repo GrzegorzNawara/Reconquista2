@@ -23,6 +23,7 @@ export default function* mainSaga() {
   yield takeEvery('MOVE_SOUTH', runTheCard);
   yield takeEvery('BURN_THE_MOVE', runTheCard);
   yield takeEvery('SHOW_NEXT_CARD', runTheCard);
+  yield takeEvery('UPDATE_SHOW_NEXT_CARD', runTheCard);
 
   while(true){
     yield call(checkForUpdates);

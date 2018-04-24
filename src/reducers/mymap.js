@@ -1,9 +1,9 @@
 import { calculatePoints, rearrangePieces } from '../include/gameFunctions'
 import * as CARDS from '../include/cardsDefinitions'
-import debug from '../include/debug'
+//import debug from '../include/debug'
 
 const mymap = (state = {}, action) => {
-  debug(action,'ACTION');
+  //debug(action,'ACTION');
 
   switch (action.type) {
     case 'INCREMENT_MSG_ID':
@@ -20,6 +20,7 @@ const mymap = (state = {}, action) => {
     case 'CHOOSE_SCENARIO':
       return {
         ...state,
+        scenario_choosen: 1,
         scenario_id: action.scenario_id
       }
     case 'SET_SCENARIO':

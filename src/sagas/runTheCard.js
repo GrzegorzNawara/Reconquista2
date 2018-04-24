@@ -8,7 +8,7 @@ export default function* runTheCard(action) {
 
   debug(theCard.card_type,'MARKER')
   debug(action,'MARKER2')
-  
+
   if(action.type==='MOVE_NORTH' || action.type==='MOVE_SOUTH') {
     yield fork(sendMsg,action);
     yield put({type:'REARRANGE_PIECES'});
@@ -24,6 +24,10 @@ export default function* runTheCard(action) {
 
   if(action.type==='SHOW_NEXT_CARD') {
     yield fork(sendMsg,action);
+    yield put({type: theCard.card_type, card: theCard});
+  }
+
+  if(action.type==='UPDATE_SHOW_NEXT_CARD') {
     yield put({type: theCard.card_type, card: theCard});
   }
 }

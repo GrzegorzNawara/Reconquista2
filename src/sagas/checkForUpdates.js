@@ -19,9 +19,14 @@ export default function* checkForUpdates() {
 
   const msg = response.split("\n").filter((str) => str!=='').map((str) => JSON.parse(str));
   for(let ii=0; ii<msg.length; ii++){
-    if(msg[ii].my_hash!==my_hash) {
-      yield put(msg[ii]);
+
+    if(msg[ii].my_hash!==my_hash){
+      if(msg[ii].type==='UPDATE_SHOW_NEXT_CARD' && msg[ii].my_user_id===USER_ID)
+        yield put(msg[ii]);
+      else if(msg[ii].type!=='UPDATE_SHOW_NEXT_CARD')
+        yield put(msg[ii]);
     }
+
     yield put({type:'INCREMENT_MSG_ID'});
   }
 
