@@ -46,6 +46,48 @@ export const HOUSE_CARD = {
   image:'./images/iso-house.png',
   war_strength:0
 }
+
+export const EVENT_CARD = {
+  card_type:'SHOW_INFO_CARD',
+  corner_image:'./images/card-corner-event.png',
+  header: 'Zdarzenie',
+  visible: 1
+}
+
+export const SHOW_MOVE_CARD = {
+  card_type:'SHOW_INFO_CARD',
+  mid_image:'./images/card-mid-move.png',
+  text: 'Możesz się poruszyć albo spalić tą kartę',
+  visible: 1
+}
+export const SHOW_ENEMY_CARD = {
+  card_type:'SHOW_PIECE_CARD',
+  mid_image:'./images/card-mid-enemy.png',
+  text: 'Możesz zobaczyć, gdzie są wrogowie',
+  visible: 1
+}
+export const SHOW_GAMEOVER_CARD = {
+  card_type:'SHOW_PIECE_CARD',
+  mid_image:'./images/card-mid-gameover.png',
+  text: 'Nadeszła zima. Minął kolejny rok. Koniec gry.',
+  visible: 1
+}
+export const SHOW_GAMESTART_CARD = {
+  card_type:'SHOW_PIECE_CARD',
+  mid_image:'./images/card-mid-gamestart.png',
+  text: 'Nadeszła wiosna. Rozpoczyna się gra.',
+  visible: 1
+}
+
+export const EXEC_MOVE_CARD = {
+  card_type:'MOVE_PIECE_CARD',
+  visible: 0
+}
+export const EXEC_ENEMY_CARD = {
+  card_type:'SHOW_PIECE_CARD',
+  visible: 0
+}
+
 export const findHeaderCardById = (piece_id) => {
   switch (piece_id) {
     case 'king1':
@@ -166,45 +208,4 @@ export const findExecCardById = (piece_id) => {
     default:
       return 'UNKNOWN_SHOW_CARD_TYPE';
   }
-}
-
-export const EVENT_CARD = {
-  card_type:'SHOW_INFO_CARD',
-  corner_image:'./images/card-corner-event.png',
-  header: 'Zdarzenie',
-  visible: 1
-}
-
-export const SHOW_MOVE_CARD = {
-  card_type:'SHOW_INFO_CARD',
-  mid_image:'./images/card-mid-move.png',
-  text: 'Możesz się poruszyć albo spalić tą kartę',
-  visible: 1
-}
-export const SHOW_ENEMY_CARD = {
-  card_type:'SHOW_PIECE_CARD',
-  mid_image:'./images/card-mid-enemy.png',
-  text: 'Możesz zobaczyć, gdzie są wrogowie',
-  visible: 1
-}
-export const SHOW_GAMEOVER_CARD = {
-  card_type:'SHOW_PIECE_CARD',
-  mid_image:'./images/card-mid-gameover.png',
-  text: 'Nadeszła zima. Minął kolejny rok. Koniec gry.',
-  visible: 1
-}
-export const SHOW_GAMESTART_CARD = {
-  card_type:'SHOW_PIECE_CARD',
-  mid_image:'./images/card-mid-gamestart.png',
-  text: 'Nadeszła wiosna. Rozpoczyna się gra.',
-  visible: 1
-}
-
-export const EXEC_MOVE_CARD = {
-  card_type:'MOVE_PIECE_CARD',
-  visible: 0
-}
-export const EXEC_ENEMY_CARD = {
-  card_type:'SHOW_PIECE_CARD',
-  visible: 0
 }

@@ -1,9 +1,9 @@
 import { calculatePoints, rearrangePieces } from '../include/gameFunctions'
 import * as CARDS from '../include/cardsDefinitions'
-//import debug from '../include/debug'
+import debug from '../include/debug'
 
 const mymap = (state = {}, action) => {
-  //debug(action,'ACTION');
+  debug(action,'ACTION');
 
   switch (action.type) {
     case 'INCREMENT_MSG_ID':
@@ -118,6 +118,7 @@ const mymap = (state = {}, action) => {
     case 'SHOW_PIECE_CARD':
       return {
         ...state,
+        action_buttons_visible: 0,
         center: state.pieces.filter((piece) => piece.piece_id===action.card.piece_id)[0].pos
       }
     case 'MOVE_PIECE_CARD':
