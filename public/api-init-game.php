@@ -14,28 +14,32 @@ if($scenario_id=='scenario-a1'){
     'enemy_pieces'=> ['enemy1','enemy2','enemy3','enemy4','enemy5','enemy6'],
     'house_pieces'=> ['house1','house2','house3'],
     'king1-cards' => [
-      'enemy1','enemy2','enemy3',
+      'enemy1','enemy2','enemy3','enemy4','enemy5','enemy6',
+      'enemy1','enemy2','enemy3','enemy4','enemy5','enemy6',
       'king1',
       'king1','knight1','knight2','rebel1',
       'levy1','merchant1','merchant2','merchant3','farmer1','farmer2','farmer3','farmer4','farmer5',
       'levy1','merchant1','merchant2','merchant3','farmer1','farmer2','farmer3','farmer4','farmer5'
     ],
     'knight1-cards' => [
+      'enemy1','enemy2','enemy3','enemy4','enemy5','enemy6',
       'knight1',
       'king1','knight1','knight2','rebel1',
-      'levy1','merchant1','merchant2','merchant3','farmer1','farmer2','farmer3','farmer4','farmer5',
       'levy1','merchant1','merchant2','merchant3','farmer1','farmer2','farmer3','farmer4','farmer5'
     ],
     'knight2-cards' => [
+      'enemy1','enemy2','enemy3','enemy4','enemy5','enemy6',
       'knight2',
       'king1','knight1','knight2','rebel1',
-      'levy1','merchant1','merchant2','merchant3','farmer1','farmer2','farmer3','farmer4','farmer5',
       'levy1','merchant1','merchant2','merchant3','farmer1','farmer2','farmer3','farmer4','farmer5'
     ],
     'rebel1-cards' => [
-      'knight1',
-      'king1','knight1','knight2','rebel1',
-      'levy1','merchant1','merchant2','merchant3','farmer1','farmer2','farmer3','farmer4','farmer5',
+      'enemy1','enemy2','enemy3','enemy4','enemy5','enemy6',
+      'rebel1',
+      'rebel1',
+      'rebel1',
+      'rebel1',
+      'merchant1','merchant2','merchant3','farmer1','farmer2','farmer3','farmer4','farmer5',
       'levy1','merchant1','merchant2','merchant3','farmer1','farmer2','farmer3','farmer4','farmer5'
     ]
 ];}
@@ -115,6 +119,12 @@ $enemy_row_stack=[0,0,0,0,0,0];
 
 // RESET FILE
 $fp=fopen('./data/'.$game_id.'.dat','w'); fclose($fp);
+
+
+// SHUFFLE THE CARDS
+foreach($scenario[usr_pieces] as $tmp_piece_id){
+  shuffle($scenario[$tmp_piece_id.'-cards']);
+}
 
 // SET SCENARIO
 $fp=fopen('./data/'.$game_id.'.dat','a');
