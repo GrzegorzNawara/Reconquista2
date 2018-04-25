@@ -6,7 +6,7 @@ import { keyframes } from 'styled-components'
 const Card = ({my_card, onClick}) => {
 
   const translateFrames = keyframes`
-    from { transform: translate(1000px,0); }
+    from { transform: translate(-500px,0); }
     to { transform: translate(0,0); }
   `;
 

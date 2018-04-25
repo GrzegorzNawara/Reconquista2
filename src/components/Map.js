@@ -2,10 +2,7 @@ import React, {Component} from 'react'
 import Piece from './Piece'
 import Arrow from './Arrow'
 import Card from './Card'
-import BurnButton from './BurnButton'
-import NextButton from './NextButton'
-import FooterWithData from '../connectors/FooterWithData'
-//import debug from '../include/debug'
+import debug from '../include/debug'
 
 const TILE_WIDTH_HALF=42;
 const TILE_HEIGHT_HALF=30;
@@ -41,24 +38,10 @@ class Map extends Component {
       return false;
 
     return(
-      <div className="bg-map mx-0"
-        style={{
+      <div className="bg-map" style={{
         backgroundPosition: (this.grid2iso(this.props.mymap.center,{x:0,y:0}).x-670)+'px '
         +(this.grid2iso(this.props.mymap.center,{x:0,y:0}).y-335)+'px'}}>
 
-        {this.props.mymap.action_buttons_visible===1 &&
-          <Arrow
-            key='arrow-s'
-            id='arrow-s'
-            my_image='./images/iso-arrow-s.png'
-            pos={this.grid2iso(
-              this.props.mymap.center,
-              this.props.mymap.pieces[this.props.mymap.choosen_piece_index].pos,
-              {x:0, y:0.6}
-            )}
-            onClick={() => this.props.onClickMoveSouth(this.props.mymap.pieces[this.props.mymap.choosen_piece_index])}
-          />
-        }
 
         {this.props.mymap.pieces.map( piece =>
             <Piece
@@ -74,31 +57,6 @@ class Map extends Component {
             />
         )}
 
-        {this.props.mymap.action_buttons_visible===1 &&
-          <Arrow
-            key='arrow-n'
-            id='arrow-n'
-            my_image='./images/iso-arrow-n.png'
-            pos={this.grid2iso(
-              this.props.mymap.center,
-              this.props.mymap.pieces[this.props.mymap.choosen_piece_index].pos,
-              {x:0, y:-0.75}
-            )}
-            onClick={() => this.props.onClickMoveNorth(this.props.mymap.pieces[this.props.mymap.choosen_piece_index])}
-          />
-        }
-
-      {this.props.mymap.cards.length>0 && this.props.mymap.actual_card_index>=0 && this.props.mymap.cards[this.props.mymap.actual_card_index].visible===1 &&
-        <Card  my_card={this.props.mymap.cards[this.props.mymap.actual_card_index]}
-          onClick={this.props.onClickNextButton} />
-      }
-      <FooterWithData />
-
-      {this.props.mymap.action_buttons_visible===1 &&
-        (this.props.mymap.cards[this.props.mymap.actual_card_index].card_type==='MOVE_PIECE_CARD')
-        ?<BurnButton  onClick={this.props.onClickBurnButton} />
-        :<NextButton  onClick={this.props.onClickNextButton} />
-      }
       </div>
   )}
 }

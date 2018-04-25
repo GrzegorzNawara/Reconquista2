@@ -1,4 +1,4 @@
-//import debug from '../include/debug'
+import debug from '../include/debug'
 
 export const calculatePoints = (my_piece_id='',pieces=[]) => {
 
@@ -72,7 +72,7 @@ export const rearrangePieces = (pieces) => {
   let new_pieces = pieces.map( piece => ({
       ...piece,
       pos: {x: piece.pos.x, y:(piece.pos.y+6)%6},
-      old_pos: { x: piece.pos.x, y: piece.pos.y }
+      old_pos: { x: piece.pos.x, y: piece.old_pos.y }
   }));
 
   let row_max=[0,0,0,0,0,0];

@@ -91,6 +91,13 @@ const mymap = (state = {}, action) => {
         ...state,
         pieces: rearrangePieces(state.pieces)
       }
+    case 'REARRANGE_PIECES_DONE':
+      return {
+        ...state,
+        pieces: state.pieces.map( piece => ({
+            ...piece,
+            old_pos: { x: piece.pos.x, y: piece.pos.y }
+      }))}
     case 'CALCULATE_POINTS':
       return {
         ...state,

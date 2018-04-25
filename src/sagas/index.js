@@ -18,6 +18,7 @@ export default function* mainSaga() {
   yield put({type:'SHOW_NEXT_CARD'});
   yield put({type:'REARRANGE_PIECES'});
   yield put({type:'CALCULATE_POINTS'});
+  yield put({type:'REARRANGE_PIECES_DONE'});
 
   yield takeEvery('MOVE_NORTH', runTheCard);
   yield takeEvery('MOVE_SOUTH', runTheCard);
