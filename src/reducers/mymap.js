@@ -120,6 +120,7 @@ const mymap = (state = {}, action) => {
       return {
         ...state,
         action_buttons_visible: 0,
+        choosen_piece_index: state.pieces.filter((piece) => piece.piece_id===action.card.piece_id)[0].index,
         center: state.pieces.filter((piece) => piece.piece_id===action.card.piece_id)[0].pos
       }
     case 'MOVE_PIECE_CARD':

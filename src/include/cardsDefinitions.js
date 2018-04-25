@@ -1,49 +1,64 @@
+export const EMPTY_CARD = {
+  corner_image:'./images/card-corner-big-y.png',
+  image:'./images/iso-big-y.png',
+  header: '...',
+  piece_height:0,
+  war_strength:0
+}
 export const KING_CARD = {
   corner_image:'./images/card-corner-big-y.png',
   image:'./images/iso-big-y.png',
   header: 'Król',
+  piece_height:35,
   war_strength:2
 }
 export const REBEL_CARD = {
   corner_image:'./images/card-corner-big-k.png',
   image:'./images/iso-big-k.png',
   header: 'Buntownik',
+  piece_height:35,
   war_strength:2
 }
 export const LEVY_CARD = {
   corner_image:'./images/card-corner-big-r.png',
   image:'./images/iso-big-r.png',
   header: 'Poborca',
+  piece_height:35,
   war_strength:2
 }
 export const FARMER_CARD = {
   corner_image:'./images/card-corner-small-k.png',
   image:'./images/iso-small-k.png',
   header: 'Chłop',
+  piece_height:10,
   war_strength:1
 }
 export const MERCHANT_CARD = {
   corner_image:'./images/card-corner-small-r.png',
   image:'./images/iso-small-r.png',
   header: 'Kupiec',
+  piece_height:10,
   war_strength:1
 }
 export const KNIGHT_CARD = {
   corner_image:'./images/card-corner-small-y.png',
   image:'./images/iso-small-y.png',
   header: 'Rycerz',
+  piece_height:10,
   war_strength:1
 }
 export const ENEMY_CARD = {
   corner_image:'./images/card-corner-enemy.png',
-  header: 'Wróg',
   image:'./images/iso-enemy.png',
+  header: 'Wróg',
+  piece_height:0,
   war_strength:-2
 }
 export const HOUSE_CARD = {
   corner_image:'./images/card-corner-enemy.png',
-  header: 'Targ',
   image:'./images/iso-house.png',
+  header: 'Targ',
+  piece_height:0,
   war_strength:0
 }
 
@@ -128,7 +143,7 @@ export const findHeaderCardById = (piece_id) => {
     case 'enemy9':
       return ENEMY_CARD;
     default:
-      return KING_CARD;
+      return EMPTY_CARD;
   }
 }
 
