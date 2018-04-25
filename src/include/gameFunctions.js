@@ -1,4 +1,4 @@
-import debug from '../include/debug'
+//import debug from '../include/debug'
 
 export const calculatePoints = (my_piece_id='',pieces=[]) => {
 

@@ -115,7 +115,6 @@ $enemy_row_stack=[0,0,0,0,0,0];
 
 // RESET FILE
 $fp=fopen('./data/'.$game_id.'.dat','w'); fclose($fp);
-$fp=fopen('./data/'.$game_id.'.usr','w'); fclose($fp);
 
 // SET SCENARIO
 $fp=fopen('./data/'.$game_id.'.dat','a');
