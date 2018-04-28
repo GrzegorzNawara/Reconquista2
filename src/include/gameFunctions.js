@@ -5,7 +5,7 @@ export const calculatePoints = (my_piece_id='',pieces=[]) => {
   // Calculating war points
   const war_points_total=Math.floor(pieces
   .map((piece) => ({...piece, row: (piece.enemy_row>=0)?piece.enemy_row:piece.pos.y}))
-  .map((piece) => ({row: piece.row, war_strength: piece.war_strength, war_points: (piece.enemy_row>=0)?2:0}))
+  .map((piece) => ({row: piece.row, war_strength: piece.war_strength, war_points: (piece.enemy_row>=0)?1:0}))
   .reduce((row_sum,piece) => {
     row_sum[piece.row].war_strength+=piece.war_strength;
     row_sum[piece.row].war_points+=piece.war_points;
