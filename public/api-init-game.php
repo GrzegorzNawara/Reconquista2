@@ -15,8 +15,8 @@ if($scenario_id=='scenario-a1'){
     'house_pieces'=> ['house1','house2','house3'],
     'king1-cards' => [
       'enemy1','enemy2','enemy3','enemy4','enemy5','enemy6',
-      'enemy1','enemy2','enemy3','enemy4','enemy5','enemy6',
       'king1','king1',
+      'rebel1','levy1',
       'rebel1','levy1',
       'farmer1','farmer2','farmer3','farmer4','farmer5'
     ],
