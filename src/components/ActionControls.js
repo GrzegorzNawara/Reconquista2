@@ -39,7 +39,8 @@ class ActionControls extends Component {
       return false;
 
     return(
-      <div className="action-controls">
+      <div>{this.props.visible &&
+        <div className="action-controls">
 
         {this.props.mymap.action_buttons_visible===1 &&
           <Arrow
@@ -80,7 +81,8 @@ class ActionControls extends Component {
         :<NextButton  onClick={this.props.onClickNextButton} />
       }
 
-      </div>
+      </div>}
+    </div>
   )}
 }
 

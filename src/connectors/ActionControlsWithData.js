@@ -6,6 +6,7 @@ import { moveNorth, moveSouth, showNextCard, burnTheCard} from '../actions'
 const mapStateToProps = (state) => ({
   //mymap: state.mymap,
   mymap: {
+    visible: (state.mymap.scenario_choosen===1),
     scenario_choosen: state.mymap.scenario_choosen,
     center: state.mymap.center,
     action_buttons_visible: state.mymap.action_buttons_visible,

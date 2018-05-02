@@ -6,13 +6,14 @@ import FooterWithData from '../connectors/FooterWithData'
 import ActionControlsWithData from '../connectors/ActionControlsWithData'
 
 const App = () => (
-  <div id='my-container' className="container">
-
-    <NavBarWithData />
+  <div>
     <ChooseScenario />
-    <MapWithPieces />
-    <FooterWithData />
-    <ActionControlsWithData />
+    <div id='my-container' className="container">
+      <NavBarWithData />
+      <MapWithPieces />
+      <FooterWithData />
+      <ActionControlsWithData />
+    </div>
   </div>
 )
 
