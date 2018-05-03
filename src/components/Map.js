@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
 import Piece from './Piece'
-import Arrow from './Arrow'
-import Card from './Card'
-import debug from '../include/debug'
+//import debug from '../include/debug'
 
 const TILE_WIDTH_HALF=42;
 const TILE_HEIGHT_HALF=30;

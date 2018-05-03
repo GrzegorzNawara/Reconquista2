@@ -8,7 +8,6 @@ import ActionControlsWithData from '../connectors/ActionControlsWithData'
 
 const App = () => (
   <div>
-    <Fullscreen />
     <ChooseScenario />
     <div id='my-container' className="container">
       <NavBarWithData />
@@ -16,6 +15,7 @@ const App = () => (
       <FooterWithData />
       <ActionControlsWithData />
     </div>
+    <Fullscreen />
   </div>
 )
 

@@ -39,7 +39,7 @@ class ActionControls extends Component {
       return false;
 
     return(
-      <div>{this.props.visible &&
+      <div>
         <div className="action-controls">
 
         {this.props.mymap.action_buttons_visible===1 &&
@@ -68,7 +68,7 @@ class ActionControls extends Component {
             )}
             onClick={() => this.props.onClickMoveNorth(this.props.mymap.pieces[this.props.mymap.choosen_piece_index])}
           />
-        }
+      }
 
       {this.props.mymap.cards.length>0 && this.props.mymap.actual_card_index>=0 && this.props.mymap.cards[this.props.mymap.actual_card_index].visible===1 &&
         <Card  my_card={this.props.mymap.cards[this.props.mymap.actual_card_index]}
@@ -81,7 +81,7 @@ class ActionControls extends Component {
         :<NextButton  onClick={this.props.onClickNextButton} />
       }
 
-      </div>}
+      </div>
     </div>
   )}
 }

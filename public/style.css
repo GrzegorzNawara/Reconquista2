@@ -29,7 +29,6 @@ html body {
   position: fixed;
   top:70px;
   right: 10px;
-  z-index: 20;
   opacity: 0.5;
 }
 .my-navbar {

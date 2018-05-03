@@ -10,7 +10,7 @@ if($scenario_id=='scenario-a1'){
     'usr_cards'=>3,
     'npc_cards'=>8,
     'usr_pieces'=> ['king1','knight1','knight2','farmer1','farmer2','farmer3','farmer4','farmer5'],
-    'npc_pieces'=> ['levy1','merchant1','merchant2','merchant3','farmer1','farmer2','farmer3','farmer4','farmer5'],
+    'npc_pieces'=> ['rebel1','levy1','merchant1','merchant2','merchant3'],
     'enemy_pieces'=> ['enemy1','enemy2','enemy3','enemy4','enemy5','enemy6'],
     'house_pieces'=> ['house1','house2','house3'],
     'king1-cards' => [
@@ -64,7 +64,7 @@ elseif($scenario_id=='scenario-a2'){
     'usr_cards'=>3,
     'npc_cards'=>8,
     'usr_pieces'=> ['king1','rebel1','levy1','knight1','knight2'],
-    'npc_pieces'=> ['levy1','merchant1','merchant2','merchant3','farmer1','farmer2','farmer3','farmer4','farmer5'],
+    'npc_pieces'=> ['merchant1','merchant2','merchant3','farmer1','farmer2','farmer3','farmer4','farmer5'],
     'enemy_pieces'=> ['enemy1','enemy2','enemy3','enemy4','enemy5','enemy6'],
     'house_pieces'=> ['house1','house2','house3'],
     'king1-cards' => [

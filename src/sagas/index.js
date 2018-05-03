@@ -4,7 +4,7 @@ import runTheCard from './runTheCard'
 import checkForUpdates from './checkForUpdates'
 import getMyIndex from './getMyIndex'
 import initGame from './initGame'
-import debug from '../include/debug'
+//import debug from '../include/debug'
 
 
 export default function* mainSaga() {
