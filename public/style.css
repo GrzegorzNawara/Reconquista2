@@ -201,3 +201,36 @@ html body {
   width: 50px;
   z-index: 10;
 }
+
+.cdwn-wrapper {
+  right: -44px;
+  bottom: -44px;
+  width: 90px;
+  height: 90px;
+  position: absolute;
+}
+.cdwn-pie {
+  width: 50%;
+  height: 100%;
+  transform-origin: 100% 50%;
+  position: absolute;
+  border: 6px solid #666666;
+}
+.cdwn-spinner {
+  border-radius: 45px 0 0 45px;
+  z-index: 200;
+  border-right: none;
+  animation: cdwn-rota 180s linear infinite;
+}
+.cdwn-filler {
+  border-radius: 0 45px 45px 0;
+  z-index: 100;
+  border-left: none;
+  left: 50%;
+  opacity: 1;
+}
+@keyframes cdwn-rota {
+  0%   { transform: rotate(180deg); }
+  85% { transform: rotate(360deg); }
+  90%,100% { transform: rotate(180deg); }
+}

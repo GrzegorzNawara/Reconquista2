@@ -11,7 +11,6 @@ export default function* runTheCard(action) {
     yield fork(sendMsg,action);
     yield put({type:'REARRANGE_PIECES'});
     yield put({type:'CALCULATE_POINTS'});
-    yield delay(1000);
     yield put({type: 'RECENTER'});
     yield delay(delay_time);
     yield put({type: 'SHOW_NEXT_CARD'});

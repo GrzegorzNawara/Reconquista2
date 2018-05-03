@@ -3,6 +3,7 @@ import Arrow from './Arrow'
 import Card from './Card'
 import BurnButton from './BurnButton'
 import NextButton from './NextButton'
+import CountdownTimerWithDelay from '../connectors/CountdownTimerWithDelay'
 //import debug from '../include/debug'
 
 const TILE_WIDTH_HALF=42;
@@ -75,6 +76,10 @@ class ActionControls extends Component {
           onClick={this.props.onClickNextButton} />
       }
 
+      {this.props.mymap.action_buttons_visible===0 &&
+        <CountdownTimerWithDelay />
+      }
+
       {this.props.mymap.action_buttons_visible===1 &&
         this.props.mymap.cards[this.props.mymap.actual_card_index].card_type==='MOVE_PIECE_CARD' &&
         <BurnButton  onClick={this.props.onClickBurnButton} />
@@ -86,6 +91,7 @@ class ActionControls extends Component {
         this.props.mymap.cards[this.props.mymap.actual_card_index].visible!==1)) &&
         <NextButton  onClick={this.props.onClickNextButton} />
       }
+
 
       </div>
     </div>
