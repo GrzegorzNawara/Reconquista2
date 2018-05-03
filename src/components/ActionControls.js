@@ -3,7 +3,7 @@ import Arrow from './Arrow'
 import Card from './Card'
 import BurnButton from './BurnButton'
 import NextButton from './NextButton'
-import debug from '../include/debug'
+//import debug from '../include/debug'
 
 const TILE_WIDTH_HALF=42;
 const TILE_HEIGHT_HALF=30;
@@ -86,7 +86,6 @@ class ActionControls extends Component {
         this.props.mymap.cards[this.props.mymap.actual_card_index].visible!==1)) &&
         <NextButton  onClick={this.props.onClickNextButton} />
       }
-      {debug(0,'END')}
 
       </div>
     </div>

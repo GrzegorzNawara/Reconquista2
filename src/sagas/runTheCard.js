@@ -1,7 +1,7 @@
 import { delay } from 'redux-saga'
 import { put, fork, select } from 'redux-saga/effects'
 import sendMsg from './sendMsg'
-import debug from '../include/debug'
+//import debug from '../include/debug'
 
 export default function* runTheCard(action) {
   const theCard = yield select((state) => state.mymap.cards[state.mymap.actual_card_index]);
@@ -11,7 +11,7 @@ export default function* runTheCard(action) {
     yield fork(sendMsg,action);
     yield put({type:'REARRANGE_PIECES'});
     yield put({type:'CALCULATE_POINTS'});
-    yield delay(debug(delay_time,'DELAY'));
+    yield delay(delay_time);
     yield put({type: 'SHOW_NEXT_CARD'});
     yield put({type:'REARRANGE_PIECES_DONE'});
   }
