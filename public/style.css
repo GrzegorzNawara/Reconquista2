@@ -193,3 +193,11 @@ html body {
   width: 50px;
   z-index: 10;
 }
+.next-button {
+  position: absolute;
+  right: 55px;
+  bottom: 100px;
+  height: 50px;
+  width: 50px;
+  z-index: 10;
+}

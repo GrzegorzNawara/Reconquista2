@@ -1,8 +1,8 @@
 import React from 'react'
-//import debug from '../include/debug'
+import debug from '../include/debug'
 
 const NextButton = ({onClick}) => (
-  <div className="burn-button">
+  <div className="next-button">
     <img onClick={onClick} src='./images/next-button.png' alt=''/>
   </div>
 )

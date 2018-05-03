@@ -17,6 +17,9 @@ const initialState = {
     scenario_choosen: 0,
     scenario_id: -1,
 
+    start_time: Date.now(),
+    time_used: 0,
+
     last_msg_id: -1,
     last_nonempty_update: 0,
 
@@ -38,10 +41,7 @@ const initialState = {
     action_buttons_visible: 0,
     actual_card_index: -1,
     cards: []
-  },
-
-  // array of objects with piece_id
-  mycards: []
+  }
 };
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

@@ -60,6 +60,7 @@ const mymap = (state = {}, action) => {
       return {
         ...state,
         action_buttons_visible: 0,
+        time_used: state.time_used+15,
         pieces: state.pieces.map( piece => (
           (piece.piece_id===action.piece.piece_id)?
           {
@@ -72,6 +73,7 @@ const mymap = (state = {}, action) => {
       return {
         ...state,
         action_buttons_visible: 0,
+        time_used: state.time_used+15,
         pieces: state.pieces.map( piece => (
           (piece.piece_id===action.piece.piece_id)?
           {
@@ -84,6 +86,7 @@ const mymap = (state = {}, action) => {
       return {
         ...state,
         action_buttons_visible: 0,
+        time_used: state.time_used+5,
         score: { ...state.score, burnt_points: state.score.burnt_points+1 }
       }
     case 'REARRANGE_PIECES':
