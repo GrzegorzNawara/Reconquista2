@@ -140,6 +140,11 @@ const mymap = (state = {}, action) => {
         choosen_piece_index: state.pieces.filter((piece) => piece.piece_id===action.card.piece_id)[0].index,
         center: state.pieces.filter((piece) => piece.piece_id===action.card.piece_id)[0].pos
       }
+    case 'RECENTER':
+      return {
+        ...state,
+        center: (state.choosen_piece_index>=0)?state.pieces[state.choosen_piece_index].pos:{x:0,y:0}
+      }
     case 'ADD_CARD':
       return {
         ...state,
