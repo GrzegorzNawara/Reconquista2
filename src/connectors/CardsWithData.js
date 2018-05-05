@@ -10,9 +10,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
 }
 
-const FooterWithData = connect(
+const CardsWithData = connect(
   mapStateToProps,
   mapDispatchToProps
 )(Footer)
 
-export default FooterWithData
+export default CardsWithData
