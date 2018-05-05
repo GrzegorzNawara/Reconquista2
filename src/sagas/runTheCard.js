@@ -5,7 +5,7 @@ import sendMsg from './sendMsg'
 
 export default function* runTheCard(action) {
   const theCard = yield select((state) => state.mymap.cards[state.mymap.actual_card_index]);
-  const delay_time = yield select((state) => Math.max(0,((state.mymap.start_time+state.mymap.time_used*1000)-Date.now())));
+  const delay_time = yield select((state) => Math.max(1000,((state.mymap.start_time+state.mymap.time_used*1000)-Date.now())));
 
   if(action.type==='MOVE_NORTH' || action.type==='MOVE_SOUTH') {
     yield fork(sendMsg,action);
