@@ -40,7 +40,8 @@ const initialState = {
 
     action_buttons_visible: 0,
     actual_card_index: -1,
-    cards: []
+    cards: [],
+    hand: []
   }
 };
 

@@ -12,6 +12,9 @@ export default function* addMyCards({scenario, my_piece_id}) {
     let tmp_piece_id=scenario[my_piece_id+'-cards'][ii];
     yield put(addCard({piece_id:tmp_piece_id, ...CARDS.findHeaderCardById(tmp_piece_id), ...CARDS.findShowCardById(tmp_piece_id)}));
     yield put(addCard({piece_id:tmp_piece_id, ...CARDS.findExecCardById(tmp_piece_id)}));
+
+    if(ii>0 && ii<4)
+      yield put(addCard2Hand({piece_id:tmp_piece_id, ...CARDS.findHeaderCardById(tmp_piece_id), ...CARDS.findShowCardById(tmp_piece_id)}));
   }
 
   yield put(addCard({piece_id:my_piece_id, ...CARDS.EVENT_CARD, ...CARDS.SHOW_GAMEOVER_CARD}));

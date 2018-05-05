@@ -155,6 +155,17 @@ const mymap = (state = {}, action) => {
           }
         ]
       }
+    case 'ADD_CARD_2_HAND':
+      return {
+        ...state,
+        hand: [
+          ...state.hand,
+          {
+            ...action.card,
+            index: state.hand.length
+          }
+        ]
+      }
     case 'ADD_PIECE':
       return {
         ...state,
