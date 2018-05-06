@@ -2,12 +2,12 @@ import React from 'react'
 import Card from './Card'
 
 const Cards = ({visible, cards, onClick}) => (
-  <div className="container">
+  <div className="my-hand">
     {visible &&
-      <div className="row">
+      <div className="row my-cards">
         {cards.map( card =>
             <Card
-              key={card.id}
+              key={'hand'+card.index}
               my_card={card}
               onClick={() => onClick(card)}
             />

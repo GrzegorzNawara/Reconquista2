@@ -13,9 +13,9 @@ const App = () => (
     <div id='my-container' className="container">
       <NavBarWithData />
       <MapWithPieces />
+      <CardsWithData />
       <FooterWithData />
       <ActionControlsWithData />
-      <CardsWithData />
     </div>
     <Fullscreen />
   </div>

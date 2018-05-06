@@ -69,6 +69,7 @@ html body {
   background-color: #193030;
   color: #ffffff;
   border-top: 15px solid #fff;
+  z-index: 25;
 }
 .my-footer-bg {
   min-height: 50px;
@@ -78,39 +79,55 @@ html body {
   height: 20px;
   width: auto;
 }
-
-.my-card {
-  background-image:url('./images/card-base.png');
-  background-repeat: no-repeat;
+@media only screen and (min-width: 560px) {
+  .my-card-header { font-size: 1.3em; }
+  .my-card-text-box { font-size: 1.0em; }
+  .my-card { width: 28%; }
+}
+@media only screen and (max-width: 560px) {
+  .my-card-header { font-size: 4vw; }
+  .my-card-text-box { font-size: 2.9vw; }
+  .my-card { max-width: 30vw; }
+}
+.my-hand {
   position: absolute;
+  bottom: 200px;
+  max-width: 568px;
+  width: 568px;
+  z-index: 20;
+}
+.my-card {
+  position: relative;
   overflow-x: hidden;
   overflow-y: hidden;
-  height: 307px;
-  width: 183px;
-  z-index: 20;
+  margin: 1%;
+}
+.my-card-bg-image {
+  width: 100%;
+  height: auto;
+  pointer-events: none;
 }
 .my-card-corner-image {
   position: absolute;
-  left: 20px;
-  top: 22px;
+  left: 10%;
+  top: 7.1%;
+  width: 17%;
   pointer-events: none;
 }
 .my-card-header {
   position: absolute;
   width: 100%;
-  top: 23px;
-  font-size: 1.3em;
+  top: 7.1%;
   color: #ffffff;
-  padding-left: 60px;
+  padding-left: 35%;
   text-align: left;
   pointer-events: none;
 }
 .my-card-text-box {
   position: absolute;
   width: 100%;
-  top: 187px;
-  height: 100px;
-  font-size: 1.0em;
+  top: 60.91%;
+  height: 32.57%;
   color: #ffffff;
   pointer-events: none;
   display: flex;
@@ -118,16 +135,16 @@ html body {
   align-items: center;
 }
 .my-card-text {
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 10.92%;
+  padding-right: 10.92%;
   pointer-events: none;
   text-align: center;
 }
 .my-card-mid-image {
   position: absolute;
-  width: 106px;
-  top: 74px;
-  left: 38px;
+  width: 57.92%;
+  top: 24.10%;
+  left: 20.76%;
   margin: auto;
   pointer-events: none;
 }
@@ -191,7 +208,7 @@ html body {
   bottom: 100px;
   height: 50px;
   width: 50px;
-  z-index: 10;
+  z-index: 30;
 }
 .next-button {
   position: absolute;
@@ -199,7 +216,7 @@ html body {
   bottom: 100px;
   height: 50px;
   width: 50px;
-  z-index: 10;
+  z-index: 30;
 }
 
 .cdwn-wrapper {

@@ -71,11 +71,6 @@ class ActionControls extends Component {
           />
       }
 
-      {this.props.mymap.cards.length>0 && this.props.mymap.actual_card_index>=0 && this.props.mymap.cards[this.props.mymap.actual_card_index].visible===1 &&
-        <Card  my_card={this.props.mymap.cards[this.props.mymap.actual_card_index]}
-          onClick={this.props.onClickNextButton} />
-      }
-
       {this.props.mymap.action_buttons_visible===0 &&
         <CountdownTimerWithDelay />
       }

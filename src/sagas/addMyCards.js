@@ -1,5 +1,5 @@
 import { put } from 'redux-saga/effects'
-import { addCard } from '../actions'
+import { addCard, addCard2Hand } from '../actions'
 import * as CARDS from '../include/cardsDefinitions'
 //import debug from '../include/debug'
 

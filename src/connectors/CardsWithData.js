@@ -13,6 +13,6 @@ const mapDispatchToProps = {
 const CardsWithData = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Footer)
+)(Cards)
 
 export default CardsWithData
