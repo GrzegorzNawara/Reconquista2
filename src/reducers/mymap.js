@@ -155,6 +155,11 @@ const mymap = (state = {}, action) => {
           }
         ]
       }
+    case 'CHOOSE_CARD_FROM_HAND':
+      return {
+        ...state,
+        hand_choosen_card: action.card.index
+      }
     case 'ADD_CARD_2_HAND':
       return {
         ...state,

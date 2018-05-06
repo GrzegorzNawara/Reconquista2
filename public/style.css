@@ -91,7 +91,7 @@ html body {
 }
 .my-hand {
   position: absolute;
-  bottom: 200px;
+  bottom: -10px;
   max-width: 568px;
   width: 568px;
   z-index: 20;

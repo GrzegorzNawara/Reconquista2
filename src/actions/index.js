@@ -51,3 +51,8 @@ export const showNextCard = () => ({
 export const burnTheCard = () => ({
   type: 'BURN_THE_MOVE'
 })
+
+export const chooseCardFromHand = (card) => ({
+  type: 'CHOOSE_CARD_FROM_HAND',
+  card: card
+})
