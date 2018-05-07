@@ -4,6 +4,7 @@ import Piece from './Piece'
 
 const TILE_WIDTH_HALF=42;
 const TILE_HEIGHT_HALF=30;
+const CENTER_Y_SHIFT=-300;
 
 class Map extends Component {
 
@@ -23,7 +24,7 @@ class Map extends Component {
   }
 
   updateWindowDimensions() {
-    this.setState({ width: document.getElementById('my-container').offsetWidth, height: window.innerHeight });
+    this.setState({ width: document.getElementById('my-container').offsetWidth, height: window.innerHeight+CENTER_Y_SHIFT });
   }
 
   grid2iso = (center,{x,y},slide={x:0,y:0}) => ({

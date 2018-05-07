@@ -82,16 +82,17 @@ html body {
 @media only screen and (min-width: 560px) {
   .my-card-header { font-size: 1.2em; }
   .my-card-text-box { font-size: 1.0em; }
-  .my-card { width: 29.2%; }
+  .my-card { width: 29.2%; margin: 1%; }
+  .my-hand { bottom: -10px; }
 }
 @media only screen and (max-width: 560px) {
   .my-card-header { font-size: 3.6vw; }
   .my-card-text-box { font-size: 2.9vw; }
-  .my-card { max-width: 30vw; }
+  .my-card { max-width: 30vw; margin: 1vw;}
+  .my-hand { bottom: calc(15vw + 50px); }
 }
 .my-hand {
   position: absolute;
-  bottom: -10px;
   max-width: 568px;
   width: 568px;
   z-index: 20;
@@ -100,7 +101,6 @@ html body {
   position: relative;
   overflow-x: hidden;
   overflow-y: hidden;
-  margin: 1%;
 }
 .my-card-bg-image {
   width: 100%;
