@@ -15,18 +15,14 @@ export default function* mainSaga() {
 
   yield take('GAME_SETUP_READY');
 
-  yield put({type:'SHOW_NEXT_CARD'});
   yield put({type:'REARRANGE_PIECES'});
   yield put({type:'CALCULATE_POINTS'});
   yield put({type:'REARRANGE_PIECES_DONE'});
 
   yield takeEvery('PLAY_CARD_FROM_HAND', runTheCard);
-
   yield takeEvery('MOVE_NORTH', runTheCard);
   yield takeEvery('MOVE_SOUTH', runTheCard);
   yield takeEvery('BURN_THE_MOVE', runTheCard);
-  yield takeEvery('SHOW_NEXT_CARD', runTheCard);
-  yield takeEvery('UPDATE_SHOW_NEXT_CARD', runTheCard);
 
   while(true){
     yield call(checkForUpdates);

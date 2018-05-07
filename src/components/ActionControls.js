@@ -71,18 +71,12 @@ class ActionControls extends Component {
           />
       }
 
-      
+
       {this.props.mymap.action_buttons_visible===1 &&
         this.props.mymap.cards[this.props.mymap.actual_card_index].card_type==='MOVE_PIECE_CARD' &&
         <BurnButton  onClick={this.props.onClickBurnButton} />
       }
 
-      {this.props.mymap.cards.length>0 && this.props.mymap.actual_card_index>=0 &&
-        (this.props.mymap.cards[this.props.mymap.actual_card_index].visible===1 ||
-        (this.props.mymap.cards[this.props.mymap.actual_card_index].card_type!=='MOVE_PIECE_CARD' &&
-        this.props.mymap.cards[this.props.mymap.actual_card_index].visible!==1)) &&
-        <NextButton  onClick={this.props.onClickNextButton} />
-      }
 
 
       </div>

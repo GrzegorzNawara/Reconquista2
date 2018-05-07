@@ -108,22 +108,6 @@ const mymap = (state = {}, action) => {
           ...calculatePoints(state.my_piece_id, state.pieces),
         }
       }
-    case 'SHOW_NEXT_CARD':
-      return {
-        ...state,
-        actual_card_index:
-          (state.cards.length>0 && state.actual_card_index<state.cards.length-1)
-            ?state.actual_card_index+=1
-            :state.actual_card_index
-      }
-    case 'UPDATE_SHOW_NEXT_CARD':
-      return {
-        ...state,
-        actual_card_index:
-          (state.cards.length>0 && state.actual_card_index<state.cards.length-1)
-            ?state.actual_card_index+=1
-            :state.actual_card_index
-      }
     case 'SHOW_INFO_CARD':
     case 'SHOW_PIECE_CARD':
       return {
@@ -160,6 +144,7 @@ const mymap = (state = {}, action) => {
         ...state,
         hand_choosen_card: action.card.index
       }
+    case 'UPDATE_PLAY_CARD_FROM_HAND':
     case 'PLAY_CARD_FROM_HAND':
       return {
         ...state,

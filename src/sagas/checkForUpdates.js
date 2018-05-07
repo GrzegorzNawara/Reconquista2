@@ -21,7 +21,7 @@ export default function* checkForUpdates() {
   for(let ii=0; ii<msg.length; ii++){
 
     if(msg[ii].my_hash!==my_hash){
-      if(msg[ii].type==='UPDATE_SHOW_NEXT_CARD' && msg[ii].my_user_id===USER_ID)
+      if(msg[ii].type==='UPDATE_PLAY_CARD_FROM_HAND' && msg[ii].my_user_id===USER_ID)
         yield put(msg[ii]);
       else if(msg[ii].type==='UPDATE_MOVE_NORTH' || msg[ii].type==='UPDATE_MOVE_SOUTH') {
         yield put(msg[ii]);
