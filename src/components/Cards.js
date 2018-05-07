@@ -1,7 +1,7 @@
 import React from 'react'
 import Card from './Card'
 
-const Cards = ({visible, choosen_card, cards, onClick}) => (
+const Cards = ({visible, choosen_card, cards, onChoosenClick, onClick}) => (
   <div className="my-hand">
     {visible &&
       <div className="row my-cards">
@@ -11,6 +11,7 @@ const Cards = ({visible, choosen_card, cards, onClick}) => (
               choosen_card={(choosen_card===card.index)?1:0}
               my_card={card}
               onClick={() => onClick(card)}
+              onChoosenClick={() => onChoosenClick(card)}
             />
       )}
     </div>}

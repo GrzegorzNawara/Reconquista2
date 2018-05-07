@@ -13,17 +13,17 @@ export default function* runTheCard(action) {
     yield put({type:'CALCULATE_POINTS'});
     yield put({type: 'RECENTER'});
     yield delay(delay_time);
-    yield put({type: 'SHOW_NEXT_CARD'});
+    //yield put({type: 'SHOW_NEXT_CARD'});
     yield put({type:'REARRANGE_PIECES_DONE'});
   }
 
   if(action.type==='BURN_THE_MOVE') {
     yield delay(delay_time);
-    yield put({type:'SHOW_NEXT_CARD'});
+    //yield put({type:'SHOW_NEXT_CARD'});
     yield put({type:'CALCULATE_POINTS'});
   }
 
-  if(action.type==='SHOW_NEXT_CARD') {
+  if(action.type==='SHOW_NEXT_CARD' || action.type==='PLAY_CARD_FROM_HAND') {
     yield fork(sendMsg,action);
     yield put({type:'REARRANGE_PIECES_DONE'});
     yield put({type: theCard.card_type, card: theCard});

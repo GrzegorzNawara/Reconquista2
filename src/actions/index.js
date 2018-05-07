@@ -56,3 +56,8 @@ export const chooseCardFromHand = (card) => ({
   type: 'CHOOSE_CARD_FROM_HAND',
   card: card
 })
+
+export const playCardFromHand = (card) => ({
+  type: 'PLAY_CARD_FROM_HAND',
+  card: card
+})

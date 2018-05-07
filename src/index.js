@@ -42,7 +42,8 @@ const initialState = {
     actual_card_index: -1,
     cards: [],
     hand: [],
-    hand_choosen_card: -1
+    hand_choosen_card: -1,
+    next_available_card_index: 9
   }
 };
 

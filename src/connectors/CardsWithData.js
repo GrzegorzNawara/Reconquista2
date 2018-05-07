@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import Cards from '../components/Cards'
-import { chooseCardFromHand } from '../actions'
+import { chooseCardFromHand, playCardFromHand } from '../actions'
 //import debug from '../include/debug'
 
 const mapStateToProps = (state) => ({
@@ -10,7 +10,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  onClick: chooseCardFromHand
+  onClick: chooseCardFromHand,
+  onChoosenClick: playCardFromHand
 }
 
 const CardsWithData = connect(

@@ -160,14 +160,26 @@ const mymap = (state = {}, action) => {
         ...state,
         hand_choosen_card: action.card.index
       }
+    case 'PLAY_CARD_FROM_HAND':
+      return {
+        ...state,
+        actual_card_index: action.card.index+1,
+        hand_choosen_card: -1,
+        next_available_card_index: state.next_available_card_index+2,
+        hand: (state.next_available_card_index<state.cards.length-1)?[
+          ...state.hand.filter((card) => card.index!==action.card.index),
+          {...state.cards[state.next_available_card_index]}
+        ]:[
+          ...state.hand.filter((card) => card.index!==action.card.index)
+        ]
+      }
     case 'ADD_CARD_2_HAND':
       return {
         ...state,
         hand: [
           ...state.hand,
           {
-            ...action.card,
-            index: state.hand.length
+            ...action.card
           }
         ]
       }

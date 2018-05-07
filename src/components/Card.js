@@ -3,7 +3,7 @@ import { keyframes } from 'styled-components'
 //import debug from '../include/debug'
 
 
-const Card = ({my_card, choosen_card, onClick}) => {
+const Card = ({my_card, choosen_card, onChoosenClick, onClick}) => {
 
   const translateFrames = keyframes`
     from { transform: translate(-500px,200px); }
@@ -13,8 +13,8 @@ const Card = ({my_card, choosen_card, onClick}) => {
   return (
     <div
       className="my-card"
-      onClick={onClick}
-      style={{animationName:translateFrames, animationDuration:(0.5+0.3*my_card.index)+'s', left:'20px', top:(20-140*choosen_card)+'px'}}>
+      onClick={(choosen_card===1)?onChoosenClick:onClick}
+      style={{animationName:translateFrames, animationDuration:'0.5s', left:'20px', top:(20-140*choosen_card)+'px'}}>
         <img className='my-card-bg-image' src='./images/card-base.png' alt=""></img>
         <img className='my-card-corner-image' src={my_card.corner_image} alt=""></img>
         <div className='my-card-header'>{my_card.header}</div>

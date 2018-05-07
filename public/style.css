@@ -80,12 +80,12 @@ html body {
   width: auto;
 }
 @media only screen and (min-width: 560px) {
-  .my-card-header { font-size: 1.3em; }
+  .my-card-header { font-size: 1.2em; }
   .my-card-text-box { font-size: 1.0em; }
   .my-card { width: 28%; }
 }
 @media only screen and (max-width: 560px) {
-  .my-card-header { font-size: 4vw; }
+  .my-card-header { font-size: 3.6vw; }
   .my-card-text-box { font-size: 2.9vw; }
   .my-card { max-width: 30vw; }
 }
@@ -119,7 +119,7 @@ html body {
   width: 100%;
   top: 7.1%;
   color: #ffffff;
-  padding-left: 35%;
+  padding-left: 32%;
   text-align: left;
   pointer-events: none;
 }
@@ -218,7 +218,15 @@ html body {
   width: 50px;
   z-index: 30;
 }
-
+.wait-button {
+  position: absolute;
+  right: 55px;
+  bottom: 100px;
+  height: 50px;
+  width: 50px;
+  z-index: 30;
+  animation: cdwn-opacity 180s linear;
+}
 .cdwn-wrapper {
   right: -44px;
   bottom: -44px;
@@ -250,4 +258,8 @@ html body {
   0%   { transform: rotate(180deg); }
   85% { transform: rotate(360deg); }
   90%,100% { transform: rotate(180deg); }
+}
+@keyframes cdwn-opacity {
+  0%   { opacity: 1;}
+  100% { opacity: 0;}
 }
