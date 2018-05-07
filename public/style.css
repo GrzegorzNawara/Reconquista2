@@ -82,7 +82,7 @@ html body {
 @media only screen and (min-width: 560px) {
   .my-card-header { font-size: 1.2em; }
   .my-card-text-box { font-size: 1.0em; }
-  .my-card { width: 28%; }
+  .my-card { width: 29.2%; }
 }
 @media only screen and (max-width: 560px) {
   .my-card-header { font-size: 3.6vw; }
