@@ -43,7 +43,7 @@ const initialState = {
     cards: [],
     hand: [],
     hand_choosen_card: -1,
-    next_available_card_index: 9
+    next_available_card_index: 0
   }
 };
 

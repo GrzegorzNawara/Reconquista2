@@ -260,6 +260,6 @@ html body {
   90%,100% { transform: rotate(180deg); }
 }
 @keyframes cdwn-opacity {
-  0%   { opacity: 1;}
+  0%,99%   { opacity: 1;}
   100% { opacity: 0;}
 }

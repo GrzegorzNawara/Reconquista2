@@ -23,6 +23,8 @@ export default function* checkForUpdates() {
     if(msg[ii].my_hash!==my_hash){
       if(msg[ii].type==='UPDATE_PLAY_CARD_FROM_HAND' && msg[ii].my_user_id===USER_ID)
         yield put(msg[ii]);
+      else if(msg[ii].type==='UPDATE_BURN_THE_MOVE' && msg[ii].my_user_id===USER_ID)
+        yield put(msg[ii]);
       else if(msg[ii].type==='UPDATE_MOVE_NORTH' || msg[ii].type==='UPDATE_MOVE_SOUTH') {
         yield put(msg[ii]);
         yield put({type:'REARRANGE_PIECES'});

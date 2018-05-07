@@ -39,9 +39,8 @@ export const addCard = (card) => ({
   card: card
 })
 
-export const addCard2Hand = (card) => ({
-  type: 'ADD_CARD_2_HAND',
-  card: card
+export const addCard2Hand = () => ({
+  type: 'ADD_CARD_2_HAND'
 })
 
 export const showNextCard = () => ({

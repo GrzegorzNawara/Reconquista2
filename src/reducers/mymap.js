@@ -82,10 +82,10 @@ const mymap = (state = {}, action) => {
             old_pos: { x: piece.pos.x, y: piece.pos.y }
           }:piece
       ))}
+    case 'UPDATE_BURN_THE_MOVE':
     case 'BURN_THE_MOVE':
       return {
         ...state,
-        action_buttons_visible: 0,
         score: { ...state.score, burnt_points: state.score.burnt_points+1 }
       }
     case 'REARRANGE_PIECES':
@@ -150,22 +150,20 @@ const mymap = (state = {}, action) => {
         ...state,
         actual_card_index: action.card.index+1,
         hand_choosen_card: -1,
-        next_available_card_index: state.next_available_card_index+2,
-        hand: (state.next_available_card_index<state.cards.length-1)?[
-          ...state.hand.filter((card) => card.index!==action.card.index),
-          {...state.cards[state.next_available_card_index]}
-        ]:[
+        hand: [
           ...state.hand.filter((card) => card.index!==action.card.index)
         ]
       }
+    case 'UPDATE_ADD_CARD_2_HAND':
     case 'ADD_CARD_2_HAND':
       return {
         ...state,
-        hand: [
+        next_available_card_index: state.next_available_card_index+2,
+        hand: (state.next_available_card_index<state.cards.length-1)?[
           ...state.hand,
-          {
-            ...action.card
-          }
+          {...state.cards[state.next_available_card_index]}
+        ]:[
+          ...state.hand
         ]
       }
     case 'ADD_PIECE':

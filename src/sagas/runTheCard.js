@@ -12,13 +12,13 @@ export default function* runTheCard(action) {
     yield put({type:'REARRANGE_PIECES'});
     yield put({type:'CALCULATE_POINTS'});
     yield put({type: 'RECENTER'});
-    yield delay(delay_time);
+    yield delay(1000);
     yield put({type:'REARRANGE_PIECES_DONE'});
   }
 
-  if(action.type==='BURN_THE_MOVE') {
-    yield delay(delay_time);
-    //yield put({type:'SHOW_NEXT_CARD'});
+  if(action.type==='PLAY_CARD_FROM_HAND' && theCard.card_type==='MOVE_PIECE_CARD') {
+    yield fork(sendMsg,{type:'BURN_THE_MOVE'});
+    yield put({type:'BURN_THE_MOVE'});
     yield put({type:'CALCULATE_POINTS'});
   }
 
@@ -26,9 +26,12 @@ export default function* runTheCard(action) {
     yield fork(sendMsg,action);
     yield put({type:'REARRANGE_PIECES_DONE'});
     yield put({type: theCard.card_type, card: theCard});
+    yield delay(delay_time);
+    yield put({type:'ADD_CARD_2_HAND'});
   }
 
   if(action.type==='UPDATE_PLAY_CARD_FROM_HAND') {
     yield put({type: theCard.card_type, card: theCard});
+    yield put({type:'ADD_CARD_2_HAND'});
   }
 }

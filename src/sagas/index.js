@@ -20,9 +20,9 @@ export default function* mainSaga() {
   yield put({type:'REARRANGE_PIECES_DONE'});
 
   yield takeEvery('PLAY_CARD_FROM_HAND', runTheCard);
+  yield takeEvery('UPDATE_PLAY_CARD_FROM_HAND', runTheCard);
   yield takeEvery('MOVE_NORTH', runTheCard);
   yield takeEvery('MOVE_SOUTH', runTheCard);
-  yield takeEvery('BURN_THE_MOVE', runTheCard);
 
   while(true){
     yield call(checkForUpdates);
