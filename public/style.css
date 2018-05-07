@@ -68,7 +68,7 @@ html body {
   margin: auto;
   background-color: #193030;
   color: #ffffff;
-  border-top: 15px solid #fff;
+  border-top: 1px solid #fff;
   z-index: 25;
 }
 .my-footer-bg {
