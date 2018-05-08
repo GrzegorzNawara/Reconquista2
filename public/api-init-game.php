@@ -3,9 +3,17 @@
 
 $game_id=$_GET["game_id"];
 $scenario_id=$_GET["scenario_id"];
-
+  
 if($scenario_id=='scenario-a1'){
   $scenario=[
+    'title'=>'A1. Silny król i chłopi',
+    'subtitle'=>[
+      'Dla 1-8 graczy: Król, 2x Rycerz, 5x Chłop',
+      'Scenariusz do poznania gry i integracji grupy.',
+      'Dodatkowe zasady:',
+      '- Każdy musi zdobyć minimum 5 punktów wojny',
+      '- Czas gry jest ograniczony do 15 minut'
+    ],
     'my_cards'=>3,
     'usr_cards'=>3,
     'npc_cards'=>8,

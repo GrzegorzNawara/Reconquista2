@@ -14,7 +14,7 @@ const initialState = {
   // data
   mymap: {
     scenario: {},
-    scenario_choosen: 1,
+    scenario_choosen: 0,
     scenario_id: -1,
     show_game_info: 0,
 

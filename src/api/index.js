@@ -1,6 +1,6 @@
 import { delay } from 'redux-saga'
 import { call } from 'redux-saga/effects'
-import debug from '../include/debug'
+//import debug from '../include/debug'
 
 if (!window.fetch) { require('whatwg-fetch') }
 
@@ -27,6 +27,6 @@ export const apiFetchData = function* (api_call) {
     if(response==='FETCH_ERROR')
       yield delay(delay_time);
     else
-      return debug(response,'FETCH RESPONSE');
+      return response;
     delay_time*=1.2;
 }}

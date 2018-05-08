@@ -4,8 +4,8 @@ import InfoBox from '../components/InfoBox'
 
 const mapStateToProps = (state) => ({
   visible: (state.mymap.show_game_info===1),
-  title: 'HEADER',
-  content: ['CONTENT1','CONTENT1']
+  title: state.mymap.scenario.title,
+  content: state.mymap.scenario.subtitle
 })
 
 const mapDispatchToProps = {
