@@ -13,9 +13,6 @@ export default function* checkForUpdates() {
     +'?game_id='+GAME_ID
     +'&user_id='+USER_ID
     +'&last_msg_id='+last_msg_id)
-  if(response.error){
-    return yield put({type:'FETCH_MSG_ERROR',response})
-  }
 
   const msg = response.split("\n").filter((str) => str!=='').map((str) => JSON.parse(str));
   for(let ii=0; ii<msg.length; ii++){

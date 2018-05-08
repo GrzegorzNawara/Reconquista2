@@ -1,3 +1,7 @@
+import { delay } from 'redux-saga'
+import { call } from 'redux-saga/effects'
+import debug from '../include/debug'
+
 if (!window.fetch) { require('whatwg-fetch') }
 
 function statusHelper (response) {
@@ -8,10 +12,21 @@ function statusHelper (response) {
   }
 }
 
-export const apiFetchData = function (api_call) {
-  return fetch(api_call)
-  .then(statusHelper)
-  .then(response => response.text())
-  .catch(error => error)
-  .then(data => data)
+const apiFetch = (api_call) => {
+    return fetch(api_call)
+    .then(statusHelper)
+    .then(response => response.text())
+    .catch(error => 'FETCH_ERROR')
+    .then(data => data);
 }
+
+export const apiFetchData = function* (api_call) {
+  let delay_time=1000;
+  while(true){
+    const response = yield call(apiFetch,api_call);
+    if(response==='FETCH_ERROR')
+      yield delay(delay_time);
+    else
+      return debug(response,'FETCH RESPONSE');
+    delay_time*=1.2;
+}}

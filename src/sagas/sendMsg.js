@@ -13,8 +13,5 @@ export default function* sendMsg(action) {
         +"&user_id="+USER_ID
         +"&action="+JSON.stringify({...action, type: 'UPDATE_'+action.type, my_hash:my_hash, my_user_id:USER_ID})
       )
-    if (response.error) {
-      return yield put({type: 'SEND_MSG_ERROR', response})
-    }
   }
 }

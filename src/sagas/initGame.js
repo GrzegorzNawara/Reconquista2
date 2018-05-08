@@ -9,7 +9,4 @@ export default function* initGame() {
     +'?game_id='+GAME_ID
     +'&user_id='+USER_ID
     +'&scenario_id='+scenario_id);
-  if(response.error){
-    return yield put({type:'FETCH_MSG_ERROR',response});
-  }
 }

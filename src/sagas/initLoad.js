@@ -15,15 +15,12 @@ export default function* initLoad() {
     let scenario=[];
     let my_piece_id='';
 
-    const response1 = yield call(apiFetchData,API_URL+'/api-get-msg.php'
+    const response = yield call(apiFetchData,API_URL+'/api-get-msg.php'
       +'?game_id='+GAME_ID
       +'&user_id='+USER_ID
       +'&last_msg_id='+last_msg_id)
-    if(response1.error){
-      return yield put({type:'FETCH_MSG_ERROR',response1})
-    }
 
-    const msg = response1.split("\n").filter((str) => str!=='').map((str) => JSON.parse(str));
+    const msg = response.split("\n").filter((str) => str!=='').map((str) => JSON.parse(str));
     for(let ii=0; ii<msg.length; ii++){
 
       if(msg[ii].type==='SET_SCENARIO'){
