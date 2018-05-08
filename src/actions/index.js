@@ -9,6 +9,10 @@ export const setScenario = (scenario) => ({
   scenario: scenario
 })
 
+export const showGameInfo = () => ({
+  type: 'SHOW_GAME_INFO'
+})
+
 export const chooseScenario = (scenario_desc) => ({
   type: 'CHOOSE_SCENARIO',
   scenario_id: scenario_desc.id

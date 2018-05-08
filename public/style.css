@@ -31,6 +31,15 @@ html body {
   right: 10px;
   opacity: 0.5;
 }
+.info-box {
+  position: absolute;
+  top: 100px;
+  left: 34px;
+  background-color: #193030;
+  height: calc(90vh-200px);
+  max-width: 500px;
+  padding: 20px;
+}
 .my-navbar {
   height: 60px;
   width: 100vw;
@@ -84,12 +93,14 @@ html body {
   .my-card-text-box { font-size: 1.0em; }
   .my-card { width: 29.2%; margin: 1%; }
   .my-hand { bottom: -10px; }
+  .info-box { width: 500px; }
 }
 @media only screen and (max-width: 560px) {
   .my-card-header { font-size: 3.6vw; }
   .my-card-text-box { font-size: 2.9vw; }
   .my-card { max-width: 30vw; margin: 1vw;}
   .my-hand { bottom: calc(15vw + 50px); }
+  .info-box { width: 90vw; }
 }
 .my-hand {
   position: absolute;
@@ -161,8 +172,8 @@ html body {
   margin-left: 0;
   padding-left: 0;
   padding-right: 10px;
-  margin-bottom: 10px;
-  height: 1.5em;
+  margin-bottom: 25px;
+  height: 2em;
 }
 .piece-me-bulb, .piece-choosen-bulb {
   position: absolute;

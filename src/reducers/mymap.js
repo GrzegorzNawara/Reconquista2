@@ -17,6 +17,11 @@ const mymap = (state = {}, action) => {
         ...state,
         my_index: action.my_index
       }
+    case 'SHOW_GAME_INFO':
+      return {
+        ...state,
+        show_game_info: (state.show_game_info===1)?0:1
+      }
     case 'CHOOSE_SCENARIO':
       return {
         ...state,

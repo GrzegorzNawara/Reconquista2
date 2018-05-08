@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import NavBar from '../components/NavBar'
 import { findHeaderCardById } from '../include/cardsDefinitions'
+import { showGameInfo } from '../actions'
 //import debug from '../include/debug'
 
 const mapStateToProps = (state) => ({
@@ -9,6 +10,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
+  onCobClick: showGameInfo
 }
 
 const NavBarWithData = connect(

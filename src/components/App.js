@@ -6,12 +6,15 @@ import ChooseScenario from '../connectors/ChooseScenario'
 import FooterWithData from '../connectors/FooterWithData'
 import ActionControlsWithData from '../connectors/ActionControlsWithData'
 import CardsWithData from '../connectors/CardsWithData'
+import InfoBoxWithData from '../connectors/InfoBoxWithData'
+
 
 const App = () => (
   <div>
     <ChooseScenario />
     <div id='my-container' className="container">
       <NavBarWithData />
+      <InfoBoxWithData />
       <MapWithPieces />
       <CardsWithData />
       <FooterWithData />
