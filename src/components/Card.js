@@ -12,7 +12,7 @@ const Card = ({my_card, choosen_card, onChoosenClick, onClick}) => {
 
   return (
     <div
-      className="my-card"
+      className={(choosen_card===1)?"my-card my-choosen-card":"my-card"}
       onClick={(choosen_card===1)?onChoosenClick:onClick}
       style={{animationName:translateFrames, animationDuration:'0.5s', left:'20px', top:(20-110*choosen_card)+'px'}}>
         <img className='my-card-bg-image' src='./images/card-base.png' alt=""></img>
