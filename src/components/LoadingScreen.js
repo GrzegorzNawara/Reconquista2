@@ -1,11 +1,11 @@
 import React from 'react'
-import debug from '../include/debug'
+//import debug from '../include/debug'
 
 const LoadingScreen = ({ visible=true, logo, title }) => (
-  (debug(visible,'VISIBLE')) ? (
-    <div className="loading-screen justify-content-right align-items-center">
-      <img className='loading-screen-logo' src={debug(logo,'LOGO')} alt=""></img>
-      <h4>{title}</h4>
+  (visible) ? (
+    <div className="loading-screen">
+      <img className='loading-screen-logo' src={logo} alt=""></img>
+      <div><img className='loading-screen-loading-gif' src='./images/loading.gif' alt=""></img></div>
     </div>
   ) : null
 )

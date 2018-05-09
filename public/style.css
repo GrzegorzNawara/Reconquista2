@@ -8,8 +8,12 @@ html body {
 .loading-screen {
   width: 100vw;
   height: 100vh;
+  background-color: #cfe5e5;
+  text-align: center;
+  padding-top: 30vh;
   z-index: 999;
 }
+.loading-screen-loading-gif {margin-top: 10vh;}
 .border-top { border-top: 1px solid #e5e5e5; }
 .border-bottom { border-bottom: 1px solid #e5e5e5; }
 .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }

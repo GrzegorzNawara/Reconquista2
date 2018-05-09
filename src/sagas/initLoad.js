@@ -21,6 +21,10 @@ export default function* initLoad() {
       +'&last_msg_id='+last_msg_id)
 
     const msg = response.split("\n").filter((str) => str!=='').map((str) => JSON.parse(str));
+
+    if(msg.length===0)
+      yield put({type:'HIDE_LOADING_SCREEN'});
+
     for(let ii=0; ii<msg.length; ii++){
 
       if(msg[ii].type==='SET_SCENARIO'){
@@ -33,8 +37,10 @@ export default function* initLoad() {
       yield put(msg[ii]);
       yield put({type:'INCREMENT_MSG_ID'});
 
-      if(msg[ii].type==='GAME_SETUP_READY')
+      if(msg[ii].type==='GAME_SETUP_READY') {
+        yield put({type:'HIDE_LOADING_SCREEN'});
         return false;
+      }
     }
 
     yield delay(3000);

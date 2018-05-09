@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import LoadingScreen from '../components/ActionControls'
+import LoadingScreen from '../components/LoadingScreen'
 //import debug from '../include/debug'
 
 const mapStateToProps = (state) => ({

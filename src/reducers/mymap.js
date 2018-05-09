@@ -12,10 +12,14 @@ const mymap = (state = {}, action) => {
         last_msg_id: state.last_msg_id+1,
         last_nonempty_update: Date.now()
       }
+    case 'HIDE_LOADING_SCREEN':
+      return {
+        ...state,
+        show_loading_screen: 0
+      }
     case 'SET_MY_INDEX':
       return {
         ...state,
-        show_loading_screen: 0,
         my_index: action.my_index
       }
     case 'SHOW_GAME_INFO':
