@@ -1,9 +1,5 @@
 import React, {Component} from 'react'
 import Arrow from './Arrow'
-import Card from './Card'
-import BurnButton from './BurnButton'
-import NextButton from './NextButton'
-import CountdownTimerWithDelay from '../connectors/CountdownTimerWithDelay'
 //import debug from '../include/debug'
 
 const TILE_WIDTH_HALF=42;
