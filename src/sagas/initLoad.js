@@ -28,10 +28,12 @@ export default function* initLoad() {
     for(let ii=0; ii<msg.length; ii++){
 
       if(msg[ii].type==='SET_SCENARIO'){
-        scenario=msg[ii].scenario;
-        my_piece_id=scenario.usr_pieces[my_index%msg[ii].scenario.usr_pieces.length];
-        yield put(setMyPieceId({my_piece_id:my_piece_id}));
-        yield fork(addMyCards,{scenario, my_piece_id});
+        if(my_index<msg[ii].scenario.usr_pieces.length) {
+          scenario=msg[ii].scenario;
+          my_piece_id=scenario.usr_pieces[my_index%msg[ii].scenario.usr_pieces.length];
+          yield put(setMyPieceId({my_piece_id:my_piece_id}));
+          yield fork(addMyCards,{scenario, my_piece_id});
+        }
       }
 
       yield put(msg[ii]);

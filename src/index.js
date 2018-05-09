@@ -13,7 +13,13 @@ const sagaMiddleware = createSagaMiddleware()
 const initialState = {
   // data
   mymap: {
-    scenario: {},
+    scenario: {
+      title:'...',
+      subtitle:[''],
+      burnt_points_weight:1,
+      war_points_weight:1,
+      happy_points_weight:1
+    },
     scenario_choosen: 0,
     scenario_id: -1,
     show_game_info: 0,
@@ -45,7 +51,9 @@ const initialState = {
     cards: [],
     hand: [],
     hand_choosen_card: -1,
-    next_available_card_index: 0
+    next_available_card_index: 0,
+    total_number_of_cards_played: 0,
+    total_number_of_cards_available: 0
   }
 };
 

@@ -2,6 +2,7 @@ import { delay } from 'redux-saga'
 import { put, call, select } from 'redux-saga/effects'
 import { apiFetchData } from '../api'
 import { API_URL, USER_ID, GAME_ID } from '../include/apiConfig'
+import sendMsg from './sendMsg'
 //import debug from '../include/debug'
 
 export default function* checkForUpdates() {
@@ -29,6 +30,13 @@ export default function* checkForUpdates() {
         yield put({type: 'RECENTER'});
       }
     }
+
+    if(msg[ii].type==='UPDATE_PLAY_CARD_FROM_HAND')
+      yield put({type:'UPDATE_YET_ANOTHER_CARD_PLAYED'});
+
+    if(msg[ii].type==='UPDATE_YET_ANOTHER_CARD_ADDED')
+      yield put(msg[ii]);
+
     yield put({type:'INCREMENT_MSG_ID'});
   }
 

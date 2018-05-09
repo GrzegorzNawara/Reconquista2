@@ -14,6 +14,11 @@ if($scenario_id=='scenario-a1'){
       '- Każdy musi zdobyć minimum 5 punktów wojny',
       '- Czas gry jest ograniczony do 15 minut'
     ],
+
+    'burnt_points_weight'=>1,
+    'war_points_weight'=>100,
+    'happy_points_weight'=>10,
+
     'my_cards'=>3,
     'usr_cards'=>3,
     'npc_cards'=>8,

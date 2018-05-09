@@ -3,6 +3,7 @@ import * as CARDS from '../include/cardsDefinitions'
 //import debug from '../include/debug'
 
 const mymap = (state = {}, action) => {
+
   //debug(action,'ACTION');
 
   switch (action.type) {
@@ -163,6 +164,16 @@ const mymap = (state = {}, action) => {
         hand: [
           ...state.hand.filter((card) => card.index!==action.card.index)
         ]
+      }
+    case 'UPDATE_YET_ANOTHER_CARD_PLAYED':
+      return {
+        ...state,
+        total_number_of_cards_played: state.total_number_of_cards_played+1
+      }
+    case 'UPDATE_YET_ANOTHER_CARD_ADDED':
+      return {
+        ...state,
+        total_number_of_cards_available: state.total_number_of_cards_available+action.count
       }
     case 'UPDATE_ADD_CARD_2_HAND':
     case 'ADD_CARD_2_HAND':
