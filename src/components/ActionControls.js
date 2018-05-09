@@ -33,38 +33,38 @@ class ActionControls extends Component {
   })
 
   render(){
-    if(this.props.mymap.scenario_choosen===0)
+    if(this.props.scenario_choosen===0)
       return false;
 
     return(
       <div>
         <div className="action-controls">
 
-        {this.props.mymap.action_buttons_visible===1 &&
+        {this.props.action_buttons_visible===1 &&
           <Arrow
             key='arrow-s'
             id='arrow-s'
             my_image='./images/iso-arrow-s.png'
             pos={this.grid2iso(
-              this.props.mymap.center,
-              this.props.mymap.pieces[this.props.mymap.choosen_piece_index].pos,
+              this.props.center,
+              this.props.pieces[this.props.choosen_piece_index].pos,
               {x:0, y:0.7}
             )}
-            onClick={() => this.props.onClickMoveSouth(this.props.mymap.pieces[this.props.mymap.choosen_piece_index])}
+            onClick={() => this.props.onClickMoveSouth(this.props.pieces[this.props.choosen_piece_index])}
           />
         }
 
-        {this.props.mymap.action_buttons_visible===1 &&
+        {this.props.action_buttons_visible===1 &&
           <Arrow
             key='arrow-n'
             id='arrow-n'
             my_image='./images/iso-arrow-n.png'
             pos={this.grid2iso(
-              this.props.mymap.center,
-              this.props.mymap.pieces[this.props.mymap.choosen_piece_index].pos,
+              this.props.center,
+              this.props.pieces[this.props.choosen_piece_index].pos,
               {x:0, y:-0.85}
             )}
-            onClick={() => this.props.onClickMoveNorth(this.props.mymap.pieces[this.props.mymap.choosen_piece_index])}
+            onClick={() => this.props.onClickMoveNorth(this.props.pieces[this.props.choosen_piece_index])}
           />
       }
 

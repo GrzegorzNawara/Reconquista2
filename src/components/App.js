@@ -7,10 +7,12 @@ import FooterWithData from '../connectors/FooterWithData'
 import ActionControlsWithData from '../connectors/ActionControlsWithData'
 import CardsWithData from '../connectors/CardsWithData'
 import InfoBoxWithData from '../connectors/InfoBoxWithData'
+import LoadingScreenWithData from '../connectors/LoadingScreenWithData'
 
 
 const App = () => (
   <div>
+    <LoadingScreenWithData />
     <ChooseScenario />
     <div id='my-container' className="container">
       <NavBarWithData />

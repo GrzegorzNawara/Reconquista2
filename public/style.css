@@ -5,7 +5,11 @@ html body {
   height: 100%;
   padding: 0;
 }
-
+.loading-screen {
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+}
 .border-top { border-top: 1px solid #e5e5e5; }
 .border-bottom { border-bottom: 1px solid #e5e5e5; }
 .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }

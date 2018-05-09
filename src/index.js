@@ -18,6 +18,7 @@ const initialState = {
     scenario_id: -1,
     show_game_info: 0,
 
+    show_loading_screen: 1,
     start_time: Date.now(),
     time_used: 0,
 

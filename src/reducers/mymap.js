@@ -15,6 +15,7 @@ const mymap = (state = {}, action) => {
     case 'SET_MY_INDEX':
       return {
         ...state,
+        show_loading_screen: 0,
         my_index: action.my_index
       }
     case 'SHOW_GAME_INFO':
