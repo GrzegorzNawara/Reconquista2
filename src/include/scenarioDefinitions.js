@@ -1,34 +1,33 @@
 export const SCENARIO_A1 = {
   id: 'scenario-a1',
-  title: 'A1. Silny król i chłopi',
+  title: 'A1. Silny król',
   subtitle:[
     'Dla 1-8 graczy: Król, 2x Rycerz, 5x Chłop',
-    'Scenariusz do poznania gry i integracji grupy.',
+    'Scenariusz z silną współpracą.',
     'Dodatkowe zasady:',
-    '- Każdy musi zdobyć minimum 5 punktów wojny',
-    '- Czas gry jest ograniczony do 15 minut'
+    '- Każdy musi zdobyć co najmniej 500 punktów wojny',
+    '- Czas gry nie jest ograniczony'
   ]}
 
 export const SCENARIO_A2 = {
   id: 'scenario-a2',
-  title: 'A2. Ciche królestwo',
+  title: 'A2. Anarchia',
   subtitle:[
-    'Dla 1-5 graczy: Król, Buntownik, Poborca, 2x Rycerz',
-    'Scenariusz do symulacji problemów w komunikacji',
+    'Dla 1-8 graczy: Król, 2x Rycerz, 5x Chłop',
+    'Scenariusz z silną konkurencją',
     'Dodatkowe zasady:',
-    '- Każdy musi zdobyć minimum 2 punkty szczęścia',
-    '- W czasie gry nie wolno mówić'
+    '- Każdy musi zdobyć co najmniej 30 punktów wojny',
+    '- Czas gry nie jest ograniczony'
   ]}
 
 export const SCENARIO_A3 = {
   id: 'scenario-a3',
-  title: 'A3. Ślepiec',
+  title: 'A3. Kupcy',
   subtitle:[
-    'Dla 1-4 graczy. W opracowaniu',
-    'Scenariusz do niskiej wiedzy lidera i zespołu',
+    'Dla 1-4 graczy: Król, Poborca, 3x Kupiec',
+    'Scenariusz pokazujący prawdopodobieństwo zaangażowania. Czy domki są tam, gdzie wrogowie.',
     'Dodatkowe zasady:',
-    '- Każdy musi zdobyć minimum 5 punktów',
-    '- Czas gry jest ograniczony do 10 minut'
+    '- Każdy musi zdobyć co najmniej 30 punktów wojny'
   ]}
 
 export const SCENARIO_A4 = {

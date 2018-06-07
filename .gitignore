@@ -1,8 +1,12 @@
-# deploy script
-deploy.sh
+# Elastic Beanstalk Files
+.elasticbeanstalk/
+aws-deploy.zip
 
-# Lock
+# whole build
+build/
+node_modules/
 package-lock.json
+deploy.sh
 
 # Logs
 logs
@@ -35,15 +39,14 @@ bower_components
 # node-waf configuration
 .lock-wscript
 
-# Compiled binary addons (http://nodejs.org/api/addons.html)
+# Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
-build/
 
 # Dependency directories
 node_modules/
 jspm_packages/
 
-# Typescript v1 declaration files
+# TypeScript v1 declaration files
 typings/
 
 # Optional npm cache directory
@@ -63,3 +66,6 @@ typings/
 
 # dotenv environment variables file
 .env
+
+# next.js build output
+.next

@@ -6,13 +6,13 @@ $scenario_id=$_GET["scenario_id"];
 
 if($scenario_id=='scenario-a1'){
   $scenario=[
-    'title'=>'A1. Silny król i chłopi',
+    'title'=>'A1. Silny król',
     'subtitle'=>[
-      'Dla 1-8 graczy: Król, 2x Rycerz, 5x Chłop',
+      'Dla 8 graczy: Król, 2x Rycerz, 5x Chłop',
       'Scenariusz do poznania gry i integracji grupy.',
       'Dodatkowe zasady:',
-      '- Każdy musi zdobyć minimum 5 punktów wojny',
-      '- Czas gry jest ograniczony do 15 minut'
+      '- Każdy musi zdobyć co najmniej 500 punktów wojny',
+      '- Czas gry nie jest ograniczony'
     ],
 
     'burnt_points_weight'=>1,
@@ -27,103 +27,170 @@ if($scenario_id=='scenario-a1'){
     'enemy_pieces'=> ['enemy1','enemy2','enemy3','enemy4','enemy5','enemy6'],
     'house_pieces'=> ['house1','house2','house3'],
     'king1-cards' => [
-      'enemy1','enemy2','enemy3','enemy4','enemy5','enemy6',
+      'enemy1','enemy2','enemy3','enemy4',
       'king1','king1',
       'rebel1','levy1',
       'rebel1','levy1',
+      'farmer1','farmer2','farmer3','farmer4','farmer5',
       'farmer1','farmer2','farmer3','farmer4','farmer5'
     ],
     'knight1-cards' => [
-      'enemy1','enemy2','enemy3','enemy4','enemy5','enemy6',
+      'enemy4','enemy5',
       'knight1','knight1','knight1',
       'merchant1','merchant2','merchant3',
       'farmer1','farmer2','farmer3','farmer4','farmer5'
     ],
     'knight2-cards' => [
-      'enemy1','enemy2','enemy3','enemy4','enemy5','enemy6',
+      'enemy5','enemy6',
       'knight2','knight2','knight2',
       'merchant1','merchant2','merchant3',
       'farmer1','farmer2','farmer3','farmer4','farmer5'
     ],
     'farmer1-cards' => [
-      'enemy1','enemy2','enemy3','enemy4','enemy5','enemy6',
+      'farmer1','farmer2','farmer3','farmer4','farmer5',
       'farmer1','farmer2','farmer3','farmer4','farmer5',
       'farmer1','farmer2','farmer3','farmer4','farmer5'
     ],
     'farmer2-cards' => [
-      'enemy1','enemy2','enemy3','enemy4','enemy5','enemy6',
+      'farmer1','farmer2','farmer3','farmer4','farmer5',
       'farmer1','farmer2','farmer3','farmer4','farmer5',
       'farmer1','farmer2','farmer3','farmer4','farmer5'
     ],
     'farmer3-cards' => [
-      'enemy1','enemy2','enemy3','enemy4','enemy5','enemy6',
+      'farmer1','farmer2','farmer3','farmer4','farmer5',
       'farmer1','farmer2','farmer3','farmer4','farmer5',
       'farmer1','farmer2','farmer3','farmer4','farmer5'
     ],
     'farmer4-cards' => [
-      'enemy1','enemy2','enemy3','enemy4','enemy5','enemy6',
+      'farmer1','farmer2','farmer3','farmer4','farmer5',
       'farmer1','farmer2','farmer3','farmer4','farmer5',
       'farmer1','farmer2','farmer3','farmer4','farmer5'
     ],
     'farmer5-cards' => [
-      'enemy1','enemy2','enemy3','enemy4','enemy5','enemy6',
+      'farmer1','farmer2','farmer3','farmer4','farmer5',
       'farmer1','farmer2','farmer3','farmer4','farmer5',
       'farmer1','farmer2','farmer3','farmer4','farmer5'
     ]
 ];}
 elseif($scenario_id=='scenario-a2'){
   $scenario=[
-    'title'=>'A2. Silny król i chłopi',
+    'title'=>'A2. Anarchia',
     'subtitle'=>[
-      'Dla 1-8 graczy: Król, 2x Rycerz, 5x Chłop',
+      'Dla 8 graczy: Król, 2x Rycerz, 5x Chłop',
       'Scenariusz do poznania gry i integracji grupy.',
       'Dodatkowe zasady:',
-      '- Każdy musi zdobyć minimum 5 punktów wojny',
-      '- Czas gry jest ograniczony do 15 minut'
+      '- Każdy musi zdobyć minimum 30 punktów wojny',
+      '- Czas gry nie jest ograniczony'
     ],
+
+    'burnt_points_weight'=>1,
+    'war_points_weight'=>10,
+    'happy_points_weight'=>100,
+
     'my_cards'=>3,
     'usr_cards'=>3,
     'npc_cards'=>8,
-    'usr_pieces'=> ['king1','rebel1','levy1','knight1','knight2'],
-    'npc_pieces'=> ['merchant1','merchant2','merchant3','farmer1','farmer2','farmer3','farmer4','farmer5'],
+    'usr_pieces'=> ['king1','knight1','knight2','farmer1','farmer2','farmer3','farmer4','farmer5'],
+    'npc_pieces'=> ['rebel1','levy1','merchant1','merchant2','merchant3'],
     'enemy_pieces'=> ['enemy1','enemy2','enemy3','enemy4','enemy5','enemy6'],
     'house_pieces'=> ['house1','house2','house3'],
     'king1-cards' => [
-      'king1','king1','king1','king1',
-      'enemy1','enemy2','enemy3','enemy4','enemy5','enemy6',
-      'knight1','knight1',
-      'knight2','knight2',
-      'levy1','levy1',
-      'merchant1','merchant2','merchant3','farmer1','farmer2','farmer3','farmer4','farmer5'
+      'enemy1','enemy2','enemy3','enemy4',
+      'king1','king1',
+      'rebel1','levy1',
+      'rebel1','levy1',
+      'farmer1','farmer2','farmer3','farmer4','farmer5',
+      'farmer1','farmer2','farmer3','farmer4','farmer5'
     ],
     'knight1-cards' => [
+      'enemy4','enemy5',
       'knight1','knight1','knight1',
-      'enemy4','enemy5','enemy6',
-      'king1',
       'merchant1','merchant2','merchant3',
-      'merchant1','merchant2','merchant3',
-      'merchant1','merchant2','merchant3'
+      'farmer1','farmer2','farmer3','farmer4','farmer5'
     ],
     'knight2-cards' => [
+      'enemy5','enemy6',
       'knight2','knight2','knight2',
-      'enemy4','enemy5','enemy6',
-      'king1',
       'merchant1','merchant2','merchant3',
-      'merchant1','merchant2','merchant3',
-      'merchant1','merchant2','merchant3'
+      'farmer1','farmer2','farmer3','farmer4','farmer5'
+    ],
+    'farmer1-cards' => [
+      'farmer1','farmer2','farmer3','farmer4','farmer5',
+      'farmer1','farmer2','farmer3','farmer4','farmer5',
+      'farmer1','farmer2','farmer3','farmer4','farmer5'
+    ],
+    'farmer2-cards' => [
+      'farmer1','farmer2','farmer3','farmer4','farmer5',
+      'farmer1','farmer2','farmer3','farmer4','farmer5',
+      'farmer1','farmer2','farmer3','farmer4','farmer5'
+    ],
+    'farmer3-cards' => [
+      'farmer1','farmer2','farmer3','farmer4','farmer5',
+      'farmer1','farmer2','farmer3','farmer4','farmer5',
+      'farmer1','farmer2','farmer3','farmer4','farmer5'
+    ],
+    'farmer4-cards' => [
+      'farmer1','farmer2','farmer3','farmer4','farmer5',
+      'farmer1','farmer2','farmer3','farmer4','farmer5',
+      'farmer1','farmer2','farmer3','farmer4','farmer5'
+    ],
+    'farmer5-cards' => [
+      'farmer1','farmer2','farmer3','farmer4','farmer5',
+      'farmer1','farmer2','farmer3','farmer4','farmer5',
+      'farmer1','farmer2','farmer3','farmer4','farmer5'
+    ]
+];}
+elseif($scenario_id=='scenario-a3'){
+  $scenario=[
+    'title'=>'A3. Kupcy',
+    'subtitle'=>[
+      'Dla 5 graczy: Król, Poborca, 3x Kupiec',
+      'Scenariusz pokazujący prawdopodobieństwo zaangażowania. Czy domki są tam, gdzie wrogowie.',
+      'Dodatkowe zasady:',
+      '- Każdy musi zdobyć co najmniej 30 punktów wojny'
+    ],
+
+    'burnt_points_weight'=>1,
+    'war_points_weight'=>10,
+    'happy_points_weight'=>100,
+
+    'my_cards'=>3,
+    'usr_cards'=>3,
+    'npc_cards'=>8,
+    'usr_pieces'=> ['king1','levy1','merchant1','merchant2','merchant3'],
+    'npc_pieces'=> ['rebel1','knight1','knight2','farmer1','farmer2','farmer3','farmer4','farmer5'],
+    'enemy_pieces'=> ['enemy1','enemy2','enemy3','enemy4','enemy5','enemy6'],
+    'house_pieces'=> ['house1','house2','house3'],
+    'king1-cards' => [
+      'enemy1','enemy2','enemy3','enemy4',
+      'king1','king1',
+      'rebel1','levy1',
+      'rebel1','levy1',
+      'farmer1','farmer2','farmer3','farmer4','farmer5',
+      'farmer1','farmer2','farmer3','farmer4','farmer5'
     ],
     'levy1-cards' => [
-      'levy1','levy1','levy1',
-      'enemy1','enemy2','enemy3','enemy4','enemy5','enemy6',
-      'king1','knight1','knight2','rebel1',
-      'merchant1','merchant2','merchant3','farmer1','farmer2','farmer3','farmer4','farmer5',
-      'merchant1','merchant2','merchant3','farmer1','farmer2','farmer3','farmer4','farmer5'
-    ],
-    'rebel1-cards' => [
+      'enemy4','enemy5',
       'knight1','knight1','knight1',
-      'enemy1','enemy2','enemy3',
-      'farmer1','farmer2','farmer3','farmer4','farmer5',
-      'farmer1','farmer2','farmer3','farmer4','farmer5',
+      'merchant1','merchant2','merchant3',
+      'farmer1','farmer2','farmer3','farmer4','farmer5'
+    ],
+    'merchant1-cards' => [
+      'enemy1',
+      'merchant1','merchant1','merchant1',
+      'merchant1','merchant2','merchant3',
+      'farmer1','farmer2','farmer3','farmer4','farmer5'
+    ],
+    'merchant2-cards' => [
+      'enemy2',
+      'merchant2','merchant2','merchant2',
+      'merchant1','merchant2','merchant3',
+      'farmer1','farmer2','farmer3','farmer4','farmer5'
+    ],
+    'merchant3-cards' => [
+      'enemy3',
+      'merchant3','merchant3','merchant3',
+      'merchant1','merchant2','merchant3',
       'farmer1','farmer2','farmer3','farmer4','farmer5'
     ]
 ];}
